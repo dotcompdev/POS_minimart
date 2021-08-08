@@ -1,7 +1,0 @@
-struktur url
-
-http://localhost/projectfolder/module/controller/method
-
-example:
-
-http://localhost/antrianph/antrian/coba/tambah
