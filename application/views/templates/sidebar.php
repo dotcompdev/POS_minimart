@@ -78,19 +78,19 @@
                     </a>
                     <ul class="nav nav-treeview small ml-1">
                         <li class="nav-item">
-                            <a href="<?= base_url('supervisor/j_penjualan'); ?>" class="nav-link">
+                            <a href="<?= base_url('testing/j_penjualan'); ?>" class="nav-link">
                                 <i class="fas fa-file-invoice-dollar nav-icon"></i>
                                 <p>Jurnal Penjualan</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('supervisor/j_pembelian'); ?>" class="nav-link">
+                            <a href="<?= base_url('testing/j_pembelian'); ?>" class="nav-link">
                                 <i class="fas fa-file-invoice-dollar nav-icon"></i>
                                 <p>Jurnal Pembelian</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('supervisor/j_retur'); ?>" class="nav-link">
+                            <a href="<?= base_url('testing/j_retur'); ?>" class="nav-link">
                                 <i class="fas fa-file-invoice nav-icon"></i>
                                 <p>Jurnal Retur</p>
                             </a>
@@ -108,13 +108,13 @@
                     </a>
                     <ul class="nav nav-treeview small ml-1">
                         <li class="nav-item">
-                            <a href="<?= base_url('supervisor/promo'); ?>" class="nav-link">
+                            <a href="<?= base_url('testing/promo'); ?>" class="nav-link">
                                 <i class="fas fa-info-circle nav-icon"></i>
                                 <p>Info Promo</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('supervisor/tenPromo'); ?>" class="nav-link">
+                            <a href="<?= base_url('testing/tenPromo'); ?>" class="nav-link">
                                 <i class="fas fa-tags nav-icon"></i>
                                 <p>Tentukan Promo</p>
                             </a>
