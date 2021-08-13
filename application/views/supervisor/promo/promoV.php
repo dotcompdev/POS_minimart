@@ -42,9 +42,6 @@
 
         <!-- Main content -->
         <div class="card">
-              <!-- <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
-              </div> -->
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">

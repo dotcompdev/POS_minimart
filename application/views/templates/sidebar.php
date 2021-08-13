@@ -48,19 +48,19 @@
                     </a>
                     <ul class="nav nav-treeview small ml-1">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('user'); ?>" class="nav-link">
                                 <i class="fas fa-user-check nav-icon"></i>
                                 <p>Profil</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('user/editProfil'); ?>" class="nav-link">
                                 <i class="fas fa-user-edit nav-icon"></i>
                                 <p>Edit profil</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('user/gantiPassword'); ?>" class="nav-link">
                                 <i class="fas fa-key nav-icon"></i>
                                 <p>Ganti password</p>
                             </a>
@@ -182,13 +182,37 @@
                     </ul>
                 </li>
 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Pegawai
                         </p>
                     </a>
+                </li> -->
+
+                <li class="nav-item">
+                    <a type="button" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Pegawai
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview small ml-1">
+                        <li class="nav-item">
+                            <a href="<?= base_url('supervisor/promo'); ?>" class="nav-link">
+                                <i class="fas fa-info-circle nav-icon"></i>
+                                <p>Info Pegawai</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('supervisor/tenPromo'); ?>" class="nav-link">
+                                <i class="fas fa-user-plus nav-icon"></i>
+                                <p>Tambah Pegawai</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
             </ul>
