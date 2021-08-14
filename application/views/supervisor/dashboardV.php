@@ -24,6 +24,7 @@
                     <div class="small-box bg-info">
                         <div class="inner">
                             <h3>50</h3>
+
                             <p>Promo</p>
                         </div>
                         <div class="icon">
@@ -38,6 +39,7 @@
                     <div class="small-box bg-success">
                         <div class="inner">
                             <h3>200</h3>
+
                             <p>Stok barang</p>
                         </div>
                         <div class="icon">
@@ -52,6 +54,7 @@
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <h3>44</h3>
+
                             <p>Pegawai</p>
                         </div>
                         <div class="icon">
@@ -66,6 +69,7 @@
                     <div class="small-box bg-danger">
                         <div class="inner">
                             <h3>5</h3>
+
                             <p>Supplier</p>
                         </div>
                         <div class="icon">
@@ -83,6 +87,7 @@
             <div class="card card-primary">
                 <div class="card-header">
                     <h3 class="card-title">Waktu terpadat</h3>
+
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
                             <i class="fas fa-minus"></i>
@@ -98,4 +103,6 @@
             </div>
         </div>
     </section>
+
 </div>
+

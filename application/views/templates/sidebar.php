@@ -30,7 +30,9 @@
                 <!-- Add icons to the links using the .nav-icon class
                     with font-awesome or any other icon font library -->
                 <li class="nav-item">
+
                     <a href="<?= base_url('supervisor'); ?>" class="nav-link">
+
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -40,6 +42,7 @@
 
                 <li class="nav-item">
                     <a type="button"" class="nav-link">
+
                         <i class="nav-icon fas fa-user"></i>
                         <p>
                             User
@@ -49,12 +52,14 @@
                     <ul class="nav nav-treeview small ml-1">
                         <li class="nav-item">
                             <a href="<?= base_url('user'); ?>" class="nav-link">
+
                                 <i class="fas fa-user-check nav-icon"></i>
                                 <p>Profil</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url('user/editProfil'); ?>" class="nav-link">
+
                                 <i class="fas fa-user-edit nav-icon"></i>
                                 <p>Edit profil</p>
                             </a>
@@ -90,7 +95,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
+
                             <a href="<?= base_url('testing/j_retur'); ?>" class="nav-link">
+
                                 <i class="fas fa-file-invoice nav-icon"></i>
                                 <p>Jurnal Retur</p>
                             </a>
@@ -124,6 +131,7 @@
 
                 <li class="nav-item">
                     <a type="button" class="nav-link">
+
                         <i class="nav-icon fas fa-chart-bar"></i>
                         <p>
                             Rangkuman Bisnis
@@ -154,6 +162,7 @@
 
                 <li class="nav-item">
                     <a type="button" class="nav-link">
+
                         <i class="nav-icon fas fa-boxes"></i>
                         <p>
                             Gudang
@@ -181,6 +190,7 @@
                         </li>
                     </ul>
                 </li>
+
 
                 <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -214,6 +224,7 @@
                         </li>
                     </ul>
                 </li>
+
 
             </ul>
         </nav>
