@@ -9,8 +9,8 @@
                     <div class="row-lg">
                         <div class="form-group">
                             <label for="name">Nama</label>
-                            <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="Nama lengkap.." value="<?= set_value('nama_user'); ?>">
-                            <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="Nama lengkap.." value="<?= set_value('name'); ?>">
+                            <?= form_error('name', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                         </div>
 
                         <div class="form-group">
@@ -20,16 +20,17 @@
                         </div>
                         <div class="form-group">
                             <label for="telp">No. Telepon</label>
-                            <input type="text" class="form-control form-control-user" id="telp" name="telp" placeholder="Nomer Telepon.." value="<?= set_value('no_telp'); ?>">
-                            <?= form_error('no_telp', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <input type="text" class="form-control form-control-user" id="telp" name="telp" placeholder="Nomer Telepon.." value="<?= set_value('telp'); ?>">
+                            <?= form_error('telp', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                         <div class="form-group">
                             <label>Posisi Pekerjaan</label>
-                            <select id="posisi" class="form-control">
-                                <option value="0">- Pilih -</option>
+                            <select name="posisi" class="form-control">
+                                <option value="">- Pilih -</option>
                                 <option value="2">Kasir</option>
                                 <option value="3">Petugas Gudang</option>
                             </select>
+                            <?= form_error('posisi', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                     </div>
                 </div>
@@ -37,14 +38,17 @@
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Masukkan Username.." value="<?= set_value('username'); ?>">
+                        <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <label for="password1">Password</label>
                         <input type="password" class="form-control form-control-user" id="password1" name="password1" placeholder="Masukkan Password.." value="<?= set_value('password'); ?>">
+                        <?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <label for="password2">Ulangi password</label>
                         <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Ulangi Password..">
+                        <?= form_error('password2', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <label for="file">Pilih foto</label>

@@ -3,9 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Supervisor extends CI_Controller
 {
+
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Mod_supervisor');
         $this->load->library('form_validation');
     }
 
@@ -29,7 +31,11 @@ class Supervisor extends CI_Controller
         $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[tbl_user.username]', [
             'is_unique' => 'This username has already registered!'
         ]);
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[tbl_user.email]', [
+            'is_unique' => 'This email has already registered!'
+        ]);
+        $this->form_validation->set_rules('telp', 'Telp', 'required|trim');
+        $this->form_validation->set_rules('posisi', 'Posisi', 'required|trim');
         $this->form_validation->set_rules('username', 'Username', 'trim|required');
         $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[8]|matches[password2]', [
             'matches' => 'Password dont match!',
@@ -44,17 +50,7 @@ class Supervisor extends CI_Controller
             $this->load->view('supervisor/pegawai/registrationV');
             $this->load->view('templates/footer');
         } else {
-            $username = $this->input->post('username', true);
-            $data = [
-                'nama_user' => htmlspecialchars($this->input->post('name', true)),
-                'email' => htmlspecialchars($this->input->post('email', true)),
-                'image' => 'default.jpg',
-                'username' => htmlspecialchars($username),
-                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-                'is_active' => 1,
-                'created_date' => time()
-
-            ];
+            $this->Mod_supervisor->add();
         }
     }
 }

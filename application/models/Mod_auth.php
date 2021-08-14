@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Mod_login extends CI_Model
+class Mod_auth extends CI_Model
 {
     public function ceklogin()
     {
@@ -31,15 +31,15 @@ class Mod_login extends CI_Model
                     }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Wrong password!</div>');
-                    redirect('login');
+                    redirect('auth');
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username is not activated!</div>');
-                redirect('login');
+                redirect('auth');
             }
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username is not registered!</div>');
-            redirect('login');
+            redirect('auth');
         }
     }
 }

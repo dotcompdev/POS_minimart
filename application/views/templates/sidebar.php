@@ -30,15 +30,19 @@
                 <!-- Add icons to the links using the .nav-icon class
                     with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+
+                    <a href="<?= base_url('supervisor'); ?>" class="nav-link">
+
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
                         </p>
                     </a>
                 </li>
+
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a type="button"" class="nav-link">
+
                         <i class="nav-icon fas fa-user"></i>
                         <p>
                             User
@@ -47,27 +51,30 @@
                     </a>
                     <ul class="nav nav-treeview small ml-1">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('user'); ?>" class="nav-link">
+
                                 <i class="fas fa-user-check nav-icon"></i>
                                 <p>Profil</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('user/editProfil'); ?>" class="nav-link">
+
                                 <i class="fas fa-user-edit nav-icon"></i>
                                 <p>Edit profil</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('user/gantiPassword'); ?>" class="nav-link">
                                 <i class="fas fa-key nav-icon"></i>
                                 <p>Ganti password</p>
                             </a>
                         </li>
                     </ul>
                 </li>
+
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a type="button" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
                             Pembukuan
@@ -76,35 +83,55 @@
                     </a>
                     <ul class="nav nav-treeview small ml-1">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('testing/j_penjualan'); ?>" class="nav-link">
                                 <i class="fas fa-file-invoice-dollar nav-icon"></i>
                                 <p>Jurnal Penjualan</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('testing/j_pembelian'); ?>" class="nav-link">
                                 <i class="fas fa-file-invoice-dollar nav-icon"></i>
                                 <p>Jurnal Pembelian</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+
+                            <a href="<?= base_url('testing/j_retur'); ?>" class="nav-link">
+
                                 <i class="fas fa-file-invoice nav-icon"></i>
                                 <p>Jurnal Retur</p>
                             </a>
                         </li>
                     </ul>
                 </li>
+
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a type="button" class="nav-link">
                         <i class="nav-icon fas fa-percent"></i>
                         <p>
                             Promo
+                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview small ml-1">
+                        <li class="nav-item">
+                            <a href="<?= base_url('testing/promo'); ?>" class="nav-link">
+                                <i class="fas fa-info-circle nav-icon"></i>
+                                <p>Info Promo</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('testing/tenPromo'); ?>" class="nav-link">
+                                <i class="fas fa-tags nav-icon"></i>
+                                <p>Tentukan Promo</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a type="button" class="nav-link">
+
                         <i class="nav-icon fas fa-chart-bar"></i>
                         <p>
                             Rangkuman Bisnis
@@ -132,8 +159,10 @@
                         </li>
                     </ul>
                 </li>
+
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a type="button" class="nav-link">
+
                         <i class="nav-icon fas fa-boxes"></i>
                         <p>
                             Gudang
@@ -161,14 +190,42 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+
+
+                <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Pegawai
                         </p>
                     </a>
+                </li> -->
+
+                <li class="nav-item">
+                    <a type="button" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Pegawai
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview small ml-1">
+                        <li class="nav-item">
+                            <a href="<?= base_url('supervisor/promo'); ?>" class="nav-link">
+                                <i class="fas fa-info-circle nav-icon"></i>
+                                <p>Info Pegawai</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('supervisor/tenPromo'); ?>" class="nav-link">
+                                <i class="fas fa-user-plus nav-icon"></i>
+                                <p>Tambah Pegawai</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
+
             </ul>
         </nav>
     </div>

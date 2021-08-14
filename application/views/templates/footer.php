@@ -5,6 +5,7 @@
         <b>Version</b> 1.0
     </div>
 </footer>
+
 </div>
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->

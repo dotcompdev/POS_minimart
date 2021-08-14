@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Login extends CI_Controller
+class Auth extends CI_Controller
 {
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Mod_login');
+        $this->load->model('Mod_auth');
         $this->load->library('form_validation');
     }
 
@@ -23,7 +23,7 @@ class Login extends CI_Controller
         if ($this->form_validation->run() == false) {
             $this->load->view('auth/login');
         } else {
-            $this->Mod_login->ceklogin();
+            $this->Mod_auth->ceklogin();
         }
     }
 }

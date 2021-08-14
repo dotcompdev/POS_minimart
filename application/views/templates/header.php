@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title><?= $judul; ?></title>
 
     <!-- Google Font: Source Sans Pro -->
@@ -16,6 +17,7 @@
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/dist/css/adminlte.min.css">
+
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/dist/css/style.css">
 </head>
 
