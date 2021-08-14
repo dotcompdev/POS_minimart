@@ -19,7 +19,6 @@ class Supervisor extends CI_Controller
         $this->load->view('supervisor/dashboardV');
         $this->load->view('templates/footer');
     }
-
     public function registration()
     {
         // cegah pindah halaman tanpa logout/in
