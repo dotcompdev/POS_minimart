@@ -27,7 +27,7 @@ class Mod_auth extends CI_Model
                     if ($user['role_id'] == 1) {
                         redirect('supervisor');
                     } elseif ($user['role_id'] == 2) {
-                        redirect('kasir');
+                        redirect('supervisor');
                     } else {
                         redirect('gudang');
                     }
