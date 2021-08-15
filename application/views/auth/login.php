@@ -31,7 +31,7 @@
 
                 <?= $this->session->flashdata('message'); ?>
 
-                <form action="" method="post">
+                <form action="<?= base_url('auth'); ?>" method="post">
 
                     <!-- Username -->
                     <div class="input-group mb-3">

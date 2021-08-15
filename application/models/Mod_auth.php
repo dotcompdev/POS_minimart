@@ -14,8 +14,10 @@ class Mod_auth extends CI_Model
         if ($user) {
             // cek user aktif?
             if ($user['is_active'] == 1) {
+                // echo "berhasil";
                 // cek password
-                if ($password == $user['password']) {
+                if (password_verify($password, $user['password'])) {
+                    // echo "berhasil";
                     $data = [
                         'username' => $user['username'],
                         'role_id' => $user['role_id']
