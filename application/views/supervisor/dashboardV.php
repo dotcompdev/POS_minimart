@@ -53,7 +53,9 @@
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>44</h3>
+                            <h3>
+                                <?= count($user->result()); ?>
+                            </h3>
 
                             <p>Pegawai</p>
                         </div>
@@ -105,4 +107,3 @@
     </section>
 
 </div>
-

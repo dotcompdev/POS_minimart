@@ -11,15 +11,19 @@ class User extends CI_Controller
 
     public function index()
     {
-        $this->load->view('templates/header');
+        $data['judul'] = 'My Profile';
+        $data['user'] = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username')])->row_array();
+
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('user/index');
+        $this->load->view('user/index', $data);
         $this->load->view('templates/footer');
     }
 
     public function editProfil()
     {
-        $this->load->view('templates/header');
+        $data['judul'] = 'Edit Profile';
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('user/editProfilV');
         $this->load->view('templates/footer');

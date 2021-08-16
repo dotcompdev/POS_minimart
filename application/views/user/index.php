@@ -17,33 +17,43 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            
+
 
             <div class="row-lg-2">
-                <div class="col-lg-5 col-sm-6 col-12">
-                        <div class="info-box">
+                <div class="col-lg-6">
+                    <div class="info-box">
                         <span class="info-box-img">
                             <!-- <i class="far fa-envelope"></i> -->
-                            <img src="<?= base_url('assets/dist/img/avatar4.png'); ?>" style="border-radius: 10px;">
+                            <img class="img-thumbnail" src="<?= base_url('assets/img/profile/') . $user['image']; ?>" style="border-radius: 10px;">
                         </span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Agokk Kun</span>
-                            <span class="info-box-text">agokk</span>
-                            <span class="info-box-text">agokk@gmail.com</span>
-                            <span class="info-box-number">085250041000</span>
-                            <span class="info-box-text">Supervisor</span>
-                            <span class="info-box-text">Terdaftar dari : Lahir</span>
+                            <span class="info-box-text">Nama : <?= $user['nama_user']; ?></span>
+                            <span class="info-box-text">Username : <?= $user['username']; ?></span>
+                            <span class="info-box-text">email : <?= $user['email']; ?></span>
+                            <span class="info-box-text">No. Telp : <?= $user['no_telp']; ?></span>
+                            <span class="info-box-text">Posisi :
+                                <?php
+                                if ($user['role_id'] == 1) {
+                                    echo " Supervisor";
+                                } elseif ($user['role_id'] == 2) {
+                                    echo " Kasir";
+                                } else {
+                                    echo " Petugas Gudang";
+                                }
+                                ?>
+                            </span>
+                            <span class="info-box-text">Terdaftar dari : <?= date('d F Y', $user['created_date']); ?></span>
                         </div>
                         <!-- /.info-box-content -->
-                        </div>
-                        <!-- /.info-box -->
                     </div>
-                    <!-- /.col -->
+                    <!-- /.info-box -->
                 </div>
+                <!-- /.col -->
+            </div>
 
-            
+
         </div>
     </section>
-    
+
 </div>

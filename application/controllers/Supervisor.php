@@ -15,9 +15,11 @@ class Supervisor extends CI_Controller
     public function index()
     {
         $data['judul'] = "Supervisor";
+        $data['user'] = $this->Mod_supervisor->get();
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('supervisor/dashboardV');
+        $this->load->view('supervisor/dashboardV', $data);
         $this->load->view('templates/footer');
     }
     public function registration()
