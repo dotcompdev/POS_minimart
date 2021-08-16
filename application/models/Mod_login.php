@@ -1,45 +1,52 @@
-<?php
-defined('BASEPATH') or exit('No direct script access allowed');
+<?php 
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Mod_login extends CI_Model
+class Mod_login extends CI_Model 
 {
-    public function ceklogin()
+    
+    // public function ambilLogin($username, $password)
+    // {
+    //     $this->db->where('username', $username);
+    //     $this->db->where('password', $password);
+
+    //     $query = $this->db->get('tbl_user');
+    //     if ($query->num_rows()>0) {
+    //         foreach($query->result() as $row) {
+    //             $sess = array ('username' => $row->username,
+    //                             'password' => $row->password
+    //             );
+    //         }
+    //         $this->session->get_userdata($sess);
+    //         redirect('supervisor');
+    //     } else {
+    //         $this->session->set_flashdata('info', 'Maaf username dan password anda salah');
+    //         redirect('login');
+    //     }
+    // }
+
+    public function login()
     {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
 
         $user = $this->db->get_where('tbl_user', ['username' => $username])->row_array();
 
-        // cek user ada?
-        if ($user) {
-            // cek user aktif?
+        if($user) {
             if ($user['is_active'] == 1) {
-                // cek password
-                if ($password == $user['password']) {
+                if($password == $user['password']) {
                     $data = [
                         'username' => $user['username'],
                         'role_id' => $user['role_id']
                     ];
-                    // data tersimpan di session
                     $this->session->set_userdata($data);
-                    if ($user['role_id'] == 1) {
-                        redirect('supervisor');
-                    } elseif ($user['role_id'] == 2) {
-                        redirect('kasir');
-                    } else {
-                        redirect('gudang');
-                    }
-                } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Wrong password!</div>');
-                    redirect('login');
+                    
+                    redirect('supervisor');
                 }
-            } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username is not activated!</div>');
-                redirect('login');
+            }else{
+                echo 'ikoy';
+
             }
-        } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username is not registered!</div>');
-            redirect('login');
-        }
+        } 
     }
+
 }

@@ -129,16 +129,7 @@
                   </tr>
                   
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <!-- <th>AKSI</th> -->
-                    <th>ID Retur</th>
-                    <th>ID Barang</th>
-                    <th>Nama Barang</th>
-                    <th>Keterangan</th>
-                   
-                  </tr>
-                  </tfoot>
+
                 </table>
               </div>
               <!-- /.card-body -->

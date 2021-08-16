@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,62 +18,64 @@
 
 <body class="hold-transition login-page">
 
-    <div class="login-box">
-        <!-- /.login-logo -->
-        <div class="card card-outline card-primary">
-            <div class="card-header text-center">
-                <a class="h1"><b>Minimart</b></a>
-            </div>
-
-            <div class="card-body">
-                <p class="login-box-msg">Login</p>
-
-                <?= $this->session->flashdata('message'); ?>
-
-                <form action="" method="post">
-
-                    <!-- Username -->
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" autocomplete="off">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-user"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Password -->
-                    <div class="input-group mb-3">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary btn-block">Login</button>
-                        </div>
-
-                    </div>
-                </form>
-
-
-                <p class="text-center mb-1 mt-2">
-                    <a class="font-weight-bold medium" href="">
-                        Lupa password?
-                    </a>
-                </p>
-
-            </div>
-            <!-- /.card-body -->
+  <div class="login-box">
+    <!-- /.login-logo -->
+      <div class="card card-outline card-primary">
+        <div class="card-header text-center">
+          <a class="h1"><b>Minimart</b></a>
         </div>
-        <!-- /.card -->
-    </div>
-    <!-- /.login-box -->
+        
+        <div class="card-body">
+          <p class="login-box-msg">Login</p>
+
+          
+
+          <form action="" method="post">
+
+            <!-- Username -->
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" id="username" name="username" 
+                    placeholder="Username"  >
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-user"></span>
+                  </div>
+                </div>
+              </div>
+              
+            <!-- Password -->
+              <div class="input-group mb-3">
+                <input type="password" class="form-control" id="password" name="password" 
+                    placeholder="Password">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-lock"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+              
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </div>
+              
+              </div>
+          </form>
+
+
+            <p class="text-center mb-1 mt-2">
+              <a class="font-weight-bold medium" href="">
+                  Lupa password?
+              </a>
+            </p>
+          
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+  </div>
+  <!-- /.login-box -->
 
     <!-- jQuery -->
     <script src="<?= base_url('assets'); ?>/plugins/jquery/jquery.min.js"></script>

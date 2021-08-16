@@ -129,16 +129,6 @@
                   </tr>
                   
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>AKSI</th>
-                    <th>ID Promo</th>
-                    <th>Nama Promo</th>
-                    <th>Harga Promo</th>
-                    <th>ID Bundle</th>
-                    <th>ID Jadwal</th>
-                  </tr>
-                  </tfoot>
                 </table>
               </div>
               <!-- /.card-body -->
