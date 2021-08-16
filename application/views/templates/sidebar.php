@@ -41,7 +41,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a type="button"" class="nav-link">
+                    <a type="button"" class=" nav-link">
 
                         <i class="nav-icon fas fa-user"></i>
                         <p>
@@ -217,7 +217,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('supervisor/tenPromo'); ?>" class="nav-link">
+                            <a href="<?= base_url('supervisor/registration'); ?>" class="nav-link">
                                 <i class="fas fa-user-plus nav-icon"></i>
                                 <p>Tambah Pegawai</p>
                             </a>

@@ -44,6 +44,7 @@ class Supervisor extends CI_Controller
             'min_length' => 'Password too short!'
         ]);
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
+        $this->form_validation->set_rules('image', 'Image', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $data['judul'] = "Tambah Akun";

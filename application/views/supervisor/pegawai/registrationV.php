@@ -28,8 +28,8 @@
                             <label>Posisi Pekerjaan</label>
                             <select name="posisi" class="form-control">
                                 <option value="">- Pilih -</option>
-                                <option value="2">Kasir</option>
-                                <option value="3">Petugas Gudang</option>
+                                <option value="2" <?= set_value('posisi') == 2 ? "selected" : null ?>>Kasir</option>
+                                <option value="3" <?= set_value('posisi') == 3 ? "selected" : null ?>>Petugas Gudang</option>
                             </select>
                             <?= form_error('posisi', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
@@ -56,6 +56,7 @@
                         <div class="custom-file" id="file">
                             <input type="file" class="custom-file-input" id="image" name="image" value="<?= set_value('image'); ?>">
                             <label class="custom-file-label" for="image">Choose file</label>
+                            <?= form_error('image', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                     </div>
                 </div>
