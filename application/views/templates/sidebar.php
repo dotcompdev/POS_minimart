@@ -29,6 +29,8 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                     with font-awesome or any other icon font library -->
+
+                <!-- Start Dashboard -->
                 <li class="nav-item">
                     <a href="<?= base_url('supervisor'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -37,7 +39,9 @@
                         </p>
                     </a>
                 </li>
+                <!-- End Dashboard -->
 
+                <!-- Start User -->
                 <li class="nav-item">
                     <a type="button"" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
@@ -67,7 +71,9 @@
                         </li>
                     </ul>
                 </li>
+                <!-- End User -->
 
+                <!-- Start Pembukuan -->
                 <li class="nav-item">
                     <a type="button" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
@@ -80,24 +86,26 @@
                         <li class="nav-item">
                             <a href="<?= base_url('testing/j_penjualan'); ?>" class="nav-link">
                                 <i class="fas fa-file-invoice-dollar nav-icon"></i>
-                                <p>Jurnal Penjualan</p>
+                                <p>Jurnal penjualan</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url('testing/j_pembelian'); ?>" class="nav-link">
                                 <i class="fas fa-file-invoice-dollar nav-icon"></i>
-                                <p>Jurnal Pembelian</p>
+                                <p>Jurnal pembelian</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url('testing/j_retur'); ?>" class="nav-link">
                                 <i class="fas fa-file-invoice nav-icon"></i>
-                                <p>Jurnal Retur</p>
+                                <p>Jurnal retur</p>
                             </a>
                         </li>
                     </ul>
                 </li>
+                <!-- End Pembukuan -->
 
+                <!-- Start Promo -->
                 <li class="nav-item">
                     <a type="button" class="nav-link">
                         <i class="nav-icon fas fa-percent"></i>
@@ -110,18 +118,20 @@
                         <li class="nav-item">
                             <a href="<?= base_url('testing/promo'); ?>" class="nav-link">
                                 <i class="fas fa-info-circle nav-icon"></i>
-                                <p>Info Promo</p>
+                                <p>Info promo</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url('testing/tenPromo'); ?>" class="nav-link">
                                 <i class="fas fa-tags nav-icon"></i>
-                                <p>Tentukan Promo</p>
+                                <p>Tentukan promo</p>
                             </a>
                         </li>
                     </ul>
                 </li>
+                <!-- End Promo -->
 
+                <!-- Start Rangkuman Bisnis -->
                 <li class="nav-item">
                     <a type="button" class="nav-link">
                         <i class="nav-icon fas fa-chart-bar"></i>
@@ -151,7 +161,9 @@
                         </li>
                     </ul>
                 </li>
+                <!-- End Rangkuman Bisnis -->
 
+                <!-- Start Gudang -->
                 <li class="nav-item">
                     <a type="button" class="nav-link">
                         <i class="nav-icon fas fa-boxes"></i>
@@ -162,35 +174,28 @@
                     </a>
                     <ul class="nav nav-treeview small ml-1">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-plus-circle nav-icon"></i>
-                                <p>Input barang</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('gudang/infoStok'); ?>" class="nav-link">
                                 <i class="fas fa-info-circle nav-icon"></i>
                                 <p>Info stok</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('gudang/inputBarang'); ?>" class="nav-link">
+                                <i class="fas fa-plus-circle nav-icon"></i>
+                                <p>Input barang</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('gudang/infoSupplier'); ?>" class="nav-link">
                                 <i class="fas fa-address-card nav-icon"></i>
                                 <p>Info supplier</p>
                             </a>
                         </li>
                     </ul>
                 </li>
+                <!-- End Gudang -->
 
-                <!-- <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
-                            Pegawai
-                        </p>
-                    </a>
-                </li> -->
-
+                <!-- Start Pegawai -->
                 <li class="nav-item">
                     <a type="button" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
@@ -203,17 +208,18 @@
                         <li class="nav-item">
                             <a href="<?= base_url('supervisor/infoPegawai'); ?>" class="nav-link">
                                 <i class="fas fa-info-circle nav-icon"></i>
-                                <p>Info Pegawai</p>
+                                <p>Info pegawai</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url('supervisor/tambahPegawai'); ?>" class="nav-link">
                                 <i class="fas fa-user-plus nav-icon"></i>
-                                <p>Tambah Pegawai</p>
+                                <p>Tambah pegawai</p>
                             </a>
                         </li>
                     </ul>
                 </li>
+                <!-- End Pegawai -->
 
             </ul>
         </nav>

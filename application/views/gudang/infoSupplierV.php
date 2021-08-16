@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Info Promo</h1>
+                        <h1 class="m-0">Info Supplier</h1>
                     </div>
                 </div>
                 <!-- /.row -->
@@ -15,30 +15,25 @@
         </div>
         <!-- /.content-header -->
 
-        <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-2 ">
-                    <button type="button" class="btn btn-block btn-success mt-1">
-                        Tentukan Promo
-                    </button>
+        <!-- <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2 ">
+                        <button type="button" class="btn btn-block btn-primary mt-1">
+                            Pesan Barang
+                        </button>
+                    </div>
+                    <div class="col-md-2 ">
+                        <button type="button" class="btn btn-block btn-success mt-1">
+                            Tambah Barang
+                        </button>
+                    </div>
+                    
+                    <br><br><br>
+                    
                 </div>
-                <div class="col-md-4 ml-1 mt-1 ">
-                    <form action="#" class="justify-content-end">
-                        <div class="input-group">
-                            <input type="search" class="form-control form-control-md" placeholder="Cari promo">
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-default mb-4">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                
             </div>
-        </div>
-    </section>
+        </section> -->
 
         <!-- Main content -->
         <div class="card">
@@ -48,11 +43,10 @@
                   <thead>
                   <tr>
                     <th>AKSI</th>
-                    <th>ID Promo</th>
-                    <th>Nama Promo</th>
-                    <th>Harga Promo</th>
-                    <th>ID Bundle</th>
-                    <th>ID Jadwal</th>
+                    <th>ID Supplier</th>
+                    <th>Nama Supplier</th>
+                    <th>Alamat Supplier</th>
+                    <th>No. Telepon</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -61,11 +55,10 @@
                         <button type="button" class="btn btn-warning far fa-edit"></button>
                         <button type="button" class="btn btn-danger far fa-trash-alt"></button>
                     </td>
-                    <td>001</td>
-                    <td>Promo Mahasiswa</td>
-                    <td>Rp. 15.000</td>
                     <td>1</td>
-                    <td>2</td>
+                    <td>PT. Wakanda</td>
+                    <td>Wakanda Empire</td>
+                    <td>085250041000</td>
                   </tr>
 
                   <tr>
@@ -73,11 +66,10 @@
                         <button type="button" class="btn btn-warning far fa-edit"></button>
                         <button type="button" class="btn btn-danger far fa-trash-alt"></button>
                     </td>
-                    <td>001</td>
-                    <td>Promo Mahasiswa</td>
-                    <td>Rp. 15.000</td>
                     <td>1</td>
-                    <td>2</td>
+                    <td>PT. Wakanda</td>
+                    <td>Wakanda Empire</td>
+                    <td>085250041000</td>
                   </tr>
 
                   <tr>
@@ -85,11 +77,10 @@
                         <button type="button" class="btn btn-warning far fa-edit"></button>
                         <button type="button" class="btn btn-danger far fa-trash-alt"></button>
                     </td>
-                    <td>001</td>
-                    <td>Promo Mahasiswa</td>
-                    <td>Rp. 15.000</td>
                     <td>1</td>
-                    <td>2</td>
+                    <td>PT. Wakanda</td>
+                    <td>Wakanda Empire</td>
+                    <td>085250041000</td>
                   </tr>
 
                   <tr>
@@ -97,11 +88,10 @@
                         <button type="button" class="btn btn-warning far fa-edit"></button>
                         <button type="button" class="btn btn-danger far fa-trash-alt"></button>
                     </td>
-                    <td>001</td>
-                    <td>Promo Mahasiswa</td>
-                    <td>Rp. 15.000</td>
                     <td>1</td>
-                    <td>2</td>
+                    <td>PT. Wakanda</td>
+                    <td>Wakanda Empire</td>
+                    <td>085250041000</td>
                   </tr>
 
                   <tr>
@@ -109,11 +99,10 @@
                         <button type="button" class="btn btn-warning far fa-edit"></button>
                         <button type="button" class="btn btn-danger far fa-trash-alt"></button>
                     </td>
-                    <td>001</td>
-                    <td>Promo Mahasiswa</td>
-                    <td>Rp. 15.000</td>
                     <td>1</td>
-                    <td>2</td>
+                    <td>PT. Wakanda</td>
+                    <td>Wakanda Empire</td>
+                    <td>085250041000</td>
                   </tr>
 
                   <tr>
@@ -121,14 +110,14 @@
                         <button type="button" class="btn btn-warning far fa-edit"></button>
                         <button type="button" class="btn btn-danger far fa-trash-alt"></button>
                     </td>
-                    <td>001</td>
-                    <td>Promo Mahasiswa</td>
-                    <td>Rp. 15.000</td>
                     <td>1</td>
-                    <td>2</td>
+                    <td>PT. Wakanda</td>
+                    <td>Wakanda Empire</td>
+                    <td>085250041000</td>
                   </tr>
                   
                   </tbody>
+                 
                 </table>
               </div>
               <!-- /.card-body -->

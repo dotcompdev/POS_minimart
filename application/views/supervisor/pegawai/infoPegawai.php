@@ -26,7 +26,7 @@
                 <div class="col-md-4 ml-1 mt-1 ">
                     <form action="#" class="justify-content-end">
                         <div class="input-group">
-                            <input type="search" class="form-control form-control-md" placeholder="Cari promo">
+                            <input type="search" class="form-control form-control-md" placeholder="Cari pegawai">
                             <div class="input-group-append">
                                 <button type="submit" class="btn btn-default mb-4">
                                     <i class="fa fa-search"></i>
@@ -69,7 +69,7 @@
                         <button type="button" class="btn btn-warning far fa-edit"></button>
                         <button type="button" class="btn btn-danger far fa-trash-alt"></button>
                     </td>
-                    <<td>1</td>
+                    <td>1</td>
                     <td>Tchala</td>
                     <td>Supervisor</td>
                   </tr>
@@ -115,14 +115,7 @@
                   </tr>
                   
                   </tbody>
-                  <tfoot>
-                  <tr>
-                  <th>AKSI</th>
-                    <th>ID Pegawai</th>
-                    <th>Nama Pegawai</th>
-                    <th>Role</th>
-                  </tr>
-                  </tfoot>
+                  
                 </table>
               </div>
               <!-- /.card-body -->
