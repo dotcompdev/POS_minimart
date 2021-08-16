@@ -30,15 +30,14 @@ class Supervisor extends CI_Controller
         // }
 
         $this->form_validation->set_rules('name', 'Name', 'trim|required');
-        $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[tbl_user.username]', [
-            'is_unique' => 'This username has already registered!'
-        ]);
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[tbl_user.email]', [
             'is_unique' => 'This email has already registered!'
         ]);
         $this->form_validation->set_rules('telp', 'Telp', 'required|trim');
         $this->form_validation->set_rules('posisi', 'Posisi', 'required|trim');
-        $this->form_validation->set_rules('username', 'Username', 'trim|required');
+        $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[tbl_user.username]', [
+            'is_unique' => 'This username has already registered!'
+        ]);
         $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[8]|matches[password2]', [
             'matches' => 'Password dont match!',
             'min_length' => 'Password too short!'
