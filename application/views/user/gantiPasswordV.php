@@ -28,15 +28,15 @@
               <div class="card-body">
                     <div class="form-group">
                         <label>Password Saat ini</label>
-                        <input class="form-control" name="passwordSaatIni" placeholder="Password saat ini">
+                        <input type="password" class="form-control" name="passwordSaatIni" placeholder="Password saat ini">
                     </div>
                     <div class="form-group">
                         <label>Password Baru</label>
-                        <input class="form-control" name="passwordBaru" placeholder="Password baru">
+                        <input type="password" class="form-control" name="passwordBaru" placeholder="Password baru">
                     </div>
                     <div class="form-group">
                         <label>Ulangi Password</label>
-                        <input class="form-control" name="ulangiPassword" placeholder="Ulangi Password">
+                        <input type="password" class="form-control" name="ulangiPassword" placeholder="Ulangi Password">
                     </div>
               </div>
               <!-- /.card-body -->

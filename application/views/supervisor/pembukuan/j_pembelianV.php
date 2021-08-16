@@ -135,17 +135,7 @@
                   </tr>
                   
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <!-- <th>AKSI</th> -->
-                    <th>ID Transaksi Beli</th>
-                    <th>Tanggal</th>
-                    <th>ID Supplier</th>
-                    <th>Nama Supplier</th>
-                    <th>Id Barang</th>
-                    <th>Nama Barang</th>
-                  </tr>
-                  </tfoot>
+                 
                 </table>
               </div>
               <!-- /.card-body -->

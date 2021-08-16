@@ -55,4 +55,19 @@ class Supervisor extends CI_Controller
             $this->Mod_supervisor->add();
         }
     }
+    public function infoPegawai()
+    {
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('supervisor/pegawai/infoPegawai');
+        $this->load->view('templates/footer');
+    }
+
+    public function tambahPegawai()
+    {
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('supervisor/pegawai/tambahPegawai');
+        $this->load->view('templates/footer');
+    }
 }
