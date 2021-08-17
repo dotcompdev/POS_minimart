@@ -142,7 +142,7 @@
                     </a>
                     <ul class="nav nav-treeview small ml-1">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('testing/barangTerlaris'); ?>" class="nav-link">
                                 <i class="fas fa-chart-line nav-icon"></i>
                                 <p>Barang terlaris</p>
                             </a>

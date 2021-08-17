@@ -9,7 +9,8 @@ class Testing extends CI_Controller
         parent::__construct();
     }
 
-public function j_penjualan()
+    // PEMBUKUAN--------------------------------------------------
+    public function j_penjualan()
     {
         
         $this->load->view('templates/header');
@@ -38,6 +39,8 @@ public function j_penjualan()
         $this->load->view('templates/footer');
     }
 
+    // PROMO------------------------------------------------------
+
     public function promo()
     {
         $this->load->view('templates/header');
@@ -51,6 +54,15 @@ public function j_penjualan()
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('supervisor/promo/tenPromoV');
+        $this->load->view('templates/footer');
+    }
+
+    // RANGKUMAN BISNIS----------------------------------------------
+    public function barangTerlaris()
+    {
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('supervisor/rangkuman/barangTerlarisV');
         $this->load->view('templates/footer');
     }
 }
