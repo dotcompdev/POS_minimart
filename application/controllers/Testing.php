@@ -65,4 +65,12 @@ class Testing extends CI_Controller
         $this->load->view('supervisor/rangkuman/barangTerlarisV');
         $this->load->view('templates/footer');
     }
+
+    public function pencarianPelanggan()
+    {
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('supervisor/rangkuman/pencarianPelangganV');
+        $this->load->view('templates/footer');
+    }
 }

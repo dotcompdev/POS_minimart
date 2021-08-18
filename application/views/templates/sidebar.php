@@ -154,7 +154,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('testing/pencarianPelanggan'); ?>" class="nav-link">
                                 <i class="fas fa-search-dollar nav-icon"></i>
                                 <p>Pencarian dari pelanggan</p>
                             </a>
