@@ -8,6 +8,7 @@ class Supervisor extends CI_Controller
     {
         parent::__construct();
         is_logged_in();
+        // check_supervisor();
         $this->load->model('Mod_supervisor');
         $this->load->library('form_validation');
     }
@@ -43,7 +44,7 @@ class Supervisor extends CI_Controller
             'min_length' => 'Password too short!'
         ]);
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
-        $this->form_validation->set_rules('image', 'Image', 'required|trim');
+        // $this->form_validation->set_rules('image', 'Image', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $data['judul'] = "Tambah Akun";
@@ -57,17 +58,19 @@ class Supervisor extends CI_Controller
     }
     public function infoPegawai()
     {
-        $this->load->view('templates/header');
+        $data['judul'] = "Info Pegawai";
+        $data['user'] = $this->Mod_supervisor->getPegawai();
+
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('supervisor/pegawai/infoPegawai');
+        $this->load->view('supervisor/pegawai/infoPegawai', $data);
         $this->load->view('templates/footer');
     }
 
-    public function tambahPegawai()
+    public function hapus($id)
     {
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('supervisor/pegawai/tambahPegawai');
-        $this->load->view('templates/footer');
+        $this->Mod_supervisor->hapusPegawai($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pegawai telah dihapus!</div>');
+        redirect('supervisor/infoPegawai');
     }
 }
