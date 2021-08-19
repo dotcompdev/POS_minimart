@@ -212,13 +212,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <<<<<<< HEAD <a href="<?= base_url('supervisor/registration'); ?>" class="nav-link">
-                                =======
-                                <a href="<?= base_url('supervisor/tambahPegawai'); ?>" class="nav-link">
-                                    >>>>>>> 4e3105dcf8b6b2d39137b3ae7cb717e056216b45
-                                    <i class="fas fa-user-plus nav-icon"></i>
-                                    <p>Tambah pegawai</p>
-                                </a>
+                            <a href="<?= base_url('supervisor/registration'); ?>" class="nav-link">
+                                <i class="fas fa-user-plus nav-icon"></i>
+                                <p>Tambah pegawai</p>
+                            </a>
                         </li>
                     </ul>
                 </li>

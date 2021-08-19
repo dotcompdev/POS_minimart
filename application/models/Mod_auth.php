@@ -14,33 +14,30 @@ class Mod_auth extends CI_Model
                 // echo "berhasil";
                 // cek password
                 if (password_verify($password, $user['password'])) {
-                    // echo "berhasil";
-                    if ($password == $user['password']) {
-                        $data = [
-                            'username' => $user['username'],
-                            'email' => $user['email'],
-                            'role_id' => $user['role_id']
-                        ];
-                        $this->session->set_userdata($data);
-                        if ($user['role_id'] == 1) {
-                            redirect('supervisor');
-                        } elseif ($user['role_id'] == 2) {
-                            redirect('supervisor');
-                        } else {
-                            redirect('gudang');
-                        }
+                    $data = [
+                        'username' => $user['username'],
+                        'email' => $user['email'],
+                        'role_id' => $user['role_id']
+                    ];
+                    $this->session->set_userdata($data);
+                    if ($user['role_id'] == 1) {
+                        redirect('supervisor');
+                    } elseif ($user['role_id'] == 2) {
+                        redirect('kasir');
                     } else {
-                        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Wrong password!</div>');
-                        redirect('auth');
+                        redirect('gudang');
                     }
                 } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username is not activated!</div>');
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Wrong password!</div>');
                     redirect('auth');
                 }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username is not registered!</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username is not activated!</div>');
                 redirect('auth');
             }
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username is not registered!</div>');
+            redirect('auth');
         }
     }
 }

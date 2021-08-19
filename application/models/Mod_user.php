@@ -38,7 +38,7 @@ class Mod_user extends CI_Model
         $this->db->set('no_telp', $no_telp);
         $this->db->where('email', $email);
         $this->db->update('tbl_user');
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Your profile has been upadated!</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Profil berhasil diperbaharui!</div>');
         redirect('user');
     }
 }

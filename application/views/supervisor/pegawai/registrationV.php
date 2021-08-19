@@ -43,7 +43,7 @@
                     </div>
                     <div class="form-group">
                         <label for="password1">Password</label>
-                        <input type="password" class="form-control form-control-user" id="password1" name="password1" placeholder="Masukkan Password.." value="<?= set_value('password'); ?>">
+                        <input type="password" class="form-control form-control-user" id="password1" name="password1" placeholder="Masukkan Password..">
                         <?= form_error('password1', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group">
@@ -60,15 +60,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-lg-4">
-                    <div class="form-group">
-                        <img src="<?= base_url('assets/dist/img/avatar.png'); ?>" class="img-thumbnail">
-                    </div>
-                </div> -->
             </div>
             <div class="row">
                 <div class="form-group col-lg-4">
-                    <a href="<?= base_url('user'); ?>" type="button" class="btn btn-danger btn-user btn-block">
+                    <a href="<?= base_url('supervisor/infoPegawai'); ?>" type="button" class="btn btn-danger btn-user btn-block">
                         Batal
                     </a>
                 </div>
