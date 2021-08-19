@@ -36,7 +36,7 @@
         </section>
 
         <!-- Main content -->
-        <div class="card">
+        <div class="card col-lg-8">
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">

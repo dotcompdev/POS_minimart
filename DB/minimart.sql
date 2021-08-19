@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 09, 2021 at 02:00 AM
--- Server version: 5.7.35-0ubuntu0.18.04.1-log
--- PHP Version: 7.4.22
+-- Waktu pembuatan: 19 Agu 2021 pada 01.52
+-- Versi server: 5.7.35-0ubuntu0.18.04.1-log
+-- Versi PHP: 7.4.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_barang`
+-- Struktur dari tabel `tbl_barang`
 --
 
 CREATE TABLE `tbl_barang` (
@@ -37,7 +37,7 @@ CREATE TABLE `tbl_barang` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_jadwal`
+-- Struktur dari tabel `tbl_jadwal`
 --
 
 CREATE TABLE `tbl_jadwal` (
@@ -52,7 +52,7 @@ CREATE TABLE `tbl_jadwal` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_menu`
+-- Struktur dari tabel `tbl_menu`
 --
 
 CREATE TABLE `tbl_menu` (
@@ -63,7 +63,7 @@ CREATE TABLE `tbl_menu` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_pemesanan`
+-- Struktur dari tabel `tbl_pemesanan`
 --
 
 CREATE TABLE `tbl_pemesanan` (
@@ -76,7 +76,7 @@ CREATE TABLE `tbl_pemesanan` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_promo`
+-- Struktur dari tabel `tbl_promo`
 --
 
 CREATE TABLE `tbl_promo` (
@@ -92,7 +92,7 @@ CREATE TABLE `tbl_promo` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_retur`
+-- Struktur dari tabel `tbl_retur`
 --
 
 CREATE TABLE `tbl_retur` (
@@ -106,7 +106,7 @@ CREATE TABLE `tbl_retur` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_role`
+-- Struktur dari tabel `tbl_role`
 --
 
 CREATE TABLE `tbl_role` (
@@ -115,7 +115,7 @@ CREATE TABLE `tbl_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_role`
+-- Dumping data untuk tabel `tbl_role`
 --
 
 INSERT INTO `tbl_role` (`id_role`, `role`) VALUES
@@ -126,7 +126,7 @@ INSERT INTO `tbl_role` (`id_role`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_supplier`
+-- Struktur dari tabel `tbl_supplier`
 --
 
 CREATE TABLE `tbl_supplier` (
@@ -139,7 +139,7 @@ CREATE TABLE `tbl_supplier` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_trans_beli`
+-- Struktur dari tabel `tbl_trans_beli`
 --
 
 CREATE TABLE `tbl_trans_beli` (
@@ -154,7 +154,7 @@ CREATE TABLE `tbl_trans_beli` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_trans_jual`
+-- Struktur dari tabel `tbl_trans_jual`
 --
 
 CREATE TABLE `tbl_trans_jual` (
@@ -170,7 +170,7 @@ CREATE TABLE `tbl_trans_jual` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_user`
+-- Struktur dari tabel `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
@@ -188,17 +188,18 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_user`
+-- Dumping data untuk tabel `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`id_user`, `nama_user`, `username`, `password`, `email`, `no_telp`, `image`, `role_id`, `is_active`, `created_date`, `modified_date`) VALUES
-(1, 'Admin', 'admin', 'admin', 'admin@gmail.com', '085250041000', 'avatar.5png', 1, 1, 25102000, 8032000),
-(2, 'Emon', 'emon', 'emon', 'emon@gmail.com', '085250041000', 'default.jpg', 2, 0, 3456777, 123456);
+(4, 'Raymond Putra', 'ray', '$2y$10$v2NyWDtrx/ZGPZjoa6gDOeqcw/Su82nKl0VDHb2wMo.Colq1/2CVi', 'raymondputra15@gmail.com', '08995815163', 'default.jpg', 1, 1, 1629015138, 0),
+(5, 'awawaw', 'emon', '$2y$10$r5YJbvPFd12LiETUpIIDAuOyN/yE7jOaY.JWmoCYZpU9ymUQk9UZe', 'awaw@gmail.com', '2144235346', 'default.jpg', 2, 1, 1629025344, 0),
+(6, 'Agok san', 'agokk', '$2y$10$aawDZjnLljCuehr1xcliXu9EUdE8YUVQGhI03RsLHonhhrbpuISt6', 'agok@gmail.com', '085250041000', 'avatar4.png', 2, 1, 1629078493, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_user_access_menu`
+-- Struktur dari tabel `tbl_user_access_menu`
 --
 
 CREATE TABLE `tbl_user_access_menu` (
@@ -210,7 +211,7 @@ CREATE TABLE `tbl_user_access_menu` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_user_menu`
+-- Struktur dari tabel `tbl_user_menu`
 --
 
 CREATE TABLE `tbl_user_menu` (
@@ -218,10 +219,24 @@ CREATE TABLE `tbl_user_menu` (
   `menu` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data untuk tabel `tbl_user_menu`
+--
+
+INSERT INTO `tbl_user_menu` (`id_menu`, `menu`) VALUES
+(1, 'Dashboard'),
+(2, 'User'),
+(3, 'Pembukuan'),
+(4, 'Promo'),
+(5, 'Rangkuman Bisnis'),
+(6, 'Transaksi'),
+(7, 'Gudang'),
+(8, 'Pegawai');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_user_submenu`
+-- Struktur dari tabel `tbl_user_submenu`
 --
 
 CREATE TABLE `tbl_user_submenu` (
@@ -229,14 +244,37 @@ CREATE TABLE `tbl_user_submenu` (
   `id_menu` int(11) NOT NULL,
   `title` varchar(100) NOT NULL,
   `url` varchar(100) NOT NULL,
-  `icon` varchar(100) NOT NULL,
   `is_active` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `tbl_user_submenu`
+--
+
+INSERT INTO `tbl_user_submenu` (`id_submenu`, `id_menu`, `title`, `url`, `is_active`) VALUES
+(1, 2, 'Profil', 'user', 1),
+(2, 2, 'Edit profil', 'user/editProfil', 1),
+(3, 2, 'Ganti password', 'user/gantiPassword', 1),
+(4, 3, 'Jurnal penjualan', '#', 1),
+(5, 3, 'Jurnal pembelian', '#', 1),
+(6, 3, 'Jurnal retur', '#', 1),
+(7, 4, 'Info promo', '#', 1),
+(8, 4, 'Tentukan promo', '#', 1),
+(9, 5, 'Barang terlaris', '#', 1),
+(10, 5, 'Waktu terpadat', '#', 1),
+(11, 5, 'Pencarian dari pelanggan', '#', 1),
+(12, 6, 'Sales', '#', 1),
+(13, 6, 'Returment', '#', 1),
+(14, 7, 'Info stok', '#', 1),
+(15, 7, 'Input barang', '#', 1),
+(16, 7, 'Info supplier', '#', 1),
+(17, 8, 'Info pegawai', '#', 1),
+(18, 8, 'Tambah pegawai', '#', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_user_token`
+-- Struktur dari tabel `tbl_user_token`
 --
 
 CREATE TABLE `tbl_user_token` (
@@ -251,185 +289,185 @@ CREATE TABLE `tbl_user_token` (
 --
 
 --
--- Indexes for table `tbl_barang`
+-- Indeks untuk tabel `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
   ADD PRIMARY KEY (`id_barang`);
 
 --
--- Indexes for table `tbl_jadwal`
+-- Indeks untuk tabel `tbl_jadwal`
 --
 ALTER TABLE `tbl_jadwal`
   ADD PRIMARY KEY (`id_jadwal`);
 
 --
--- Indexes for table `tbl_menu`
+-- Indeks untuk tabel `tbl_menu`
 --
 ALTER TABLE `tbl_menu`
   ADD PRIMARY KEY (`id_menu`);
 
 --
--- Indexes for table `tbl_pemesanan`
+-- Indeks untuk tabel `tbl_pemesanan`
 --
 ALTER TABLE `tbl_pemesanan`
   ADD PRIMARY KEY (`id_pemesanan`);
 
 --
--- Indexes for table `tbl_promo`
+-- Indeks untuk tabel `tbl_promo`
 --
 ALTER TABLE `tbl_promo`
   ADD PRIMARY KEY (`id_promo`);
 
 --
--- Indexes for table `tbl_retur`
+-- Indeks untuk tabel `tbl_retur`
 --
 ALTER TABLE `tbl_retur`
   ADD PRIMARY KEY (`id_retur`);
 
 --
--- Indexes for table `tbl_role`
+-- Indeks untuk tabel `tbl_role`
 --
 ALTER TABLE `tbl_role`
   ADD PRIMARY KEY (`id_role`);
 
 --
--- Indexes for table `tbl_supplier`
+-- Indeks untuk tabel `tbl_supplier`
 --
 ALTER TABLE `tbl_supplier`
   ADD PRIMARY KEY (`id_supplier`);
 
 --
--- Indexes for table `tbl_trans_beli`
+-- Indeks untuk tabel `tbl_trans_beli`
 --
 ALTER TABLE `tbl_trans_beli`
   ADD PRIMARY KEY (`id_trans_beli`);
 
 --
--- Indexes for table `tbl_trans_jual`
+-- Indeks untuk tabel `tbl_trans_jual`
 --
 ALTER TABLE `tbl_trans_jual`
   ADD PRIMARY KEY (`id_trans_jual`);
 
 --
--- Indexes for table `tbl_user`
+-- Indeks untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indexes for table `tbl_user_access_menu`
+-- Indeks untuk tabel `tbl_user_access_menu`
 --
 ALTER TABLE `tbl_user_access_menu`
   ADD PRIMARY KEY (`id_access`);
 
 --
--- Indexes for table `tbl_user_menu`
+-- Indeks untuk tabel `tbl_user_menu`
 --
 ALTER TABLE `tbl_user_menu`
   ADD PRIMARY KEY (`id_menu`);
 
 --
--- Indexes for table `tbl_user_submenu`
+-- Indeks untuk tabel `tbl_user_submenu`
 --
 ALTER TABLE `tbl_user_submenu`
   ADD PRIMARY KEY (`id_submenu`);
 
 --
--- Indexes for table `tbl_user_token`
+-- Indeks untuk tabel `tbl_user_token`
 --
 ALTER TABLE `tbl_user_token`
   ADD PRIMARY KEY (`id_token`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tbl_barang`
+-- AUTO_INCREMENT untuk tabel `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
   MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_jadwal`
+-- AUTO_INCREMENT untuk tabel `tbl_jadwal`
 --
 ALTER TABLE `tbl_jadwal`
   MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_menu`
+-- AUTO_INCREMENT untuk tabel `tbl_menu`
 --
 ALTER TABLE `tbl_menu`
   MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_pemesanan`
+-- AUTO_INCREMENT untuk tabel `tbl_pemesanan`
 --
 ALTER TABLE `tbl_pemesanan`
   MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_promo`
+-- AUTO_INCREMENT untuk tabel `tbl_promo`
 --
 ALTER TABLE `tbl_promo`
   MODIFY `id_promo` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_retur`
+-- AUTO_INCREMENT untuk tabel `tbl_retur`
 --
 ALTER TABLE `tbl_retur`
   MODIFY `id_retur` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_role`
+-- AUTO_INCREMENT untuk tabel `tbl_role`
 --
 ALTER TABLE `tbl_role`
   MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tbl_supplier`
+-- AUTO_INCREMENT untuk tabel `tbl_supplier`
 --
 ALTER TABLE `tbl_supplier`
   MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_trans_beli`
+-- AUTO_INCREMENT untuk tabel `tbl_trans_beli`
 --
 ALTER TABLE `tbl_trans_beli`
   MODIFY `id_trans_beli` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_trans_jual`
+-- AUTO_INCREMENT untuk tabel `tbl_trans_jual`
 --
 ALTER TABLE `tbl_trans_jual`
   MODIFY `id_trans_jual` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_user`
+-- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tbl_user_access_menu`
+-- AUTO_INCREMENT untuk tabel `tbl_user_access_menu`
 --
 ALTER TABLE `tbl_user_access_menu`
   MODIFY `id_access` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_user_menu`
+-- AUTO_INCREMENT untuk tabel `tbl_user_menu`
 --
 ALTER TABLE `tbl_user_menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tbl_user_submenu`
+-- AUTO_INCREMENT untuk tabel `tbl_user_submenu`
 --
 ALTER TABLE `tbl_user_submenu`
-  MODIFY `id_submenu` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_submenu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `tbl_user_token`
+-- AUTO_INCREMENT untuk tabel `tbl_user_token`
 --
 ALTER TABLE `tbl_user_token`
   MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT;

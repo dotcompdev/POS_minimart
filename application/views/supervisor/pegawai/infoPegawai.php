@@ -44,9 +44,9 @@
         </section>
 
         <!-- Main content -->
-        <div class="card">
-            <!-- /.card-header -->
-            <div class="card-body">
+        <div class="card col-lg-8 ml-3">
+              <!-- /.card-header -->
+              <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
