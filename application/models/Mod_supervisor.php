@@ -40,6 +40,15 @@ class Mod_supervisor extends CI_Model
         redirect('auth');
     }
 
+    public function getPegawai()
+    {
+        $keyword1 = 2;
+        $keyword2 = 3;
+        $this->db->like('role_id', $keyword1);
+        $this->db->or_like('role_id', $keyword2);
+        return $this->db->get('tbl_user')->result_array();
+    }
+
     public function get($id = null)
     {
         $this->db->from('tbl_user');
@@ -48,5 +57,10 @@ class Mod_supervisor extends CI_Model
         }
         $query = $this->db->get();
         return $query;
+    }
+
+    public function hapusPegawai($id)
+    {
+        $this->db->delete('tbl_user', ['id_user' => $id]);
     }
 }
