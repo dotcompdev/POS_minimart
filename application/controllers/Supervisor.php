@@ -8,6 +8,7 @@ class Supervisor extends CI_Controller
     {
         parent::__construct();
         is_logged_in();
+        // check_supervisor();
         $this->load->model('Mod_supervisor');
         $this->load->library('form_validation');
     }
