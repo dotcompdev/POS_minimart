@@ -14,8 +14,6 @@ class Mod_auth extends CI_Model
                 // echo "berhasil";
                 // cek password
                 if (password_verify($password, $user['password'])) {
-                    // echo "berhasil";
-                    if ($password == $user['password']) {
                         $data = [
                             'username' => $user['username'],
                             'email' => $user['email'],
@@ -43,4 +41,4 @@ class Mod_auth extends CI_Model
             }
         }
     }
-}
+

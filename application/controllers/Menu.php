@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Gudang extends CI_Controller 
+class Menu extends CI_Controller 
 {
 
     public function __construct()
@@ -9,35 +9,27 @@ class Gudang extends CI_Controller
         parent::__construct();
     }
 
-    public function dashboard()
+    public function barangTerlaris()
     {
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('gudang/dashboard3V');
+        $this->load->view('supervisor/rangkuman/barangTerlarisV');
         $this->load->view('templates/footer');
     }
 
-    public function infoStok()
+    public function waktuTerpadat()
     {
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('gudang/infoStokV');
+        $this->load->view('supervisor/rangkuman/waktuV');
         $this->load->view('templates/footer');
     }
 
-    public function inputBarang()
+    public function pencarianPelanggan()
     {
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('gudang/inputBarangV');
-        $this->load->view('templates/footer');
-    }
-
-    public function infoSupplier()
-    {
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('gudang/infoSupplierV');
+        $this->load->view('supervisor/rangkuman/pencarianPelangganV');
         $this->load->view('templates/footer');
     }
 }

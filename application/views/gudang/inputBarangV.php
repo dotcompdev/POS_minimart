@@ -14,6 +14,7 @@
     </div>
     <!-- /.content-header -->
 
+    <div class="card lg-10">
     <!-- Main content -->
         <div class="p-3 col-lg registrasi">
             <?= form_open_multipart('supervisor/registration'); ?>
@@ -75,5 +76,5 @@
             </div>
             </form>
         </div>
-    
+    </div>
 </div>

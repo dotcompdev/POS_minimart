@@ -54,7 +54,7 @@
         <div class="card">
               <!-- /.card-header -->
             <div class="row">
-              <div class="col-md-4 ml-3">
+              <div class="col-md-4 pl-3 pt-3">
                   <div class="row-md">
                         <table id="example1" class="table table-bordered table-striped">
                         <thead>
@@ -118,7 +118,7 @@
                 </div>
 
                 <!-- Tabel kanan -->
-                <div class="col-md-6 ml-3">
+                <div class="col-md-6 pt-3">
                   
                         <table id="example1" class="table table-bordered table-striped">
                         <thead>

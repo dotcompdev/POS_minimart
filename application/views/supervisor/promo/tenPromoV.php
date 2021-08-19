@@ -51,10 +51,11 @@
     </section>
 
     <!-- Main content -->
+    <div class="card">
     <!-- <div class="card"> -->
               <!-- /.card-header -->
             <div class="row">
-                <div class="col-md-6 ml-3">
+                <div class="col-md-6 ml-3 pt-3">
                   <div class="row-md">
                         <table id="example1" class="table table-bordered table-striped">
                         <thead>
@@ -145,7 +146,7 @@
                 </div>
 
                 <!-- Tabel kanan -->
-                <div class="col-md-3 ml-3">
+                <div class="col-md-5 ml-3 pt-3">
                     <div class="form-group">
                         <label for="rp">Rp. </label>
                         <input type="text" class="form-control form-control-user" id="rp" name="rp" placeholder="Total Harga">
@@ -174,7 +175,7 @@
                 
 
             </div>
-        <!-- </div> -->
+        </div>
 
     <footer class="main-footer">
         <strong>Copyright &copy; 2021 <a href="#">Dotcomp</a>.</strong>

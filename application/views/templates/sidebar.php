@@ -142,19 +142,19 @@
                     </a>
                     <ul class="nav nav-treeview small ml-1">
                         <li class="nav-item">
-                            <a href="<?= base_url('testing/barangTerlaris'); ?>" class="nav-link">
+                            <a href="<?= base_url('menu/barangTerlaris'); ?>" class="nav-link">
                                 <i class="fas fa-chart-line nav-icon"></i>
                                 <p>Barang terlaris</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('menu/waktuTerpadat'); ?>" class="nav-link">
                                 <i class="fas fa-business-time nav-icon"></i>
                                 <p>Waktu terpadat</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('testing/pencarianPelanggan'); ?>" class="nav-link">
+                            <a href="<?= base_url('menu/pencarianPelanggan'); ?>" class="nav-link">
                                 <i class="fas fa-search-dollar nav-icon"></i>
                                 <p>Pencarian dari pelanggan</p>
                             </a>
@@ -173,6 +173,12 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview small ml-1">
+                        <li class="nav-item">
+                            <a href="<?= base_url('gudang/dashboard'); ?>" class="nav-link">
+                                <i class="fas fa-tachometer-alt nav-icon"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="<?= base_url('gudang/infoStok'); ?>" class="nav-link">
                                 <i class="fas fa-info-circle nav-icon"></i>
@@ -212,13 +218,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <<<<<<< HEAD <a href="<?= base_url('supervisor/registration'); ?>" class="nav-link">
-                                =======
-                                <a href="<?= base_url('supervisor/tambahPegawai'); ?>" class="nav-link">
-                                    >>>>>>> 4e3105dcf8b6b2d39137b3ae7cb717e056216b45
-                                    <i class="fas fa-user-plus nav-icon"></i>
-                                    <p>Tambah pegawai</p>
-                                </a>
+                            <a href="<?= base_url('supervisor/registration'); ?>" class="nav-link">
+                                <i class="fas fa-user-plus nav-icon"></i>
+                                <p>Tambah pegawai</p>
+                            </a>
                         </li>
                     </ul>
                 </li>
