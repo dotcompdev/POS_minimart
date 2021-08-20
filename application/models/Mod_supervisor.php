@@ -40,6 +40,16 @@ class Mod_supervisor extends CI_Model
         redirect('auth');
     }
 
+    public function get($id = null)
+    {
+        $this->db->from('tbl_user');
+        if ($id != null) {
+            $this->db->where('email', $id);
+        }
+        $query = $this->db->get();
+        return $query;
+    }
+
     public function getPegawai()
     {
         $keyword1 = 2;
@@ -47,16 +57,6 @@ class Mod_supervisor extends CI_Model
         $this->db->like('role_id', $keyword1);
         $this->db->or_like('role_id', $keyword2);
         return $this->db->get('tbl_user')->result_array();
-    }
-
-    public function get($id = null)
-    {
-        $this->db->from('tbl_user');
-        if ($id != null) {
-            $this->db->where('id_user', $id);
-        }
-        $query = $this->db->get();
-        return $query;
     }
 
     public function hapusPegawai($id)
