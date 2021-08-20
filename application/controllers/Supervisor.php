@@ -44,7 +44,7 @@ class Supervisor extends CI_Controller
             'min_length' => 'Password too short!'
         ]);
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
-        $this->form_validation->set_rules('image', 'Image', 'required|trim');
+        // $this->form_validation->set_rules('image', 'Image', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $data['judul'] = "Tambah Akun";
@@ -69,6 +69,11 @@ class Supervisor extends CI_Controller
 
     public function hapus($id)
     {
+        $data['user'] = $this->db->get_where('tbl_user', ['id_user' => $id])->row_array();
+        $old_image = $data['user']['image'];
+        if ($old_image != 'default.jpg') {
+            unlink(FCPATH . 'assets/img/profile/' . $old_image);
+        }
         $this->Mod_supervisor->hapusPegawai($id);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pegawai telah dihapus!</div>');
         redirect('supervisor/infoPegawai');
