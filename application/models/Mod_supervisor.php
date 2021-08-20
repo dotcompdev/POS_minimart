@@ -8,7 +8,7 @@ class Mod_supervisor extends CI_Model
         $username = $this->input->post('username', true);
 
         // cek jika ada gambar yang akan di upload
-        $upload_image = $_FILES['image'];
+        $upload_image = $_FILES['image']['name'];
 
         if ($upload_image) {
             $config['allowed_types'] = 'gif|jpg|png';
