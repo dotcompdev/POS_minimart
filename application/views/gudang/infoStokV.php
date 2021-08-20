@@ -36,15 +36,17 @@
         </section>
 
         <!-- Main content -->
-        <div class="card col-lg-8">
+        <div class="card col-lg-12">
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>AKSI</th>
-                    <th>ID Barang</th>
+                    <th>Kode Barang</th>
                     <th>Nama Barang</th>
+                    <th>Kategori</th>
+                    <th>Harga Beli</th>
                     <th>Harga Jual</th>
                     <th>QTY</th>
                   </tr>
@@ -55,8 +57,10 @@
                         <button type="button" class="btn btn-warning far fa-edit"></button>
                         <button type="button" class="btn btn-danger far fa-trash-alt"></button>
                     </td>
-                    <td>1</td>
+                    <td>KD001</td>
                     <td>Mie Sedap Goreng</td>
+                    <td>Makanan</td>
+                    <td>Rp. 2.000</td>
                     <td>Rp. 2.500</td>
                     <td>10</td>
                   </tr>
@@ -66,8 +70,10 @@
                         <button type="button" class="btn btn-warning far fa-edit"></button>
                         <button type="button" class="btn btn-danger far fa-trash-alt"></button>
                     </td>
-                    <td>1</td>
+                    <td>KD001</td>
                     <td>Mie Sedap Goreng</td>
+                    <td>Makanan</td>
+                    <td>Rp. 2.000</td>
                     <td>Rp. 2.500</td>
                     <td>10</td>
                   </tr>
@@ -77,8 +83,10 @@
                         <button type="button" class="btn btn-warning far fa-edit"></button>
                         <button type="button" class="btn btn-danger far fa-trash-alt"></button>
                     </td>
-                    <td>1</td>
+                    <td>KD001</td>
                     <td>Mie Sedap Goreng</td>
+                    <td>Makanan</td>
+                    <td>Rp. 2.000</td>
                     <td>Rp. 2.500</td>
                     <td>10</td>
                   </tr>
@@ -88,8 +96,10 @@
                         <button type="button" class="btn btn-warning far fa-edit"></button>
                         <button type="button" class="btn btn-danger far fa-trash-alt"></button>
                     </td>
-                    <td>1</td>
+                    <td>KD001</td>
                     <td>Mie Sedap Goreng</td>
+                    <td>Makanan</td>
+                    <td>Rp. 2.000</td>
                     <td>Rp. 2.500</td>
                     <td>10</td>
                   </tr>
@@ -99,8 +109,10 @@
                         <button type="button" class="btn btn-warning far fa-edit"></button>
                         <button type="button" class="btn btn-danger far fa-trash-alt"></button>
                     </td>
-                    <td>1</td>
+                    <td>KD001</td>
                     <td>Mie Sedap Goreng</td>
+                    <td>Makanan</td>
+                    <td>Rp. 2.000</td>
                     <td>Rp. 2.500</td>
                     <td>10</td>
                   </tr>
@@ -110,8 +122,10 @@
                         <button type="button" class="btn btn-warning far fa-edit"></button>
                         <button type="button" class="btn btn-danger far fa-trash-alt"></button>
                     </td>
-                    <td>1</td>
+                    <td>KD001</td>
                     <td>Mie Sedap Goreng</td>
+                    <td>Makanan</td>
+                    <td>Rp. 2.000</td>
                     <td>Rp. 2.500</td>
                     <td>10</td>
                   </tr>

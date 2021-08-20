@@ -31,6 +31,10 @@
                             <input type="text" class="form-control form-control-user" id="nama_barang" name="nama_barang" placeholder="Nama Barang">
                         </div>
                         <div class="form-group">
+                            <label for="qty">QTY</label>
+                            <input type="text" class="form-control form-control-user" id="qty" name="qty" placeholder="QTY">
+                        </div>
+                        <div class="form-group">
                             <label for="harga_beli">Harga Beli</label>
                             <input type="text" class="form-control form-control-user" id="harga_beli" name="harga_beli" placeholder="Harga Beli">
                         </div>

@@ -41,3 +41,4 @@ class Mod_auth extends CI_Model
         }
     }
 
+}
