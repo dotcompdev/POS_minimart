@@ -59,6 +59,14 @@ class Mod_supervisor extends CI_Model
         return $this->db->get('tbl_user')->result_array();
     }
 
+    public function cariDataPegawai()
+    {
+        $keyword = $this->input->post('keyword', true);
+        $this->db->like('id_user', $keyword);
+        $this->db->or_like('nama_user', $keyword);
+        return $this->db->get('tbl_user')->result_array();
+    }
+
     public function hapusPegawai($id)
     {
         $this->db->delete('tbl_user', ['id_user' => $id]);

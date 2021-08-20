@@ -60,6 +60,9 @@ class Supervisor extends CI_Controller
     {
         $data['judul'] = "Info Pegawai";
         $data['user'] = $this->Mod_supervisor->getPegawai();
+        if ($this->input->post('keyword')) {
+            $data['user'] = $this->Mod_supervisor->cariDataPegawai();
+        }
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
