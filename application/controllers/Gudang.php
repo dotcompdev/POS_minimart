@@ -53,4 +53,9 @@ class Gudang extends CI_Controller
         $this->load->view('gudang/infoSupplierV');
         $this->load->view('templates/footer');
     }
+
+    public function inputSupplier()
+    {
+        redirect('gudang/infoSupplier');
+    }
 }
