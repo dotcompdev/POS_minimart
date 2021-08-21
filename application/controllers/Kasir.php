@@ -13,7 +13,7 @@ class Kasir extends CI_Controller
     {
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('kasir/transaksiV');
+        $this->load->view('kasir/penjualanV');
         $this->load->view('templates/footer');
     }
 
