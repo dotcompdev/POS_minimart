@@ -15,29 +15,40 @@
     <!-- /.content-header -->
 
     <div class="card lg-10">
-    <!-- Main content -->
+        <!-- Main content -->
         <div class="p-3 col-lg registrasi">
-            <?= form_open_multipart('supervisor/registration'); ?>
+            <?= form_open_multipart('gudang/inputBarang'); ?>
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="row-lg">
-                        <div class="form-group">
-                            <label for="id_barang">ID Barang</label>
-                            <input type="text" class="form-control form-control-user" id="id_barang" name="id_barang" placeholder="ID Barang">
-                        </div>
+                    <div class="form-group">
+                        <label for="kode_barang">Kode Barang</label>
+                        <input type="text" class="form-control form-control-user" id="kode_barang" name="kode_barang">
+                        <?= form_error('kode_barang', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="nama_barang">Nama Barang</label>
-                            <input type="text" class="form-control form-control-user" id="nama_barang" name="nama_barang" placeholder="Nama Barang">
-                        </div>
-                        <div class="form-group">
-                            <label for="harga_beli">Harga Beli</label>
-                            <input type="text" class="form-control form-control-user" id="harga_beli" name="harga_beli" placeholder="Harga Beli">
-                        </div>
-                        <div class="form-group">
-                            <label for="harga_jual">Harga Jual</label>
-                            <input type="text" class="form-control form-control-user" id="harga_jual" name="harga_jual" placeholder="Harga Jual">
-                        </div>
+                    <div class="form-group">
+                        <label for="nama_barang">Nama Barang</label>
+                        <input type="text" class="form-control form-control-user" id="nama_barang" name="nama_barang" placeholder="Nama Barang">
+                        <?= form_error('nama_barang', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label for="harga_beli">Harga Beli</label>
+                        <input type="text" class="form-control form-control-user" id="harga_beli" name="harga_beli" placeholder="Harga Beli">
+                        <?= form_error('harga_beli', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label for="harga_jual">Harga Jual</label>
+                        <input type="text" class="form-control form-control-user" id="harga_jual" name="harga_jual" placeholder="Harga Jual">
+                        <?= form_error('harga_jual', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Kategori</label>
+                        <select name="kategori" class="form-control">
+                            <option value="">- Pilih -</option>
+                            <option value="2" <?= set_value('kategori') == 2 ? "selected" : null ?>>Kasir</option>
+                            <option value="3" <?= set_value('kategori') == 3 ? "selected" : null ?>>Petugas Gudang</option>
+                        </select>
+                        <?= form_error('kategori', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                     </div>
                 </div>
 
@@ -58,9 +69,9 @@
                         <label for="no_telp">No. Telepon</label>
                         <input type="text" class="form-control form-control-user" id="no_telp" name="no_telp" placeholder="No. Telepon">
                     </div>
-                   
+
                 </div>
-                
+
             </div>
             <div class="row">
                 <div class="form-group col-lg-4">

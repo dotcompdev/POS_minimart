@@ -1,7 +1,7 @@
-<?php 
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Gudang extends CI_Controller 
+class Gudang extends CI_Controller
 {
 
     public function __construct()
@@ -9,17 +9,19 @@ class Gudang extends CI_Controller
         parent::__construct();
     }
 
-    public function dashboard()
+    public function index()
     {
-        $this->load->view('templates/header');
+        $data['judul'] = "Petugas Gudang";
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('gudang/dashboard3V');
+        $this->load->view('dashboard3V');
         $this->load->view('templates/footer');
     }
 
     public function infoStok()
     {
-        $this->load->view('templates/header');
+        $data['judul'] = "Info Stok";
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('gudang/infoStokV');
         $this->load->view('templates/footer');
@@ -27,15 +29,26 @@ class Gudang extends CI_Controller
 
     public function inputBarang()
     {
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('gudang/inputBarangV');
-        $this->load->view('templates/footer');
+        $this->form_validation->set_rules('kode_barang', 'Kode barang', 'required|trim|is_unique[tbl_barang.kode_brg]', [
+            'is_unique' => 'kode sudah digunakan!'
+        ]);
+        $this->form_validation->set_rules('nama_barang', 'Nama barang', 'trim|required');
+        $this->form_validation->set_rules('harga_beli', 'Harga beli', 'trim|required');
+        $this->form_validation->set_rules('harga_jual', 'Harga jual', 'trim|required');
+
+        if ($this->form_validation->run() == false) {
+            $data['judul'] = "Input Barang";
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('gudang/inputBarangV');
+            $this->load->view('templates/footer');
+        }
     }
 
     public function infoSupplier()
     {
-        $this->load->view('templates/header');
+        $data['judul'] = "Info Supplier";
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('gudang/infoSupplierV');
         $this->load->view('templates/footer');

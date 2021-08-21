@@ -175,12 +175,6 @@
                         </a>
                         <ul class="nav nav-treeview small ml-1">
                             <li class="nav-item">
-                                <a href="<?= base_url('gudang/dashboard'); ?>" class="nav-link">
-                                    <i class="fas fa-tachometer-alt nav-icon"></i>
-                                    <p>Dashboard</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <a href="<?= base_url('gudang/infoStok'); ?>" class="nav-link">
                                     <i class="fas fa-info-circle nav-icon"></i>
                                     <p>Info stok</p>
