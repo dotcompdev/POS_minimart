@@ -73,159 +73,155 @@
                 </li>
                 <!-- End User -->
 
-                <!-- Start Pembukuan -->
-                <li class="nav-item">
-                    <a type="button" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                            Pembukuan
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview small ml-1">
-                        <li class="nav-item">
-                            <a href="<?= base_url('testing/j_penjualan'); ?>" class="nav-link">
-                                <i class="fas fa-file-invoice-dollar nav-icon"></i>
-                                <p>Jurnal penjualan</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('testing/j_pembelian'); ?>" class="nav-link">
-                                <i class="fas fa-file-invoice-dollar nav-icon"></i>
-                                <p>Jurnal pembelian</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('testing/j_retur'); ?>" class="nav-link">
-                                <i class="fas fa-file-invoice nav-icon"></i>
-                                <p>Jurnal retur</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- End Pembukuan -->
+                <?php if ($this->session->userdata('role_id') == 1) : ?>
+                    <!-- Start Pembukuan -->
+                    <li class="nav-item">
+                        <a type="button" class="nav-link">
+                            <i class="nav-icon fas fa-copy"></i>
+                            <p>
+                                Pembukuan
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview small ml-1">
+                            <li class="nav-item">
+                                <a href="<?= base_url('testing/j_penjualan'); ?>" class="nav-link">
+                                    <i class="fas fa-file-invoice-dollar nav-icon"></i>
+                                    <p>Jurnal penjualan</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('testing/j_pembelian'); ?>" class="nav-link">
+                                    <i class="fas fa-file-invoice-dollar nav-icon"></i>
+                                    <p>Jurnal pembelian</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('testing/j_retur'); ?>" class="nav-link">
+                                    <i class="fas fa-file-invoice nav-icon"></i>
+                                    <p>Jurnal retur</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- End Pembukuan -->
 
-                <!-- Start Promo -->
-                <li class="nav-item">
-                    <a type="button" class="nav-link">
-                        <i class="nav-icon fas fa-percent"></i>
-                        <p>
-                            Promo
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview small ml-1">
-                        <li class="nav-item">
-                            <a href="<?= base_url('testing/promo'); ?>" class="nav-link">
-                                <i class="fas fa-info-circle nav-icon"></i>
-                                <p>Info promo</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('testing/tenPromo'); ?>" class="nav-link">
-                                <i class="fas fa-tags nav-icon"></i>
-                                <p>Tentukan promo</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- End Promo -->
+                    <!-- Start Promo -->
+                    <li class="nav-item">
+                        <a type="button" class="nav-link">
+                            <i class="nav-icon fas fa-percent"></i>
+                            <p>
+                                Promo
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview small ml-1">
+                            <li class="nav-item">
+                                <a href="<?= base_url('testing/promo'); ?>" class="nav-link">
+                                    <i class="fas fa-info-circle nav-icon"></i>
+                                    <p>Info promo</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('testing/tenPromo'); ?>" class="nav-link">
+                                    <i class="fas fa-tags nav-icon"></i>
+                                    <p>Tentukan promo</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- End Promo -->
 
-                <!-- Start Rangkuman Bisnis -->
-                <li class="nav-item">
-                    <a type="button" class="nav-link">
-                        <i class="nav-icon fas fa-chart-bar"></i>
-                        <p>
-                            Rangkuman Bisnis
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview small ml-1">
-                        <li class="nav-item">
-                            <a href="<?= base_url('menu/barangTerlaris'); ?>" class="nav-link">
-                                <i class="fas fa-chart-line nav-icon"></i>
-                                <p>Barang terlaris</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('menu/waktuTerpadat'); ?>" class="nav-link">
-                                <i class="fas fa-business-time nav-icon"></i>
-                                <p>Waktu terpadat</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('menu/pencarianPelanggan'); ?>" class="nav-link">
-                                <i class="fas fa-search-dollar nav-icon"></i>
-                                <p>Pencarian dari pelanggan</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- End Rangkuman Bisnis -->
+                    <!-- Start Rangkuman Bisnis -->
+                    <li class="nav-item">
+                        <a type="button" class="nav-link">
+                            <i class="nav-icon fas fa-chart-bar"></i>
+                            <p>
+                                Rangkuman Bisnis
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview small ml-1">
+                            <li class="nav-item">
+                                <a href="<?= base_url('menu/barangTerlaris'); ?>" class="nav-link">
+                                    <i class="fas fa-chart-line nav-icon"></i>
+                                    <p>Barang terlaris</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('menu/waktuTerpadat'); ?>" class="nav-link">
+                                    <i class="fas fa-business-time nav-icon"></i>
+                                    <p>Waktu terpadat</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('menu/pencarianPelanggan'); ?>" class="nav-link">
+                                    <i class="fas fa-search-dollar nav-icon"></i>
+                                    <p>Pencarian dari pelanggan</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- End Rangkuman Bisnis -->
 
-                <!-- Start Gudang -->
-                <li class="nav-item">
-                    <a type="button" class="nav-link">
-                        <i class="nav-icon fas fa-boxes"></i>
-                        <p>
-                            Gudang
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview small ml-1">
-                        <li class="nav-item">
-                            <a href="<?= base_url('gudang/dashboard'); ?>" class="nav-link">
-                                <i class="fas fa-tachometer-alt nav-icon"></i>
-                                <p>Dashboard</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('gudang/infoStok'); ?>" class="nav-link">
-                                <i class="fas fa-info-circle nav-icon"></i>
-                                <p>Info stok</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('gudang/inputBarang'); ?>" class="nav-link">
-                                <i class="fas fa-plus-circle nav-icon"></i>
-                                <p>Input barang</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('gudang/infoSupplier'); ?>" class="nav-link">
-                                <i class="fas fa-address-card nav-icon"></i>
-                                <p>Info supplier</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- End Gudang -->
+                    <!-- Start Gudang -->
+                    <li class="nav-item">
+                        <a type="button" class="nav-link">
+                            <i class="nav-icon fas fa-boxes"></i>
+                            <p>
+                                Gudang
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview small ml-1">
+                            <li class="nav-item">
+                                <a href="<?= base_url('gudang/infoStok'); ?>" class="nav-link">
+                                    <i class="fas fa-info-circle nav-icon"></i>
+                                    <p>Info stok</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('gudang/inputBarang'); ?>" class="nav-link">
+                                    <i class="fas fa-plus-circle nav-icon"></i>
+                                    <p>Input barang</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('gudang/infoSupplier'); ?>" class="nav-link">
+                                    <i class="fas fa-address-card nav-icon"></i>
+                                    <p>Info supplier</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- End Gudang -->
 
-                <!-- Start Pegawai -->
-                <li class="nav-item">
-                    <a type="button" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
-                            Pegawai
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview small ml-1">
-                        <li class="nav-item">
-                            <a href="<?= base_url('supervisor/infoPegawai'); ?>" class="nav-link">
-                                <i class="fas fa-info-circle nav-icon"></i>
-                                <p>Info pegawai</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('supervisor/registration'); ?>" class="nav-link">
-                                <i class="fas fa-user-plus nav-icon"></i>
-                                <p>Tambah pegawai</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- End Pegawai -->
+                    <!-- Start Pegawai -->
+                    <li class="nav-item">
+                        <a type="button" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Pegawai
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview small ml-1">
+                            <li class="nav-item">
+                                <a href="<?= base_url('supervisor/infoPegawai'); ?>" class="nav-link">
+                                    <i class="fas fa-info-circle nav-icon"></i>
+                                    <p>Info pegawai</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('supervisor/registration'); ?>" class="nav-link">
+                                    <i class="fas fa-user-plus nav-icon"></i>
+                                    <p>Tambah pegawai</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- End Pegawai -->
+                <?php endif; ?>
 
             </ul>
         </nav>
