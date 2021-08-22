@@ -8,7 +8,7 @@ class Mod_supervisor extends CI_Model
         $username = $this->input->post('username', true);
 
         // cek jika ada gambar yang akan di upload
-        $upload_image = $_FILES['image'];
+        $upload_image = $_FILES['image']['name'];
 
         if ($upload_image) {
             $config['allowed_types'] = 'gif|jpg|png';
@@ -40,6 +40,16 @@ class Mod_supervisor extends CI_Model
         redirect('auth');
     }
 
+    public function get($id = null)
+    {
+        $this->db->from('tbl_user');
+        if ($id != null) {
+            $this->db->where('email', $id);
+        }
+        $query = $this->db->get();
+        return $query;
+    }
+
     public function getPegawai()
     {
         $keyword1 = 2;
@@ -49,14 +59,12 @@ class Mod_supervisor extends CI_Model
         return $this->db->get('tbl_user')->result_array();
     }
 
-    public function get($id = null)
+    public function cariDataPegawai()
     {
-        $this->db->from('tbl_user');
-        if ($id != null) {
-            $this->db->where('id_user', $id);
-        }
-        $query = $this->db->get();
-        return $query;
+        $keyword = $this->input->post('keyword', true);
+        $this->db->like('id_user', $keyword);
+        $this->db->or_like('nama_user', $keyword);
+        return $this->db->get('tbl_user')->result_array();
     }
 
     public function hapusPegawai($id)

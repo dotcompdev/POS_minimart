@@ -1,7 +1,7 @@
-<?php 
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Menu extends CI_Controller 
+class Menu extends CI_Controller
 {
 
     public function __construct()
@@ -9,9 +9,14 @@ class Menu extends CI_Controller
         parent::__construct();
     }
 
+    public function index()
+    {
+    }
+
     public function barangTerlaris()
     {
-        $this->load->view('templates/header');
+        $data['judul'] = "Barang Terlaris";
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('supervisor/rangkuman/barangTerlarisV');
         $this->load->view('templates/footer');
@@ -19,7 +24,8 @@ class Menu extends CI_Controller
 
     public function waktuTerpadat()
     {
-        $this->load->view('templates/header');
+        $data['judul'] = "Waktu Terpadat";
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('supervisor/rangkuman/waktuV');
         $this->load->view('templates/footer');
@@ -27,7 +33,8 @@ class Menu extends CI_Controller
 
     public function pencarianPelanggan()
     {
-        $this->load->view('templates/header');
+        $data['judul'] = "Pencarian Pelanggan";
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('supervisor/rangkuman/pencarianPelangganV');
         $this->load->view('templates/footer');

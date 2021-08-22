@@ -8,7 +8,7 @@ class Supervisor extends CI_Controller
     {
         parent::__construct();
         is_logged_in();
-        // check_supervisor();
+        check_supervisor();
         $this->load->model('Mod_supervisor');
         $this->load->library('form_validation');
     }
@@ -60,6 +60,9 @@ class Supervisor extends CI_Controller
     {
         $data['judul'] = "Info Pegawai";
         $data['user'] = $this->Mod_supervisor->getPegawai();
+        if ($this->input->post('keyword')) {
+            $data['user'] = $this->Mod_supervisor->cariDataPegawai();
+        }
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
@@ -69,6 +72,11 @@ class Supervisor extends CI_Controller
 
     public function hapus($id)
     {
+        $data['user'] = $this->db->get_where('tbl_user', ['id_user' => $id])->row_array();
+        $old_image = $data['user']['image'];
+        if ($old_image != 'default.jpg') {
+            unlink(FCPATH . 'assets/img/profile/' . $old_image);
+        }
         $this->Mod_supervisor->hapusPegawai($id);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pegawai telah dihapus!</div>');
         redirect('supervisor/infoPegawai');

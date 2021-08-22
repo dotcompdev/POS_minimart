@@ -24,9 +24,9 @@
                         </a>
                     </div>
                     <div class="col-md-4 ml-1 mt-1 ">
-                        <form action="#" class="justify-content-end">
+                        <form action="" method="post" class="justify-content-end">
                             <div class="input-group">
-                                <input type="search" class="form-control form-control-md" placeholder="Cari pegawai">
+                                <input type="text" name="keyword" autocomplete="off" autofocus class="form-control form-control-md" placeholder="Cari pegawai..">
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-default mb-4">
                                         <i class="fa fa-search"></i>
@@ -45,8 +45,8 @@
 
         <!-- Main content -->
         <div class="card col-lg-8 ml-3">
-              <!-- /.card-header -->
-              <div class="card-body">
+            <!-- /.card-header -->
+            <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
