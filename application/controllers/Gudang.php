@@ -7,6 +7,7 @@ class Gudang extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Mod_gudang');
     }
 
     public function index()
@@ -21,9 +22,10 @@ class Gudang extends CI_Controller
     public function infoStok()
     {
         $data['judul'] = "Info Stok";
+        $data['barang'] = $this->Mod_gudang->get();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('gudang/infoStokV');
+        $this->load->view('gudang/infoStokV', $data);
         $this->load->view('templates/footer');
     }
 
@@ -34,8 +36,9 @@ class Gudang extends CI_Controller
         $this->form_validation->set_rules('nama_barang', 'Nama barang', 'trim|required');
         $this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
         $this->form_validation->set_rules('satuan', 'Satuan', 'trim|required');
-        $this->form_validation->set_rules('harga_beli', 'Harga beli', 'trim|required');
-        $this->form_validation->set_rules('harga_jual', 'Harga jual', 'trim|required');
+        $this->form_validation->set_rules('qty', 'QTY', 'trim|required|is_natural_no_zero');
+        $this->form_validation->set_rules('harga_beli', 'Harga beli', 'trim|required|is_natural_no_zero');
+        $this->form_validation->set_rules('harga_jual', 'Harga jual', 'trim|required|is_natural_no_zero');
 
         if ($this->form_validation->run() == false) {
             $data['judul'] = "Input Barang";
@@ -43,6 +46,8 @@ class Gudang extends CI_Controller
             $this->load->view('templates/sidebar');
             $this->load->view('gudang/inputBarangV');
             $this->load->view('templates/footer');
+        } else {
+            $this->Mod_gudang->tambahBarang();
         }
     }
 

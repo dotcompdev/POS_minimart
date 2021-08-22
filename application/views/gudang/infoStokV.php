@@ -43,24 +43,27 @@
                     <thead>
                         <tr>
                             <th>AKSI</th>
-                            <th>ID Barang</th>
+                            <th>Kode Barang</th>
                             <th>Nama Barang</th>
+                            <th>Kategori</th>
                             <th>Harga Jual</th>
                             <th>QTY</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <button type="button" class="btn btn-warning far fa-edit"></button>
-                                <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                            </td>
-                            <td>1</td>
-                            <td>Mie Sedap Goreng</td>
-                            <td>Rp. 2.500</td>
-                            <td>10</td>
-                        </tr>
-
+                        <?php foreach ($barang as $brg) : ?>
+                            <tr>
+                                <td>
+                                    <button type="button" class="btn btn-warning far fa-edit"></button>
+                                    <button type="button" class="btn btn-danger far fa-trash-alt"></button>
+                                </td>
+                                <td><?= $brg['kode_brg']; ?></td>
+                                <td><?= $brg['nama_brg']; ?></td>
+                                <td><?= $brg['kategori']; ?></td>
+                                <td><?= $brg['harga_jual']; ?></td>
+                                <td><?= $brg['qty']; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
 
                 </table>

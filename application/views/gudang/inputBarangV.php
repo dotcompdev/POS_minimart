@@ -24,7 +24,7 @@
                         <label>Supplier</label>
                         <select name="supplier" class="form-control form-control-sm">
                             <option value="">- Pilih -</option>
-                            <option value="2" <?= set_value('supplier') == 1 ? "selected" : null ?>>buah</option>
+                            <option value="PT. Penyuplai" <?= set_value('supplier') == 'PT. Penyuplai' ? "selected" : null ?>>PT. Penyuplai</option>
                         </select>
                         <?= form_error('supplier', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                     </div>
@@ -32,9 +32,9 @@
                         <label>Kategori</label>
                         <select name="kategori" class="form-control form-control-sm">
                             <option value="">- Pilih -</option>
-                            <option value="2" <?= set_value('kategori') == 1 ? "selected" : null ?>>ATK</option>
-                            <option value="3" <?= set_value('kategori') == 2 ? "selected" : null ?>>Makanan</option>
-                            <option value="3" <?= set_value('kategori') == 3 ? "selected" : null ?>>Minuman</option>
+                            <option value="ATK" <?= set_value('kategori') == 'ATK' ? "selected" : null ?>>ATK</option>
+                            <option value="Makanan" <?= set_value('kategori') == 'Makanan' ? "selected" : null ?>>Makanan</option>
+                            <option value="Minuman" <?= set_value('kategori') == 'Minuman' ? "selected" : null ?>>Minuman</option>
                         </select>
                         <?= form_error('kategori', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                     </div>
@@ -43,7 +43,7 @@
                     <div class="form-group">
                         <label for="kode_barang">Kode Barang</label>
                         <div class="input-group input-group-sm">
-                            <input type="text" class="form-control form-control-sm form-control-user" id="kode_barang" name="kode_barang" placeholder="Kode Barang">
+                            <input type="text" class="form-control form-control-sm form-control-user" id="kode_barang" name="kode_barang" placeholder="Kode Barang" value="<?= set_value('kode_barang'); ?>">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
                             </div>
@@ -53,18 +53,18 @@
 
                     <div class="form-group">
                         <label for="nama_barang">Nama Barang</label>
-                        <input type="text" class="form-control form-control-sm form-control-user" id="nama_barang" name="nama_barang" placeholder="Nama Barang">
+                        <input type="text" class="form-control form-control-sm form-control-user" id="nama_barang" name="nama_barang" placeholder="Nama Barang" value="<?= set_value('nama_barang'); ?>">
                         <?= form_error('nama_barang', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <label>Satuan</label>
                         <select name="satuan" class="form-control form-control-sm">
                             <option value="">- Pilih -</option>
-                            <option value="2" <?= set_value('satuan') == 1 ? "selected" : null ?>>buah</option>
-                            <option value="3" <?= set_value('satuan') == 2 ? "selected" : null ?>>bungkus</option>
-                            <option value="3" <?= set_value('satuan') == 3 ? "selected" : null ?>>kilogram</option>
-                            <option value="3" <?= set_value('satuan') == 4 ? "selected" : null ?>>liter</option>
-                            <option value="3" <?= set_value('satuan') == 5 ? "selected" : null ?>>dus</option>
+                            <option value="buah" <?= set_value('satuan') == 'buah' ? "selected" : null ?>>buah</option>
+                            <option value="bungkus" <?= set_value('satuan') == 'bungkus' ? "selected" : null ?>>bungkus</option>
+                            <option value="kilogram" <?= set_value('satuan') == 'kilogram' ? "selected" : null ?>>kilogram</option>
+                            <option value="liter" <?= set_value('satuan') == 'liter' ? "selected" : null ?>>liter</option>
+                            <option value="dus" <?= set_value('satuan') == 'dus' ? "selected" : null ?>>dus</option>
                         </select>
                         <?= form_error('satuan', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                     </div>
@@ -73,12 +73,19 @@
 
                 <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="harga_beli">Harga Beli</label>
+                        <label for="qty">QTY</label>
+                        <div class="input-group input-group-sm">
+                            <input type="number" class="form-control form-control-sm form-control-user" id="qty" name="qty" placeholder="Jumlah" value="<?= set_value('qty'); ?>">
+                        </div>
+                        <?= form_error('qty', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label for="harga_beli">Harga Beli /satuan</label>
                         <div class="input-group input-group-sm">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Rp.</span>
                             </div>
-                            <input type="number" class="form-control form-control-sm form-control-user" id="harga_beli" name="harga_beli" placeholder="Harga Beli">
+                            <input type="number" class="form-control form-control-sm form-control-user" id="harga_beli" name="harga_beli" placeholder="Harga Beli" value="<?= set_value('harga_beli'); ?>">
                         </div>
                         <?= form_error('harga_beli', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                     </div>
@@ -88,7 +95,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Rp.</span>
                             </div>
-                            <input type="number" class="form-control form-control-sm form-control-user" id="harga_jual" name="harga_jual" placeholder="Harga Jual">
+                            <input type="number" class="form-control form-control-sm form-control-user" id="harga_jual" name="harga_jual" placeholder="Harga Jual" value="<?= set_value('harga_jual'); ?>">
                         </div>
                         <?= form_error('harga_jual', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                     </div>
