@@ -29,10 +29,11 @@ class Gudang extends CI_Controller
 
     public function inputBarang()
     {
-        $this->form_validation->set_rules('kode_barang', 'Kode barang', 'required|trim|is_unique[tbl_barang.kode_brg]', [
-            'is_unique' => 'kode sudah digunakan!'
-        ]);
+        $this->form_validation->set_rules('supplier', 'Supplier', 'required|trim');
+        $this->form_validation->set_rules('kode_barang', 'Kode barang', 'required|trim');
         $this->form_validation->set_rules('nama_barang', 'Nama barang', 'trim|required');
+        $this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
+        $this->form_validation->set_rules('satuan', 'Satuan', 'trim|required');
         $this->form_validation->set_rules('harga_beli', 'Harga beli', 'trim|required');
         $this->form_validation->set_rules('harga_jual', 'Harga jual', 'trim|required');
 

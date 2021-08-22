@@ -42,7 +42,7 @@
                 <div class="col-lg-3">
                     <div class="form-group">
                         <label for="kode_barang">Kode Barang</label>
-                        <div class="input-group input-group-sm mb-3">
+                        <div class="input-group input-group-sm">
                             <input type="text" class="form-control form-control-sm form-control-user" id="kode_barang" name="kode_barang" placeholder="Kode Barang">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
@@ -79,8 +79,8 @@
                                 <span class="input-group-text">Rp.</span>
                             </div>
                             <input type="number" class="form-control form-control-sm form-control-user" id="harga_beli" name="harga_beli" placeholder="Harga Beli">
-                            <?= form_error('harga_beli', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                         </div>
+                        <?= form_error('harga_beli', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <label for="harga_jual">Harga Jual</label>
@@ -89,8 +89,8 @@
                                 <span class="input-group-text">Rp.</span>
                             </div>
                             <input type="number" class="form-control form-control-sm form-control-user" id="harga_jual" name="harga_jual" placeholder="Harga Jual">
-                            <?= form_error('harga_jual', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                         </div>
+                        <?= form_error('harga_jual', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                     </div>
                 </div>
 
@@ -102,9 +102,9 @@
                     </a>
                 </div>
                 <div class="form-group col-lg-2 float-lg-left">
-                    <a type="submit" class="btn btn-success btn-user btn-block">
+                    <button type="submit" class="btn btn-success btn-user btn-block">
                         Simpan
-                    </a>
+                    </button>
                 </div>
             </div>
             </form>
