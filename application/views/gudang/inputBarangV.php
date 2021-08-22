@@ -15,7 +15,7 @@
     <!-- /.content-header -->
 
     <div class="card lg-10">
-    <!-- Main content -->
+        <!-- Main content -->
         <div class="p-3 col-lg registrasi">
             <?= form_open_multipart('supervisor/registration'); ?>
             <div class="row">
