@@ -19,6 +19,7 @@
         <div class="p-3 col-lg registrasi">
             <?= form_open_multipart('gudang/inputBarang'); ?>
             <div class="row">
+
                 <div class="col-lg-3">
                     <div class="form-group">
                         <label>Supplier</label>
@@ -37,6 +38,7 @@
                             <option value="Minuman" <?= set_value('kategori') == 'Minuman' ? "selected" : null ?>>Minuman</option>
                         </select>
                         <?= form_error('kategori', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
+
                     </div>
                 </div>
                 <div class="col-lg-3">
