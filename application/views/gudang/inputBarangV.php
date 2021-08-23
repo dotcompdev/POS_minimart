@@ -158,7 +158,7 @@
                                         <tr>
                                             <td><?= $brg['kode_brg']; ?></td>
                                             <td><?= $brg['nama_brg']; ?></td>
-                                            <td><button class="btn btn-primary btn-sm">Pilih</button></td>
+                                            <td><a href="<?= base_url('gudang/inputBarang/') . $brg['kode_brg']; ?>" class="btn btn-primary btn-sm" type="button">Pilih</a></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
@@ -180,3 +180,9 @@
     </div>
     <!-- /.modal -->
 </div>
+
+<script>
+    $(document).ready(function() {
+        $(document).on('click', '#sele')
+    });
+</script>

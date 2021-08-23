@@ -34,6 +34,16 @@ class Mod_gudang extends CI_Model
         return $this->db->get('tbl_barang')->result_array();
     }
 
+    public function getModal($kode = null)
+    {
+        $this->db->from('tbl_barang');
+        if ($kode != null) {
+            $this->db->where('barang', $kode);
+        }
+        $query = $this->db->get();
+        return $query;
+    }
+
     public function tambahSupplier()
     {
         $supp = $this->input->post('nama_sup', true);
