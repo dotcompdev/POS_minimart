@@ -22,50 +22,63 @@
                 <div class="col-lg-2">
                     <div class="row-lg">
                         <div class="form-group">
-                            <label for="id_barang">ID Transaksi</label>
-                            <input type="text" class="form-control form-control-user" id="id_transaksi" name="id_transaksi" placeholder="ID Transaksi">
+                            <label for="tgl_transaksi">Tanggal Transaksi</label>
+                            <div class="input-group input-group-sm">
+                                <input type="text" class="form-control form-control-user" id="tgl_transaksi" name="tgl_transaksi" placeholder="Tanggal Transaksi">
+
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="tgl_transaksi">Tanggal Transaksi</label>
-                            <input type="text" class="form-control form-control-user" id="tgl_transaksi" name="tgl_transaksi" placeholder="Tanggal Transaksi">
+                            <label for="nama_kasir">Nama Kasir</label>
+                            <div class="input-group input-group-sm">
+                                <input type="text" class="form-control form-control-user" id="nama_kasir" name="nama_kasir" placeholder="Nama Kasir">
+                            </div>
                         </div>
+
                         
                     </div>
                 </div>
 
-                <div class="col-lg-2">
-                    <div class="form-group">
-                        <label for="id_kasir">ID Kasir</label>
-                        <input type="text" class="form-control form-control-user" id="id_kasir" name="id_kasir" placeholder="ID Kasir">
-                    </div>
-        
-        
+                <!-- <div class="col-lg-2">
                     <div class="form-group">
                         <label for="nama_kasir">Nama Kasir</label>
                         <input type="text" class="form-control form-control-user" id="nama_kasir" name="nama_kasir" placeholder="Nama Kasir">
-                    </div>
-                                    
-                </div>
+                    </div> -->
+                    
+                    <!-- <div class="form-group">
+                        <label for="id_kasir">ID Kasir</label>
+                        <input type="text" class="form-control form-control-user" id="id_kasir" name="id_kasir" placeholder="ID Kasir">
+                    </div> -->
+                <!-- </div> -->
 
-                <!-- <div class="col-lg-4">
+                <div class="col-lg-4">
                     <div class="form-group">
-                        <label for="id_supplier">ID Supplier</label>
-                        <input type="text" class="form-control form-control-user" id="id_supplier" name="id_supplier" placeholder="ID Supplier">
+                    <label for="kode_barang">Kode Barang</label>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control form-control-sm form-control-user" id="kode_barang" name="kode_barang" placeholder="Kode Barang" value="<?= set_value('kode_barang'); ?>">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="nama_supplier">Nama Supplier</label>
-                        <input type="text" class="form-control form-control-user" id="nama_supplier" name="nama_supplier" placeholder="Nama Supplier">
+                        <label for="qty">QTY</label>
+                        <div class="input-group input-group-sm">
+                            <input type="number" class="form-control form-control-user" id="qty" name="qty" placeholder="QTY">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="alamat_supplier">Alamat Supplier</label>
-                        <input type="text" class="form-control form-control-user" id="alamat_supplier" name="alamat_supplier" placeholder="Alamat Supplier">
-                    </div>
-                    <div class="form-group">
-                        <label for="no_telp">No. Telepon</label>
-                        <input type="text" class="form-control form-control-user" id="no_telp" name="no_telp" placeholder="No. Telepon">
-                    </div>                   
-                </div> -->
+
+                    
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-user btn-block">
+                                Tambah
+                            </button>
+                        </div>
+                    
+                                   
+                </div>
                 
             </div>
             
@@ -82,6 +95,7 @@
                         <th>Kode Barang</th>
                         <th>Nama Barang</th>
                         <th>Kategori</th>
+                        <th>Harga</th>
                         <th>QTY</th>
                     </tr>
                   </thead>
@@ -95,6 +109,7 @@
                         <td>KD001</td>
                         <td>Good Day</td>
                         <td>Minuman</td>
+                        <td>2.000</td>
                         <td>1</td>
                     </tr>
 
@@ -106,6 +121,7 @@
                         <td>KD002</td>
                         <td>Lays</td>
                         <td>Snack</td>
+                        <td>10.000</td>
                         <td>1</td>
                     </tr>
                   
@@ -118,23 +134,40 @@
             <!-- End TABLE -->
 
             <!-- PEMBAYARAN -->
-            <div class="col-lg-2" style="position: right;">
+            <div class="col-lg-2">
+                <div class="row-lg">
                     <div class="form-group">
                         <label for="total">Total</label>
-                        <input type="text" class="form-control form-control-user" id="total" name="total" placeholder="Total">
-                    </div>
-        
-        
-                    <div class="form-group">
-                        <label for="bayar">Bayar</label>
-                        <input type="text" class="form-control form-control-user" id="bayar" name="bayar" placeholder="Bayar">
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control form-control-user" id="total" name="total" placeholder="Total">
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label for="kembalian">Kembalian</label>
-                        <input type="text" class="form-control form-control-user" id="kembalian" name="kembalian" placeholder="Kembalian">
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control form-control-user" id="kembalian" name="kembalian" placeholder="Kembalian">
+                        </div>
+                    </div>          
+                </div>              
+            </div>
+
+            <div class="col-lg-2">
+                <div class="row-lg">
+                   <div class="form-group">
+                        <label for="bayar">Bayar</label>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control form-control-user" id="bayar" name="bayar" placeholder="Bayar">
+                        </div>
                     </div>
-                                    
+
+                    <div class="form-group">
+                        <label for="kembalian">Kembalian</label>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control form-control-user" id="kembalian" name="kembalian" placeholder="Kembalian">
+                        </div>
+                    </div>
+                </div>                        
             </div>
             <!-- END PEMBAYARAN -->
 
@@ -145,12 +178,12 @@
                     </button>
                 </div>
                 <div class="form-group col-lg-2 float-lg-left">
-                    <button type="submit" class="btn btn-success btn-user btn-block">
-                        Cetak
+                    <button type="submit" class="btn btn-success btn-user btn-block" data-toggle="modal" data-target="#modal-lg">
+                        Cetak Struk
                     </button>
                 </div>
             </div>
-            <!-- </form> -->
+        
         </div>
     </div>
 </div>
