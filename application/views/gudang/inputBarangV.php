@@ -25,7 +25,9 @@
                         <label>Supplier</label>
                         <select name="supplier" class="form-control form-control-sm">
                             <option value="">- Pilih -</option>
-                            <option value="PT. Penyuplai" <?= set_value('supplier') == 'PT. Penyuplai' ? "selected" : null ?>>PT. Penyuplai</option>
+                            <?php foreach ($supplier as $sup) : ?>
+                                <option value="<?= $sup['nama_supplier']; ?>" <?= set_value('supplier') == $sup['nama_supplier'] ? "selected" : null ?>><?= $sup['nama_supplier']; ?></option>
+                            <?php endforeach; ?>
                         </select>
                         <?= form_error('supplier', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                     </div>
@@ -47,7 +49,7 @@
                         <div class="input-group input-group-sm">
                             <input type="text" class="form-control form-control-sm form-control-user" id="kode_barang" name="kode_barang" placeholder="Kode Barang" value="<?= set_value('kode_barang'); ?>">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+                                <button class="btn btn-outline-secondary" data-toggle="modal" data-target="#modalBarang" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
                             </div>
                         </div>
                         <?= form_error('kode_barang', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
@@ -119,4 +121,62 @@
             </form>
         </div>
     </div>
+</div>
+
+<div class="modal fade" id="modalBarang">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Pilih Barang</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <?= form_open_multipart('gudang/inputSupplier'); ?>
+                <div class="col-md">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-tools">
+                                <div class="input-group input-group-sm" style="width: 250px;">
+                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Cari..">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0" style="height: 300px;">
+                            <table class="table table-head-fixed text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Kode Barang</th>
+                                        <th>Nama Barang</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($barang as $brg) : ?>
+                                        <tr>
+                                            <td><?= $brg['kode_brg']; ?></td>
+                                            <td><?= $brg['nama_brg']; ?></td>
+                                            <td><button class="btn btn-primary btn-sm">Pilih</button></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 </div>

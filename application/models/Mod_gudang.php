@@ -33,4 +33,24 @@ class Mod_gudang extends CI_Model
     {
         return $this->db->get('tbl_barang')->result_array();
     }
+
+    public function tambahSupplier()
+    {
+        $supp = $this->input->post('nama_sup', true);
+
+        $data = [
+            'nama_supplier' => htmlspecialchars($supp),
+            'alamat_supplier' => htmlspecialchars($this->input->post('alamat', true)),
+            'no_telp' => htmlspecialchars($this->input->post('no_telp', true)),
+            'keterangan' => htmlspecialchars($this->input->post('keterangan', true)),
+        ];
+
+        $this->db->insert('tbl_supplier', $data);
+        redirect('gudang/infoSupplier');
+    }
+
+    public function getSupplier()
+    {
+        return $this->db->get('tbl_supplier')->result_array();
+    }
 }

@@ -31,7 +31,7 @@ class Gudang extends CI_Controller
 
     public function inputBarang()
     {
-        $this->form_validation->set_rules('supplier', 'Supplier', 'required|trim');
+        $this->form_validation->set_rules('supplier', 'Supplier', 'trim');
         $this->form_validation->set_rules('kode_barang', 'Kode barang', 'required|trim');
         $this->form_validation->set_rules('nama_barang', 'Nama barang', 'trim|required');
         $this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
@@ -42,9 +42,11 @@ class Gudang extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['judul'] = "Input Barang";
+            $data['supplier'] = $this->Mod_gudang->getSupplier();
+            $data['barang'] = $this->Mod_gudang->get();
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar');
-            $this->load->view('gudang/inputBarangV');
+            $this->load->view('gudang/inputBarangV', $data);
             $this->load->view('templates/footer');
         } else {
             $this->Mod_gudang->tambahBarang();
@@ -54,14 +56,25 @@ class Gudang extends CI_Controller
     public function infoSupplier()
     {
         $data['judul'] = "Info Supplier";
+        // $data['start'] = $this->uri->segment(3);
+        $data['supplier'] = $this->Mod_gudang->getSupplier();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('gudang/infoSupplierV');
+        $this->load->view('gudang/infoSupplierV', $data);
         $this->load->view('templates/footer');
     }
 
     public function inputSupplier()
     {
-        redirect('gudang/infoSupplier');
+        $this->form_validation->set_rules('nama_sup', 'Nama Supplier', 'required|is_unique[tbl_supplier.nama_supplier]', [
+            'is_unique' => 'This name has already registered!'
+        ]);
+        $this->form_validation->set_rules('no_telp', 'Nomer telepon', 'required|trim');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+        if ($this->form_validation->run() == false) {
+            redirect('gudang/infoSupplier');
+        } else {
+            $this->Mod_gudang->tambahSupplier();
+        }
     }
 }
