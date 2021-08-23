@@ -9,7 +9,11 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-
+        <li class="nav-item">
+            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                <i class="fas fa-expand-arrows-alt"></i>
+            </a>
+        </li>
     </ul>
 </nav>
 <!-- /.navbar -->
@@ -221,39 +225,41 @@
                         </ul>
                     </li>
                     <!-- End Pegawai -->
-                <?php endif; ?>
 
-                <!-- Start Pegawai -->
-                <li class="nav-item">
-                    <a type="button" class="nav-link">
-                        <i class="nav-icon fas fa-shopping-cart"></i>
-                        <p>
-                            Transaksi
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview small ml-1">
-                        <li class="nav-item">
-                            <a href="<?= base_url('kasir/penjualan'); ?>" class="nav-link">
-                                <i class="fas fa-cash-register nav-icon"></i>
-                                <p>Penjualan</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('kasir/wishlist'); ?>" class="nav-link">
-                                <i class="fas fa-clipboard-list nav-icon"></i>
-                                <p>Wishlist</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('kasir/returment'); ?>" class="nav-link">
-                                <i class="fas fa-undo nav-icon"></i>
-                                <p>Returment</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- End Pegawai -->
+
+                    <!-- Start Pegawai -->
+                    <li class="nav-item">
+                        <a type="button" class="nav-link">
+                            <i class="nav-icon fas fa-shopping-cart"></i>
+                            <p>
+                                Transaksi
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview small ml-1">
+                            <li class="nav-item">
+                                <a href="<?= base_url('kasir/penjualan'); ?>" class="nav-link">
+                                    <i class="fas fa-cash-register nav-icon"></i>
+                                    <p>Penjualan</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('kasir/wishlist'); ?>" class="nav-link">
+                                    <i class="fas fa-clipboard-list nav-icon"></i>
+                                    <p>Wishlist</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('kasir/returment'); ?>" class="nav-link">
+                                    <i class="fas fa-undo nav-icon"></i>
+                                    <p>Returment</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- End Pegawai -->
+
+                <?php endif; ?>
 
             </ul>
         </nav>

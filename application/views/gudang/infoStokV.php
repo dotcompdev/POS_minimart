@@ -37,7 +37,7 @@
 
         <!-- Main content -->
 
-        
+
 
         <div class="card col-lg-8">
             <!-- /.card-header -->
@@ -75,14 +75,5 @@
         </div>
         <!-- /.card -->
 
-
     </div>
-    <footer class="main-footer">
-        <strong>Copyright &copy; 2021 <a href="#">Dotcomp</a>.</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 1.0
-        </div>
-    </footer>
-
 </div>

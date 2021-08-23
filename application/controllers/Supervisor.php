@@ -23,13 +23,9 @@ class Supervisor extends CI_Controller
         $this->load->view('supervisor/dashboardV', $data);
         $this->load->view('templates/footer');
     }
+
     public function registration()
     {
-        // cegah pindah halaman tanpa logout/in
-        // if ($this->session->userdata('username')) {
-        //     redirect('user');
-        // }
-
         $this->form_validation->set_rules('name', 'Name', 'trim|required');
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[tbl_user.email]', [
             'is_unique' => 'This email has already registered!'
