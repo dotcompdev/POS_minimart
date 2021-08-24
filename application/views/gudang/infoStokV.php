@@ -19,12 +19,12 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-2 ">
-                        <button type="button" class="btn btn-block btn-primary mt-1">
+                        <button type="button" class="btn btn-block btn-info mt-1">
                             Pesan Barang
                         </button>
                     </div>
                     <div class="col-md-2 ">
-                        <a href="<?= base_url('gudang/inputBarang'); ?>" type="button" class="btn btn-block btn-success mt-1">
+                        <a href="<?= base_url('gudang/inputBarang'); ?>" type="button" class="btn btn-block btn-primary mt-1">
                             Tambah Barang
                         </a>
                     </div>
