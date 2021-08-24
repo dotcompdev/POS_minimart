@@ -144,9 +144,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="kembalian">Kembalian</label>
+                        <label for="diskon">Diskon</label>
                         <div class="input-group input-group-sm">
-                            <input type="text" class="form-control form-control-user" id="kembalian" name="kembalian" placeholder="Kembalian">
+                            <input type="text" class="form-control form-control-user" id="diskon" name="diskon" placeholder="Diskon">
                         </div>
                     </div>          
                 </div>              

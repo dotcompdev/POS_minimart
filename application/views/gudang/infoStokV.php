@@ -36,9 +36,6 @@
         </section>
 
         <!-- Main content -->
-
-        
-
         <div class="card col-lg-8">
             <!-- /.card-header -->
             <div class="card-body">
@@ -74,7 +71,6 @@
             <!-- /.card-body -->
         </div>
         <!-- /.card -->
-
 
     </div>
     <footer class="main-footer">
