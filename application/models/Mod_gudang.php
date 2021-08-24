@@ -11,26 +11,36 @@ class Mod_gudang extends CI_Model
             'nama_brg' => htmlspecialchars($this->input->post('nama_barang'), true),
             'kategori' => htmlspecialchars($this->input->post('kategori', true)),
             'unit' => htmlspecialchars($this->input->post('satuan', true)),
-            'harga_jual' => htmlspecialchars($this->input->post('harga_jual', true)),
-            'qty' => htmlspecialchars($this->input->post('qty', true)),
+            'harga_jual' => 0,
+            'qty' => 0,
             'created' => time()
         ];
 
-        $trans_beli = [
-            'supplier_nama' => htmlspecialchars($this->input->post('supplier', true)) == '' ? null : htmlspecialchars($this->input->post('supplier', true)),
-            'brg_kode' => htmlspecialchars($this->input->post('kode_barang', true)),
-            'harga_beli' => htmlspecialchars($this->input->post('harga_beli', true)),
-            'qty_beli' => htmlspecialchars($this->input->post('qty', true)),
-            'tgl_beli' => time()
-        ];
-
         $this->db->insert('tbl_barang', $barang);
-        $this->db->insert('tbl_trans_beli', $trans_beli);
         redirect('gudang/infoStok');
     }
 
     public function tambahStok()
     {
+        $kodeBarang = $this->input->post('kode_barang', true);
+
+        $qty = intval($this->input->post('qtyA', true)) + intval($this->input->post('qtyM', true));
+        $harga = htmlspecialchars($this->input->post('harga_jual', true));
+
+        $trans_beli = [
+            'supplier_nama' => htmlspecialchars($this->input->post('supplier', true)) == '' ? "-" : htmlspecialchars($this->input->post('supplier', true)),
+            'brg_kode' => htmlspecialchars($this->input->post('kode_barang', true)),
+            'harga_beli' => htmlspecialchars($this->input->post('harga_beli', true)),
+            'qty_beli' => htmlspecialchars($this->input->post('qtyM', true)),
+            'tgl_beli' => time()
+        ];
+
+        $this->db->set('harga_jual', $harga);
+        $this->db->set('qty', $qty);
+        $this->db->where('kode_brg', $kodeBarang);
+        $this->db->update('tbl_barang');
+        $this->db->insert('tbl_trans_beli', $trans_beli);
+        redirect('gudang/infoStok');
     }
 
     public function get()

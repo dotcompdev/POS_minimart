@@ -81,11 +81,11 @@
 
                 <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="qty">QTY masuk</label>
+                        <label for="qtyM">QTY masuk</label>
                         <div class="input-group input-group-sm">
-                            <input type="number" class="form-control form-control-sm form-control-user" id="qty" name="qty" placeholder="Jumlah" value="<?= set_value('qty'); ?>">
+                            <input type="number" class="form-control form-control-sm form-control-user" id="qtyM" name="qtyM" placeholder="Jumlah" value="<?= set_value('qtyM'); ?>">
                         </div>
-                        <?= form_error('qty', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
+                        <?= form_error('qtyM', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <label for="harga_beli">Harga Beli /satuan</label>
