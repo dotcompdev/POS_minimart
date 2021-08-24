@@ -7,6 +7,9 @@
 </footer>
 
 </div>
+
+
+
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="<?= base_url('assets'); ?>/plugins/jquery/jquery.min.js"></script>
@@ -38,6 +41,26 @@
     });
 </script>
 <script src="<?= base_url('assets/my-js/chart.js'); ?>"></script>
+
+<script>
+    $(document).ready(function() {
+        $(document).on('click', '#pilih', function() {
+            var kode_brg = $(this).data('kode');
+            var nama_brg = $(this).data('nama');
+            var kategori = $(this).data('kategori');
+            var satuan = $(this).data('satuan');
+            var harga = $(this).data('harga');
+            var qty = $(this).data('qty');
+            $('#kode_barang').val(kode_brg);
+            $('#nama_barang').val(nama_brg);
+            $('#kategori').val(kategori);
+            $('#satuan').val(satuan);
+            $('#harga_jual').val(harga)
+            $('#qtyA').val(qty);
+            $('#modalBarang').modal('hide');
+        })
+    })
+</script>
 </body>
 
 </html>

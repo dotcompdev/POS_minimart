@@ -49,34 +49,14 @@ class Gudang extends CI_Controller
             $this->load->view('gudang/inputBarangV', $data);
             $this->load->view('templates/footer');
         } else {
-            $this->Mod_gudang->tambahBarang();
+            $this->Mod_gudang->tambahStok();
+            echo "berhasil";
         }
     }
 
-    public function inputModal($kode)
+    public function barangBaru()
     {
-        $data['brgPilih'] = $this->Mod_gudang->getModal($kode);
-        $this->form_validation->set_rules('supplier', 'Supplier', 'trim');
-        $this->form_validation->set_rules('kode_barang', 'Kode barang', 'required|trim');
-        $this->form_validation->set_rules('nama_barang', 'Nama barang', 'trim|required');
-        $this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
-        $this->form_validation->set_rules('satuan', 'Satuan', 'trim|required');
-        $this->form_validation->set_rules('qty', 'QTY', 'trim|required|is_natural_no_zero');
-        $this->form_validation->set_rules('harga_beli', 'Harga beli', 'trim|required|is_natural_no_zero');
-        $this->form_validation->set_rules('harga_jual', 'Harga jual', 'trim|required|is_natural_no_zero');
-
-        $data['barang'] = $this->Mod_gudang->get();
-
-        if ($this->form_validation->run() == false) {
-            $data['judul'] = "Input Barang";
-            $data['supplier'] = $this->Mod_gudang->getSupplier();
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar');
-            $this->load->view('gudang/inputBarangV', $data);
-            $this->load->view('templates/footer');
-        } else {
-            $this->Mod_gudang->tambahBarang();
-        }
+        $this->Mod_gudang->tambahBarang();
     }
 
     public function infoSupplier()

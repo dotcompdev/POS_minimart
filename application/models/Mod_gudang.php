@@ -17,7 +17,7 @@ class Mod_gudang extends CI_Model
         ];
 
         $trans_beli = [
-            'supplier_nama' => htmlspecialchars($this->input->post('supplier', true)),
+            'supplier_nama' => htmlspecialchars($this->input->post('supplier', true)) == '' ? null : htmlspecialchars($this->input->post('supplier', true)),
             'brg_kode' => htmlspecialchars($this->input->post('kode_barang', true)),
             'harga_beli' => htmlspecialchars($this->input->post('harga_beli', true)),
             'qty_beli' => htmlspecialchars($this->input->post('qty', true)),
@@ -27,6 +27,10 @@ class Mod_gudang extends CI_Model
         $this->db->insert('tbl_barang', $barang);
         $this->db->insert('tbl_trans_beli', $trans_beli);
         redirect('gudang/infoStok');
+    }
+
+    public function tambahStok()
+    {
     }
 
     public function get()
