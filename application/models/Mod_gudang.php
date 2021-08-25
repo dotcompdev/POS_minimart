@@ -17,6 +17,7 @@ class Mod_gudang extends CI_Model
         ];
 
         $this->db->insert('tbl_barang', $barang);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Barang berhasil ditambahkan!</div>');
         redirect('gudang/infoStok');
     }
 
@@ -41,6 +42,11 @@ class Mod_gudang extends CI_Model
         $this->db->update('tbl_barang');
         $this->db->insert('tbl_trans_beli', $trans_beli);
         redirect('gudang/infoStok');
+    }
+
+    public function hapusBarang($id)
+    {
+        $this->db->delete('tbl_barang', ['id_brg' => $id]);
     }
 
     public function get()

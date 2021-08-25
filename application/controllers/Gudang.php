@@ -76,6 +76,20 @@ class Gudang extends CI_Controller
         }
     }
 
+    public function ubah()
+    {
+        echo "berhasil";
+    }
+
+    public function hapus($id)
+    {
+        $data['barang'] = $this->db->get_where('tbl_barang', ['id_brg' => $id])->row_array();
+
+        $this->Mod_gudang->hapusBarang($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Barang telah dihapus!</div>');
+        redirect('gudang/infoStok');
+    }
+
     public function infoSupplier()
     {
         $data['judul'] = "Info Supplier";

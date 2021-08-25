@@ -9,6 +9,10 @@
                         <h1 class="m-0">Info Stok</h1>
                     </div>
                 </div>
+
+                <div class="row">
+                    <?= $this->session->flashdata('message'); ?>
+                </div>
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
@@ -57,8 +61,8 @@
                         <?php foreach ($barang as $brg) : ?>
                             <tr>
                                 <td>
-                                    <button type="button" class="btn btn-warning far fa-edit"></button>
-                                    <button type="button" class="btn btn-danger far fa-trash-alt"></button>
+                                    <a href="<?= base_url('gudang/ubah/') . $brg['id_brg']; ?>" type="button" class="btn btn-warning far fa-edit"></a>
+                                    <a href="<?= base_url('gudang/hapus/') . $brg['id_brg']; ?>" type="button" class="btn btn-danger far fa-trash-alt"></a>
                                 </td>
                                 <td><?= $brg['kode_brg']; ?></td>
                                 <td><?= $brg['nama_brg']; ?></td>
