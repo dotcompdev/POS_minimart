@@ -48,6 +48,13 @@ class Mod_gudang extends CI_Model
         return $this->db->get('tbl_barang')->result_array();
     }
 
+    public function getStok($cari)
+    {
+        $this->db->like('kode_brg', $cari);
+        $this->db->or_like('nama_brg', $cari);
+        return $this->db->get('tbl_barang')->result_array();
+    }
+
     public function getModal($kode = null)
     {
         $this->db->from('tbl_barang');

@@ -29,6 +29,11 @@ class Gudang extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function cariStok()
+    {
+        $this->Mod_gudang->getStok();
+    }
+
     public function inputBarang()
     {
         $this->form_validation->set_rules('supplier', 'Supplier', 'trim');

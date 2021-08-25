@@ -49,7 +49,7 @@
                     <div class="form-group">
                         <label for="kode_barang">Kode Barang</label>
                         <div class="input-group input-group-sm">
-                            <input readonly type="text" class="form-control form-control-sm form-control-user" id="kode_barang" name="kode_barang" readonly placeholder="Kode Barang" value="<?= set_value('kode_barang'); ?>">
+                            <input type="text" class="form-control form-control-sm form-control-user" id="kode_barang" name="kode_barang" placeholder="Kode Barang" value="<?= set_value('kode_barang'); ?>">
                             <div class="input-group-append">
                                 <button class="btn btn-info" data-toggle="modal" data-target="#modalBarang" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
                             </div>
@@ -59,7 +59,7 @@
 
                     <div class="form-group">
                         <label for="nama_barang">Nama Barang</label>
-                        <input type="text" class="form-control form-control-sm form-control-user" id="nama_barang" name="nama_barang" placeholder="Nama Barang" value="<?= set_value('nama_barang'); ?>" readonly>
+                        <input type="text" class="form-control form-control-sm form-control-user" id="nama_barang" name="nama_barang" placeholder="Nama Barang" value="<?= set_value('nama_barang'); ?>">
                         <?= form_error('nama_barang', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                     </div>
                     <div class="row">
@@ -145,12 +145,12 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="input-group input-group-sm">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Cari..">
+                                    <input type="text" id="table_search" name="table_search" class="form-control float-right" placeholder="Cari..">
                                 </div>
                             </div>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0" style="height: 300px;">
+                        <div id="container" class="card-body table-responsive p-0" style="height: 300px;">
                             <table class="table table-head-fixed text-nowrap">
                                 <thead>
                                     <tr>

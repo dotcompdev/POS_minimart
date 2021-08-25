@@ -42,25 +42,53 @@
 </script>
 <script src="<?= base_url('assets/my-js/chart.js'); ?>"></script>
 
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $(document).on("click", "#pilih", function() {
+            var kode_brg = $(this).data("kode");
+            var nama_brg = $(this).data("nama");
+            var kategori = $(this).data("kategori");
+            var satuan = $(this).data("satuan");
+            var harga = $(this).data("harga");
+            var qty = $(this).data("qty");
+            $("#kode_barang").val(kode_brg);
+            $("#nama_barang").val(nama_brg);
+            $("#kategori").val(kategori);
+            $("#satuan").val(satuan);
+            $("#harga_jual").val(harga);
+            $("#qtyA").val(qty);
+            $("#modalBarang").modal("hide");
+        });
+    });
+</script>
+<!-- 
 <script>
     $(document).ready(function() {
-        $(document).on('click', '#pilih', function() {
-            var kode_brg = $(this).data('kode');
-            var nama_brg = $(this).data('nama');
-            var kategori = $(this).data('kategori');
-            var satuan = $(this).data('satuan');
-            var harga = $(this).data('harga');
-            var qty = $(this).data('qty');
-            $('#kode_barang').val(kode_brg);
-            $('#nama_barang').val(nama_brg);
-            $('#kategori').val(kategori);
-            $('#satuan').val(satuan);
-            $('#harga_jual').val(harga)
-            $('#qtyA').val(qty);
-            $('#modalBarang').modal('hide');
-        })
-    })
-</script>
+        load_data();
+
+        function load_data(query) {
+            $.ajax({
+                url: "<?php echo base_url(); ?>/Supervisor/fetch",
+                method: "POST",
+                data: {
+                    query: query
+                },
+                success: function(data) {
+                    $("#tabelPegawai").html(data);
+                },
+            });
+        }
+
+        $("#keywordPegawai").keyup(function() {
+            var search = $(this).val();
+            if (search != "") {
+                load_data(search);
+            } else {
+                load_data();
+            }
+        });
+    });
+</script> -->
 </body>
 
 </html>
