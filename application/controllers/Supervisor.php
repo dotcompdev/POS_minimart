@@ -81,4 +81,21 @@ class Supervisor extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pegawai telah dihapus!</div>');
         redirect('supervisor/infoPegawai');
     }
+
+    // FUNCTION CETAK 3 JURNAL----------------------------------------------------------------------------------------------------
+
+    public function cetakJurnalJual()
+    {
+        $this->load->view('cetak/jurnalJual');
+    }
+
+    public function cetakJurnalBeli()
+    {
+        $this->load->view('cetak/jurnalBeli');
+    }
+
+    public function cetakJurnalRetur()
+    {
+        $this->load->view('cetak/jurnalRetur');
+    }
 }
