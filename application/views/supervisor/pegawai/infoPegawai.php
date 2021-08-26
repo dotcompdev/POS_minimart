@@ -19,14 +19,14 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-2 ">
-                        <a href="<?= base_url('supervisor/registration'); ?>" type="button" class="btn btn-block btn-success mt-1">
+                        <a href="<?= base_url('supervisor/registration'); ?>" type="button" class="btn btn-block btn-primary mt-1">
                             Tambah Pegawai
                         </a>
                     </div>
                     <div class="col-md-4 ml-1 mt-1 ">
                         <form action="" method="post" class="justify-content-end">
                             <div class="input-group">
-                                <input type="text" name="keyword" autocomplete="off" autofocus class="form-control form-control-md" placeholder="Cari pegawai..">
+                                <input id="keywordPegawai" type="text" name="keywordPegawai" autocomplete="off" autofocus class="form-control form-control-md" placeholder="Cari pegawai..">
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-default mb-4">
                                         <i class="fa fa-search"></i>
@@ -46,7 +46,7 @@
         <!-- Main content -->
         <div class="card col-lg-8 ml-3">
             <!-- /.card-header -->
-            <div class="card-body">
+            <div id="tabelPegawai" class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
@@ -60,7 +60,7 @@
                         <?php foreach ($user as $us) : ?>
                             <tr>
                                 <td>
-                                    <a href="" type="button" class="btn btn-warning far fa-edit"></a>
+                                    <a href="<?= base_url('supervisor/ubah/') . $us['id_user']; ?>" type="button" class="btn btn-warning far fa-edit"></a>
                                     <a href="<?= base_url('supervisor/hapus/') . $us['id_user']; ?>" type="button" class="btn btn-danger far fa-trash-alt"></a>
                                 </td>
                                 <td><?= $us['id_user']; ?></td>

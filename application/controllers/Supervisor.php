@@ -23,13 +23,9 @@ class Supervisor extends CI_Controller
         $this->load->view('supervisor/dashboardV', $data);
         $this->load->view('templates/footer');
     }
+
     public function registration()
     {
-        // cegah pindah halaman tanpa logout/in
-        // if ($this->session->userdata('username')) {
-        //     redirect('user');
-        // }
-
         $this->form_validation->set_rules('name', 'Name', 'trim|required');
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[tbl_user.email]', [
             'is_unique' => 'This email has already registered!'
@@ -60,7 +56,7 @@ class Supervisor extends CI_Controller
     {
         $data['judul'] = "Info Pegawai";
         $data['user'] = $this->Mod_supervisor->getPegawai();
-        if ($this->input->post('keyword')) {
+        if ($this->input->post('keywordPegawai')) {
             $data['user'] = $this->Mod_supervisor->cariDataPegawai();
         }
 
@@ -80,5 +76,82 @@ class Supervisor extends CI_Controller
         $this->Mod_supervisor->hapusPegawai($id);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pegawai telah dihapus!</div>');
         redirect('supervisor/infoPegawai');
+    }
+
+    public function ubah($id)
+    {
+        $data['pegawai'] = $this->db->get_where('tbl_user', ['id_user' => $id])->row_array();
+
+        $this->form_validation->set_rules('name', 'Name', 'trim|required');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+        $this->form_validation->set_rules('telp', 'Telp', 'required|trim');
+        $this->form_validation->set_rules('posisi', 'Posisi', 'required|trim');
+        $this->form_validation->set_rules('username', 'Username', 'required|trim');
+
+        if ($this->input->post('password1')) {
+            $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[8]|matches[password2]', [
+                'matches' => 'Password dont match!',
+                'min_length' => 'Password too short!'
+            ]);
+        }
+        if ($this->input->post('password2')) {
+            $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
+        }
+        // $this->form_validation->set_rules('image', 'Image', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            $data['judul'] = "Ubah Akun";
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('supervisor/pegawai/editPegawaiV', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Mod_supervisor->edit($data);
+        }
+    }
+
+    public function ubahFix()
+    {
+        $data['pegawai'] = $this->db->get_where('tbl_user', ['id_user' => $this->input->post('email')])->row_array();
+        $this->form_validation->set_rules('name', 'Name', 'trim|required');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+        $this->form_validation->set_rules('telp', 'Telp', 'required|trim');
+        $this->form_validation->set_rules('posisi', 'Posisi', 'required|trim');
+        $this->form_validation->set_rules('username', 'Username', 'required|trim');
+
+        if ($this->input->post('password1')) {
+            $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[8]|matches[password2]', [
+                'matches' => 'Password dont match!',
+                'min_length' => 'Password too short!'
+            ]);
+        }
+        if ($this->input->post('password2')) {
+            $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
+        }
+        // $this->form_validation->set_rules('image', 'Image', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            $data['judul'] = "Ubah Akun";
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('supervisor/pegawai/editPegawaiV', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Mod_supervisor->edit($data);
+        }
+    }
+
+    public function fetch()
+    {
+        $query = '';
+        if ($this->input->post('query')) {
+            $query = $this->input->post('query');
+        }
+        $data['user'] = $this->Mod_supervisor->fetch_data($query);
+        $data['judul'] = "Info Pegawai";
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('supervisor/pegawai/infoPegawai', $data);
+        $this->load->view('templates/footer');
     }
 }
