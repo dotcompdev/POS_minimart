@@ -50,11 +50,6 @@ class Mod_supervisor extends CI_Model
         return $query;
     }
 
-    public function getPembelian()
-    {
-        return $this->db->get('tbl_trans_beli')->result_array();
-    }
-
     public function edit($data)
     {
         $id = $this->input->post('id_user');
@@ -136,5 +131,15 @@ class Mod_supervisor extends CI_Model
     public function hapusPegawai($id)
     {
         $this->db->delete('tbl_user', ['id_user' => $id]);
+    }
+
+    public function getPembelian()
+    {
+        return $this->db->get('tbl_trans_beli')->result_array();
+    }
+
+    public function getPenjualan()
+    {
+        return $this->db->get('tbl_trans_jual')->result_array();
     }
 }

@@ -10,7 +10,7 @@
                     </div>
                 </div>
                 <!-- /.row -->
-                
+
             </div>
             <!-- /.container-fluid -->
         </div>
@@ -39,7 +39,7 @@
                             </div>
                         </form>
                     </div>
-                    
+
                 </div>
             </div>
         </section>
@@ -53,84 +53,35 @@
                             <table class="table table-head-fixed text-nowrap">
                                 <thead>
                                     <tr>
-                                        <th width="100px">ID Transaksi</th>
                                         <th style="text-align: center;" width="150px">Tanggal</th>
-                                        <th width="100px">ID Barang</th>
-                                        <th width="150px">Nama Barang</th>
+                                        <th width="100px">Invoice</th>
+                                        <th width="150px">Kode Barang</th>
                                         <th style="text-align: center;" width="100px">QTY</th>
-                                        <th style="text-align: right;" width="100px">Harga</th>
+                                        <th style="text-align: right;" width="100px">Sub Total</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td>001</td>
-                                        <td align="center">08-03-2021</td>
-                                        <td>BM017</td>
-                                        <td>Buku Pedoman Kader PDIP</td>
-                                        <td align="center">2</td>
-                                        <td align="right">15000</td>
-                                    </tr>
-                                    <tr>    
-                                        <td>001</td>
-                                        <td align="center">08-03-2021</td>
-                                        <td>BM017</td>
-                                        <td>Buku Pedoman Kader PDIP</td>
-                                        <td align="center">2</td>
-                                        <td align="right">15000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>001</td>
-                                        <td align="center">08-03-2021</td>
-                                        <td>BM017</td>
-                                        <td>Buku Pedoman Kader PDIP</td>
-                                        <td align="center">2</td>
-                                        <td align="right">15000</td>
-                                    </tr>
-                                    <tr>    
-                                        <td>001</td>
-                                        <td align="center">08-03-2021</td>
-                                        <td>BM017</td>
-                                        <td>Buku Pedoman Kader PDIP</td>
-                                        <td align="center">2</td>
-                                        <td align="right">15000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>001</td>
-                                        <td align="center">08-03-2021</td>
-                                        <td>BM017</td>
-                                        <td>Buku Pedoman Kader PDIP</td>
-                                        <td align="center">2</td>
-                                        <td align="right">15000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>001</td>
-                                        <td align="center">08-03-2021</td>
-                                        <td>BM017</td>
-                                        <td>Buku Pedoman Kader PDIP</td>
-                                        <td align="center">2</td>
-                                        <td align="right">15000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>001</td>
-                                        <td align="center">08-03-2021</td>
-                                        <td>BM017</td>
-                                        <td>Buku Pedoman Kader PDIP</td>
-                                        <td align="center">2</td>
-                                        <td align="right">15000</td>
-                                    </tr>
-                                    
+                                    <?php foreach ($penjualan as $jual) : ?>
+                                        <tr>
+                                            <td align="center"><?= date('d-m-Y H:i', $jual['tgl_transaksi']);; ?></td>
+                                            <td><?= $jual['invoice']; ?></td>
+                                            <td><?= $jual['barang_id']; ?></td>
+                                            <td align="center"><?= $jual['qty_jual']; ?></td>
+                                            <td align="right"><?= $jual['sub_total']; ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
                 <!-- END TABEL -->
-            </div>    
+            </div>
         </div>
         <!-- END CARD -->
-       
-        
+
+
     </div>
     <!-- End Content Wrapper -->
 
@@ -141,5 +92,5 @@
             <b>Version</b> 1.0
         </div>
     </footer>
-    
+
 </div>

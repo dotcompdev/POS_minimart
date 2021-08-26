@@ -159,6 +159,7 @@ class Supervisor extends CI_Controller
     public function j_penjualan()
     {
         $data['judul'] = "Jurnal Penjualan";
+        $data['penjualan'] = $this->Mod_supervisor->getPenjualan();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('supervisor/pembukuan/j_penjualanV');
