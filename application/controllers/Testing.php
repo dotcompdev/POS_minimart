@@ -9,32 +9,7 @@ class Testing extends CI_Controller
         parent::__construct();
     }
 
-    // PEMBUKUAN--------------------------------------------------
-    public function j_penjualan()
-    {
 
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('supervisor/pembukuan/j_penjualanV');
-        $this->load->view('templates/footer');
-    }
-
-    public function j_pembelian()
-    {
-
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('supervisor/pembukuan/j_pembelianV');
-        $this->load->view('templates/footer');
-    }
-
-    public function j_retur()
-    {
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('supervisor/pembukuan/j_returV');
-        $this->load->view('templates/footer');
-    }
 
     // PROMO------------------------------------------------------
 

@@ -61,6 +61,33 @@
         });
     });
 </script>
+
+<script>
+    var table = document.getElementById("nilai"),
+        sumHsl = 0,
+        sumDiskon = 0;
+    for (var t = 1; t < table.rows.length; t++) {
+        sumHsl = sumHsl + parseInt(table.rows[t].cells[5].innerHTML);
+        sumDiskon = sumDiskon + parseInt(table.rows[t].cells[4].innerHTML);
+    }
+    document.getElementById("hasil").innerHTML = sumHsl;
+    document.getElementById("total").value = sumHsl;
+    document.getElementById("total_diskon").value = sumDiskon;
+</script>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#cash").keyup(function() {
+            var total = $("#total").val();
+            var uang = $("#cash").val();
+
+            var total = parseInt(uang) - parseInt(total);
+            $("#kembali").val(total);
+        });
+    });
+</script>
+
 <!-- 
 <script>
     $(document).ready(function() {

@@ -19,4 +19,36 @@ class Mod_kasir extends CI_Model
     $invoice = "PM" . date('ymd') . $no;
     return $invoice;
   }
+
+  public function tampung()
+  {
+    $nama = $this->db->get_where('tbl_tampung', ['kode_barang' => $this->input->post('kode_barang')])->row_array();
+    $kod = $this->input->post('kode_barang');
+    $qty = $nama['qty'];
+    if ($nama) {
+      $qty += 1;
+      $subtotal = $qty * intval(htmlspecialchars($this->input->post('harga_jual', true)));
+      $this->db->set('qty', $qty);
+      $this->db->set('subtotal', $subtotal);
+      $this->db->where('kode_barang', $kod);
+      $this->db->update('tbl_tampung');
+      redirect('kasir/penjualan');
+      // echo "ok";
+    } else {
+
+
+      $subtotal = 1 * intval(htmlspecialchars($this->input->post('harga_jual', true)));
+      $data = [
+        'kode_barang' => htmlspecialchars($this->input->post('kode_barang', true)),
+        'barang' => htmlspecialchars($this->input->post('nama_barang', true)),
+        'qty' => 1,
+        'harga_jual' => intval(htmlspecialchars($this->input->post('harga_jual', true))),
+        'diskon' => 0,
+        'subtotal' => $subtotal
+      ];
+
+      $this->db->insert('tbl_tampung', $data);
+      redirect('kasir/penjualan');
+    }
+  }
 }

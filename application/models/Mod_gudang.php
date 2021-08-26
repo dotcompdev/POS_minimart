@@ -31,6 +31,7 @@ class Mod_gudang extends CI_Model
         $trans_beli = [
             'supplier_nama' => htmlspecialchars($this->input->post('supplier', true)) == '' ? "-" : htmlspecialchars($this->input->post('supplier', true)),
             'brg_kode' => htmlspecialchars($this->input->post('kode_barang', true)),
+            'brg_nama' => htmlspecialchars($this->input->post('nama_barang', true)),
             'harga_beli' => htmlspecialchars($this->input->post('harga_beli', true)),
             'qty_beli' => htmlspecialchars($this->input->post('qtyM', true)),
             'tgl_beli' => time()

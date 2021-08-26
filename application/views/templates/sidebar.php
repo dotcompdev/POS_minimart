@@ -9,7 +9,7 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-        
+
     </ul>
 </nav>
 <!-- /.navbar -->
@@ -85,19 +85,19 @@
                         </a>
                         <ul class="nav nav-treeview small ml-1">
                             <li class="nav-item">
-                                <a href="<?= base_url('testing/j_penjualan'); ?>" class="nav-link">
+                                <a href="<?= base_url('supervisor/j_penjualan'); ?>" class="nav-link">
                                     <i class="fas fa-file-invoice-dollar nav-icon"></i>
                                     <p>Jurnal penjualan</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="<?= base_url('testing/j_pembelian'); ?>" class="nav-link">
+                                <a href="<?= base_url('supervisor/j_pembelian'); ?>" class="nav-link">
                                     <i class="fas fa-file-invoice-dollar nav-icon"></i>
                                     <p>Jurnal pembelian</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="<?= base_url('testing/j_retur'); ?>" class="nav-link">
+                                <a href="<?= base_url('supervisor/j_retur'); ?>" class="nav-link">
                                     <i class="fas fa-file-invoice nav-icon"></i>
                                     <p>Jurnal retur</p>
                                 </a>
@@ -234,7 +234,7 @@
                         </a>
                         <ul class="nav nav-treeview small ml-1">
                             <li class="nav-item">
-                                <a href="<?= base_url('kasir/penjualan'); ?>" class="nav-link">
+                                <a href="<?= base_url('kasir'); ?>" class="nav-link">
                                     <i class="fas fa-cash-register nav-icon"></i>
                                     <p>Penjualan</p>
                                 </a>

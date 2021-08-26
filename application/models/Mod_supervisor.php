@@ -50,6 +50,11 @@ class Mod_supervisor extends CI_Model
         return $query;
     }
 
+    public function getPembelian()
+    {
+        return $this->db->get('tbl_trans_beli')->result_array();
+    }
+
     public function edit($data)
     {
         $id = $this->input->post('id_user');
