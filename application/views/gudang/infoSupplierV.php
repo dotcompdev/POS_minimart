@@ -87,8 +87,8 @@
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
+                            <!-- <th>No.</th> -->
                             <th>AKSI</th>
-                            <th>ID Supplier</th>
                             <th>Nama Supplier</th>
                             <th>Alamat Supplier</th>
                             <th>No. Telepon</th>
@@ -96,16 +96,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <button type="button" class="btn btn-warning far fa-edit"></button>
-                                <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                            </td>
-                            <td>1</td>
-                            <td>PT. Wakanda</td>
-                            <td>Wakanda Empire</td>
-                            <td>085250041000</td>
-                        </tr>
+                        <?php foreach ($supplier as $sup) : ?>
+                            <tr>
+                                <!-- <td><?= ++$start; ?></td> -->
+                                <td>
+                                    <button type="button" class="btn btn-warning far fa-edit"></button>
+                                    <button type="button" class="btn btn-danger far fa-trash-alt"></button>
+                                </td>
+                                <td><?= $sup['nama_supplier']; ?></td>
+                                <td><?= $sup['alamat_supplier']; ?></td>
+                                <td><?= $sup['no_telp']; ?></td>
+                                <td><?= $sup['keterangan']; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
 
                     </tbody>
 

@@ -29,39 +29,88 @@ class Gudang extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function cariStok()
+    {
+        $this->Mod_gudang->getStok();
+    }
+
     public function inputBarang()
     {
-        $this->form_validation->set_rules('supplier', 'Supplier', 'required|trim');
+        $this->form_validation->set_rules('supplier', 'Supplier', 'trim');
         $this->form_validation->set_rules('kode_barang', 'Kode barang', 'required|trim');
         $this->form_validation->set_rules('nama_barang', 'Nama barang', 'trim|required');
         $this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
-        $this->form_validation->set_rules('satuan', 'Satuan', 'trim|required');
-        $this->form_validation->set_rules('qty', 'QTY', 'trim|required|is_natural_no_zero');
+        $this->form_validation->set_rules('qtyM', 'QTY', 'trim|required|is_natural_no_zero');
         $this->form_validation->set_rules('harga_beli', 'Harga beli', 'trim|required|is_natural_no_zero');
         $this->form_validation->set_rules('harga_jual', 'Harga jual', 'trim|required|is_natural_no_zero');
+        $data['barang'] = $this->Mod_gudang->get();
 
         if ($this->form_validation->run() == false) {
             $data['judul'] = "Input Barang";
+            $data['supplier'] = $this->Mod_gudang->getSupplier();
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar');
-            $this->load->view('gudang/inputBarangV');
+            $this->load->view('gudang/inputBarangV', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Mod_gudang->tambahStok();
+        }
+    }
+
+    public function barangBaru()
+    {
+        $this->form_validation->set_rules('supplier', 'Supplier', 'trim');
+        $this->form_validation->set_rules('kode_barang', 'Kode barang', 'required|trim');
+        $this->form_validation->set_rules('nama_barang', 'Nama barang', 'trim|required');
+        $this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
+
+        if ($this->form_validation->run() == false) {
+            $data['judul'] = "Input Barang";
+            $data['supplier'] = $this->Mod_gudang->getSupplier();
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('gudang/inputBarangV', $data);
             $this->load->view('templates/footer');
         } else {
             $this->Mod_gudang->tambahBarang();
         }
     }
 
+    public function ubah()
+    {
+        echo "berhasil";
+    }
+
+    public function hapus($id)
+    {
+        $data['barang'] = $this->db->get_where('tbl_barang', ['id_brg' => $id])->row_array();
+
+        $this->Mod_gudang->hapusBarang($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Barang telah dihapus!</div>');
+        redirect('gudang/infoStok');
+    }
+
     public function infoSupplier()
     {
         $data['judul'] = "Info Supplier";
+        $data['supplier'] = $this->Mod_gudang->getSupplier();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('gudang/infoSupplierV');
+        $this->load->view('gudang/infoSupplierV', $data);
         $this->load->view('templates/footer');
     }
 
     public function inputSupplier()
     {
-        redirect('gudang/infoSupplier');
+        $this->form_validation->set_rules('nama_sup', 'Nama Supplier', 'required|is_unique[tbl_supplier.nama_supplier]', [
+            'is_unique' => 'This name has already registered!'
+        ]);
+        $this->form_validation->set_rules('no_telp', 'Nomer telepon', 'required|trim');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+        if ($this->form_validation->run() == false) {
+            redirect('gudang/infoSupplier');
+        } else {
+            $this->Mod_gudang->tambahSupplier();
+        }
     }
 }

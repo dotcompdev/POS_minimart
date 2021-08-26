@@ -9,6 +9,10 @@
                         <h1 class="m-0">Info Stok</h1>
                     </div>
                 </div>
+
+                <div class="row">
+                    <?= $this->session->flashdata('message'); ?>
+                </div>
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
@@ -19,12 +23,12 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-2 ">
-                        <button type="button" class="btn btn-block btn-primary mt-1">
+                        <button type="button" class="btn btn-block btn-info mt-1">
                             Pesan Barang
                         </button>
                     </div>
                     <div class="col-md-2 ">
-                        <a href="<?= base_url('gudang/inputBarang'); ?>" type="button" class="btn btn-block btn-success mt-1">
+                        <a href="<?= base_url('gudang/inputBarang'); ?>" type="button" class="btn btn-block btn-primary mt-1">
                             Tambah Barang
                         </a>
                     </div>
@@ -36,6 +40,7 @@
         </section>
 
         <!-- Main content -->
+      
         <div class="card col-lg-8">
             <!-- /.card-header -->
             <div class="card-body">
@@ -54,8 +59,8 @@
                         <?php foreach ($barang as $brg) : ?>
                             <tr>
                                 <td>
-                                    <button type="button" class="btn btn-warning far fa-edit"></button>
-                                    <button type="button" class="btn btn-danger far fa-trash-alt"></button>
+                                    <a href="<?= base_url('gudang/ubah/') . $brg['id_brg']; ?>" type="button" class="btn btn-warning far fa-edit"></a>
+                                    <a href="<?= base_url('gudang/hapus/') . $brg['id_brg']; ?>" type="button" class="btn btn-danger far fa-trash-alt"></a>
                                 </td>
                                 <td><?= $brg['kode_brg']; ?></td>
                                 <td><?= $brg['nama_brg']; ?></td>
@@ -73,12 +78,4 @@
         <!-- /.card -->
 
     </div>
-    <footer class="main-footer">
-        <strong>Copyright &copy; 2021 <a href="#">Dotcomp</a>.</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 1.0
-        </div>
-    </footer>
-
 </div>
