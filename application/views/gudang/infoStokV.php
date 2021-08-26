@@ -40,9 +40,7 @@
         </section>
 
         <!-- Main content -->
-
-
-
+      
         <div class="card col-lg-8">
             <!-- /.card-header -->
             <div class="card-body">

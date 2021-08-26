@@ -78,6 +78,22 @@ class Supervisor extends CI_Controller
         redirect('supervisor/infoPegawai');
     }
 
+    // FUNCTION CETAK 3 JURNAL----------------------------------------------------------------------------------------------------
+
+    public function cetakJurnalJual()
+    {
+        $this->load->view('cetak/jurnalJual');
+    }
+
+    public function cetakJurnalBeli()
+    {
+        $this->load->view('cetak/jurnalBeli');
+    }
+
+    public function cetakJurnalRetur()
+    {
+        $this->load->view('cetak/jurnalRetur');
+    }
     public function ubah($id)
     {
         $data['pegawai'] = $this->db->get_where('tbl_user', ['id_user' => $id])->row_array();

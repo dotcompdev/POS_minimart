@@ -44,92 +44,85 @@
         <div class="card">
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>AKSI</th>
-                    <th>ID Promo</th>
-                    <th>Nama Promo</th>
-                    <th>Harga Promo</th>
-                    <th>ID Bundle</th>
-                    <th>ID Jadwal</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>
-                        <button type="button" class="btn btn-warning far fa-edit"></button>
-                        <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                    </td>
-                    <td>001</td>
-                    <td>Promo Mahasiswa</td>
-                    <td>Rp. 15.000</td>
-                    <td>1</td>
-                    <td>2</td>
-                  </tr>
+                <!-- TABEL -->
+            <div class="row">
+                <div class="col-lg">
+                    <div class="card-body table-responsive p-0" style="height: 250px;">
+                        <table class="table table-head-fixed text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th width="100px">Aksi</th>
+                                    <th style="text-align: center;" width="100px">ID Promo</th>
+                                    <th width="100px">Nama Promo</th>
+                                    <th style="text-align: center;" width="150px">Harga Promo</th>
+                                    <th style="text-align: center;" width="100px">ID Bundle</th>
+                                    <th style="text-align: center;" width="100px">ID Jadwal</th>
+                                </tr>
+                            </thead>
 
-                  <tr>
-                    <td>
-                        <button type="button" class="btn btn-warning far fa-edit"></button>
-                        <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                    </td>
-                    <td>001</td>
-                    <td>Promo Mahasiswa</td>
-                    <td>Rp. 15.000</td>
-                    <td>1</td>
-                    <td>2</td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                        <button type="button" class="btn btn-warning far fa-edit"></button>
-                        <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                    </td>
-                    <td>001</td>
-                    <td>Promo Mahasiswa</td>
-                    <td>Rp. 15.000</td>
-                    <td>1</td>
-                    <td>2</td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                        <button type="button" class="btn btn-warning far fa-edit"></button>
-                        <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                    </td>
-                    <td>001</td>
-                    <td>Promo Mahasiswa</td>
-                    <td>Rp. 15.000</td>
-                    <td>1</td>
-                    <td>2</td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                        <button type="button" class="btn btn-warning far fa-edit"></button>
-                        <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                    </td>
-                    <td>001</td>
-                    <td>Promo Mahasiswa</td>
-                    <td>Rp. 15.000</td>
-                    <td>1</td>
-                    <td>2</td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                        <button type="button" class="btn btn-warning far fa-edit"></button>
-                        <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                    </td>
-                    <td>001</td>
-                    <td>Promo Mahasiswa</td>
-                    <td>Rp. 15.000</td>
-                    <td>1</td>
-                    <td>2</td>
-                  </tr>
-                  
-                  </tbody>
-                </table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="" type="button" class="btn btn-warning far fa-edit btn-sm"></a>
+                                        <a href="" type="button" class="btn btn-danger far fa-trash-alt btn-sm"></a>
+                                    </td>
+                                    <td align="center">001</td>
+                                    <td>Promo Sayap Kebhinekaan</td>
+                                    <td align="center">20000</td>
+                                    <td align="center">B001</td>
+                                    <td align="center">J001</td>
+                                </tr>
+                                <tr>    
+                                    <td>
+                                        <a href="" type="button" class="btn btn-warning far fa-edit btn-sm"></a>
+                                        <a href="" type="button" class="btn btn-danger far fa-trash-alt btn-sm"></a>
+                                    </td>
+                                    <td align="center">001</td>
+                                    <td>Promo Sayap Kebhinekaan</td>
+                                    <td align="center">20000</td>
+                                    <td align="center">B001</td>
+                                    <td align="center">J001</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="" type="button" class="btn btn-warning far fa-edit btn-sm"></a>
+                                        <a href="" type="button" class="btn btn-danger far fa-trash-alt btn-sm"></a>
+                                    </td>
+                                    <td align="center">001</td>
+                                    <td>Promo Sayap Kebhinekaan</td>
+                                    <td align="center">20000</td>
+                                    <td align="center">B001</td>
+                                    <td align="center">J001</td>
+                                </tr>
+                                <tr>    
+                                    <td>
+                                        <a href="" type="button" class="btn btn-warning far fa-edit btn-sm"></a>
+                                        <a href="" type="button" class="btn btn-danger far fa-trash-alt btn-sm"></a>
+                                    </td>
+                                    <td align="center">001</td>
+                                    <td>Promo Sayap Kebhinekaan</td>
+                                    <td align="center">20000</td>
+                                    <td align="center">B001</td>
+                                    <td align="center">J001</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="" type="button" class="btn btn-warning far fa-edit btn-sm"></a>
+                                        <a href="" type="button" class="btn btn-danger far fa-trash-alt btn-sm"></a>
+                                    </td>
+                                    <td align="center">001</td>
+                                    <td>Promo Sayap Kebhinekaan</td>
+                                    <td align="center">20000</td>
+                                    <td align="center">B001</td>
+                                    <td align="center">J001</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- END TABEL -->
               </div>
               <!-- /.card-body -->
             </div>

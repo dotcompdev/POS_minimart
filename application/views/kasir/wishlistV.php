@@ -20,108 +20,90 @@
             <div class="p-3 col-lg">
             
                 <div class="row">
-                    <div class="col-lg-5">
+                    <div class="col-lg-4">
                         <div class="row-lg">
                             <div class="form-group">
                                 <label for="nama_barang">Nama Barang</label>
-                                <input type="text" class="form-control form-control-user" id="nama_barang" name="nama_barang" placeholder="Nama Barang">
+                                <input type="text" class="form-control form-control-user form-control-sm" id="nama_barang" name="nama_barang" placeholder="Nama Barang">
                             </div>     
                             <div class="form-group">
                                 <label for="kategori">Kategori</label>
-                                <input type="text" class="form-control form-control-user" id="kategori" name="kategori" placeholder="Kategori">
+                                <input type="text" class="form-control form-control-user form-control-sm" id="kategori" name="kategori" placeholder="Kategori">
                             </div>     
-                        </div>
-                    </div> 
+                            <div class="form-group">
+                                <button type="button" class="btn btn-block btn-primary btn-sm">
+                                    Simpan
+                                </button>
+                            </div>
+                        </div>     
+                    </div>
                 </div>
 
-                <!-- Button -->
-                <div class="row">
-                    <div class="form-group col-lg-2">
-                        <button type="button" class="btn btn-block btn-primary mt-1">
-                            Simpan
-                        </button>
-                    </div>          
-                </div>        
+                
+                
+                <div class="col-lg-7">
+                        <div class="card-body table-responsive p-0" style="height: 250px;">
+                            <table class="table table-head-fixed text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th width="100px">Aksi</th>
+                                        <th width="200px">Nama Barang</th>
+                                        <th width="100px">Kategori</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <button type="button" class="btn btn-warning far fa-edit btn-sm"></button>
+                                            <button type="button" class="btn btn-danger far fa-trash-alt btn-sm"></button>
+                                        </td>
+                                        <td>Sticker Ibu Puan</td>
+                                        <td>ATK</td>
+                                    </tr>
+                                    <tr>    
+                                        <td>
+                                            <button type="button" class="btn btn-warning far fa-edit btn-sm"></button>
+                                            <button type="button" class="btn btn-danger far fa-trash-alt btn-sm"></button>
+                                        </td>
+                                        <td>Sticker Ibu Puan</td>
+                                        <td>ATK</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button type="button" class="btn btn-warning far fa-edit btn-sm"></button>
+                                            <button type="button" class="btn btn-danger far fa-trash-alt btn-sm"></button>
+                                        </td>
+                                        <td>Sticker Ibu Puan</td>
+                                        <td>ATK</td>
+                                    </tr>
+                                    <tr>    
+                                        <td>
+                                            <button type="button" class="btn btn-warning far fa-edit btn-sm"></button>
+                                            <button type="button" class="btn btn-danger far fa-trash-alt btn-sm"></button>
+                                        </td>
+                                        <td>Sticker Ibu Puan</td>
+                                        <td>ATK</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button type="button" class="btn btn-warning far fa-edit btn-sm"></button>
+                                            <button type="button" class="btn btn-danger far fa-trash-alt btn-sm"></button>
+                                        </td>
+                                        <td>Sticker Ibu Puan</td>
+                                        <td>ATK</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
             </div>
 
 
-             <!-- /.card-header -->
-            <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>AKSI</th>
-                    <th>Nama Barang</th>
-                    <th>Kategori</th>
-                   
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>
-                        <button type="button" class="btn btn-warning far fa-edit"></button>
-                        <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                    </td>
-                    <td>Mie Sedap Goreng</td>
-                    <td>Makanan</td>
-                    
-                  </tr>
-
-                  <tr>
-                    <td>
-                        <button type="button" class="btn btn-warning far fa-edit"></button>
-                        <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                    </td>
-                    <td>Mie Sedap Goreng</td>
-                    <td>Makanan</td>
-                    
-                  </tr>
-
-                  <tr>
-                    <td>
-                        <button type="button" class="btn btn-warning far fa-edit"></button>
-                        <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                    </td>
-                    <td>Mie Sedap Goreng</td>
-                    <td>Makanan</td>
-                    
-                  </tr>
-
-                  <tr>
-                    <td>
-                        <button type="button" class="btn btn-warning far fa-edit"></button>
-                        <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                    </td>
-                    <td>Mie Sedap Goreng</td>
-                    <td>Makanan</td>
-                    
-                  </tr>
-
-                  <tr>
-                    <td>
-                        <button type="button" class="btn btn-warning far fa-edit"></button>
-                        <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                    </td>
-                    <td>Mie Sedap Goreng</td>
-                    <td>Makanan</td>
-                    
-                  </tr>
-
-                  <tr>
-                    <td>
-                        <button type="button" class="btn btn-warning far fa-edit"></button>
-                        <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                    </td>
-                    <td>Mie Sedap Goreng</td>
-                    <td>Makanan</td>
-                    
-                  </tr>
-                  
-                  </tbody>
-                 
-                </table>
-            </div>
-            <!-- /.card-body -->
+           
 
         </div>
     </div>

@@ -45,15 +45,15 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="no_telp">Nomer Telepon</label>
-                                            <input type="text" class="form-control form-control-sm form-control-user" id="no_telp" name="no_telp" placeholder="Nomer telp..">
-                                            <?= form_error('no_telp', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
-                                        </div>
-
-                                        <div class="form-group">
                                             <label for="alamat">Alamat</label>
                                             <textarea type="text" class="form-control form-control-sm form-control-user" id="alamat" name="alamat" placeholder="Alamat.."></textarea>
                                             <?= form_error('alamat', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="no_telp">Nomer Telepon</label>
+                                            <input type="text" class="form-control form-control-sm form-control-user" id="no_telp" name="no_telp" placeholder="Nomer telp..">
+                                            <?= form_error('no_telp', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                                         </div>
 
                                         <div class="form-group">

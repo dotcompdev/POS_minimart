@@ -17,138 +17,123 @@
         <!-- /.content-header -->
 
         <section class="content">
-        <div class="container-fluid">
-            <!-- <h2 class="text-center display-4">Search</h2> -->
-            <div class="row">
-                <div class="col-md-1 ">
-                    <button type="button" class="btn btn-block btn-success mt-1">
-                        Cetak
-                    </button>
-                </div>
-                <div class="col-md-4 ml-1 mt-1 ">
-                    <form action="#" class="justify-content-end">
-                        <div class="input-group">
-                            <input type="search" class="form-control form-control-md" placeholder="Cari">
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-default mb-4">
-                                    <i class="fa fa-search"></i>
-                                </button>
+            <div class="container-fluid">
+                <!-- <h2 class="text-center display-4">Search</h2> -->
+                <div class="row">
+                    <div class="col-md-1 ">
+                        <a href="<?= base_url('supervisor/cetakJurnalJual'); ?>" target="_blank">
+                            <button type="button" class="btn btn-block btn-success mt-1">
+                                Cetak
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-md-4 ml-1 mt-1 ">
+                        <form action="#" class="justify-content-end">
+                            <div class="input-group">
+                                <input type="search" class="form-control form-control-md" placeholder="Cari">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default mb-4">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+                    
                 </div>
-                
             </div>
-        </div>
-    </section>
+        </section>
 
-        <!-- Main content -->
         <div class="card">
-              <!-- <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
-              </div> -->
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <!-- <th>AKSI</th> -->
-                    <th>ID Transaksi</th>
-                    <th>Tanggal</th>
-                    <th>ID Barang</th>
-                    <th>Nama Barang</th>
-                    <th>QTY</th>
-                    <th>Harga</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <!-- <td>
-                        <button type="button" class="btn btn-warning far fa-edit"></button>
-                        <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                    </td> -->
-                    <td>001</td>
-                    <td>08-03-2021</td>
-                    <td>1</td>
-                    <td>Red Bull</td>
-                    <td>5</td>
-                    <td>Rp. 20.000</td>
-                  </tr>
+            <div class="card-body">
+                <!-- TABEL -->
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="card-body table-responsive p-0" style="height: 300px;">
+                            <table class="table table-head-fixed text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th width="100px">ID Transaksi</th>
+                                        <th style="text-align: center;" width="150px">Tanggal</th>
+                                        <th width="100px">ID Barang</th>
+                                        <th width="150px">Nama Barang</th>
+                                        <th style="text-align: center;" width="100px">QTY</th>
+                                        <th style="text-align: right;" width="100px">Harga</th>
+                                    </tr>
+                                </thead>
 
-                  <tr>
-                    <!-- <td>
-                        <button type="button" class="btn btn-warning far fa-edit"></button>
-                        <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                    </td> -->
-                    <td>001</td>
-                    <td>08-03-2021</td>
-                    <td>1</td>
-                    <td>Red Bull</td>
-                    <td>5</td>
-                    <td>Rp. 20.000</td>
-                  </tr>
-
-                  <tr>
-                    <!-- <td>
-                        <button type="button" class="btn btn-warning far fa-edit"></button>
-                        <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                    </td> -->
-                    <td>001</td>
-                    <td>08-03-2021</td>
-                    <td>1</td>
-                    <td>Red Bull</td>
-                    <td>5</td>
-                    <td>Rp. 20.000</td>
-                  </tr>
-
-                  <tr>
-                    <!-- <td>
-                        <button type="button" class="btn btn-warning far fa-edit"></button>
-                        <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                    </td> -->
-                    <td>001</td>
-                    <td>08-03-2021</td>
-                    <td>1</td>
-                    <td>Red Bull</td>
-                    <td>5</td>
-                    <td>Rp. 20.000</td>
-                  </tr>
-
-                  <tr>
-                    <!-- <td>
-                        <button type="button" class="btn btn-warning far fa-edit"></button>
-                        <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                    </td> -->
-                    <td>001</td>
-                    <td>08-03-2021</td>
-                    <td>1</td>
-                    <td>Red Bull</td>
-                    <td>5</td>
-                    <td>Rp. 20.000</td>
-                  </tr>
-
-                  <tr>
-                    <!-- <td>
-                        <button type="button" class="btn btn-warning far fa-edit"></button>
-                        <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                    </td> -->
-                    <td>001</td>
-                    <td>08-03-2021</td>
-                    <td>1</td>
-                    <td>Red Bull</td>
-                    <td>5</td>
-                    <td>Rp. 20.000</td>
-                  </tr>
-                  
-                  </tbody>
-                 
-                </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+                                <tbody>
+                                    <tr>
+                                        <td>001</td>
+                                        <td align="center">08-03-2021</td>
+                                        <td>BM017</td>
+                                        <td>Buku Pedoman Kader PDIP</td>
+                                        <td align="center">2</td>
+                                        <td align="right">15000</td>
+                                    </tr>
+                                    <tr>    
+                                        <td>001</td>
+                                        <td align="center">08-03-2021</td>
+                                        <td>BM017</td>
+                                        <td>Buku Pedoman Kader PDIP</td>
+                                        <td align="center">2</td>
+                                        <td align="right">15000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>001</td>
+                                        <td align="center">08-03-2021</td>
+                                        <td>BM017</td>
+                                        <td>Buku Pedoman Kader PDIP</td>
+                                        <td align="center">2</td>
+                                        <td align="right">15000</td>
+                                    </tr>
+                                    <tr>    
+                                        <td>001</td>
+                                        <td align="center">08-03-2021</td>
+                                        <td>BM017</td>
+                                        <td>Buku Pedoman Kader PDIP</td>
+                                        <td align="center">2</td>
+                                        <td align="right">15000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>001</td>
+                                        <td align="center">08-03-2021</td>
+                                        <td>BM017</td>
+                                        <td>Buku Pedoman Kader PDIP</td>
+                                        <td align="center">2</td>
+                                        <td align="right">15000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>001</td>
+                                        <td align="center">08-03-2021</td>
+                                        <td>BM017</td>
+                                        <td>Buku Pedoman Kader PDIP</td>
+                                        <td align="center">2</td>
+                                        <td align="right">15000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>001</td>
+                                        <td align="center">08-03-2021</td>
+                                        <td>BM017</td>
+                                        <td>Buku Pedoman Kader PDIP</td>
+                                        <td align="center">2</td>
+                                        <td align="right">15000</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- END TABEL -->
+            </div>    
+        </div>
+        <!-- END CARD -->
+       
         
     </div>
+    <!-- End Content Wrapper -->
+
     <footer class="main-footer">
         <strong>Copyright &copy; 2021 <a href="#">Dotcomp</a>.</strong>
         All rights reserved.
