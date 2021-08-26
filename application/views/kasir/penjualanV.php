@@ -38,7 +38,7 @@
                     </div>
 
 
-                    <?= form_open_multipart('kasir/penjualan'); ?>
+                    <?= form_open_multipart('kasir'); ?>
 
 
                     <div class="row">
@@ -49,6 +49,7 @@
                                     <input type="text" class="form-control form-control-sm form-control-user" id="kode_barang" name="kode_barang" placeholder="Kode Barang" value="<?= set_value('kode_barang'); ?>">
                                     <input type="text" name="nama_barang" id="nama_barang" hidden>
                                     <input type="number" name="harga_jual" id="harga_jual" hidden>
+                                    <input type="text" name="invoice" value="<?= $invoice; ?>" hidden>
                                     <div class="input-group-append">
                                         <button class="btn btn-info" data-toggle="modal" data-target="#modalBarang" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
                                     </div>
@@ -75,6 +76,7 @@
                     <div class="row d-flex justify-content-end">
                         <div class="form-group">
                             <h5><b><span><?= $invoice; ?></span></b></h5>
+                            <input type="text" name="invoice" value="<?= $invoice; ?>" hidden>
                         </div>
                     </div>
                     <div class="row d-flex justify-content-end">
@@ -135,7 +137,7 @@
                     </button>
                 </div>
                 <div class="form-group col-lg-2 float-lg-left">
-                    <button type="submit" class="btn btn-success btn-user btn-block btn-sm" data-toggle="modal" data-target="#modal-default">
+                    <button data-invoice="<?= $invoice; ?>" type="button" class="btn btn-success btn-user btn-block btn-sm  delete-record" data-toggle="modal" data-target="#modal-default">
                         Pembayaran
                     </button>
                 </div>
@@ -207,6 +209,7 @@
     </div>
 
     <!-- Modal Box -->
+    <?= form_open_multipart('transaksi/cetakStruk'); ?>
     <div class="modal fade" id="modal-default">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -217,6 +220,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <input type="text" name="invoice" value="<?= $invoice; ?>" hidden>
+                    <input type="text" name="nama_kasir" value="<?= $user['username']; ?>" hidden>
                     <!-- 
                     <div class="form-group">
                         <label for="total_diskon">Total Diskon</label>
@@ -249,18 +254,18 @@
                 </div>
 
                 <div class="modal-footer justify-content-between">
+                    <input type="hidden" name="delete_id" required>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <a href="<?= base_url('transaksi/cetakStruk'); ?>" target="_blank">
-                        <button type="button" class="btn btn-primary">
-                            Print Sturk
-                        </button>
-                    </a>
+                    <button type="submit" class="btn btn-primary">
+                        Print Sturk
+                    </button>
                 </div>
             </div>
             <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
     </div>
+    </form>
     <!-- /.modal -->
 
 </div>

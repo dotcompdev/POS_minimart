@@ -75,7 +75,6 @@
     document.getElementById("total_diskon").value = sumDiskon;
 </script>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $("#cash").keyup(function() {
@@ -85,6 +84,14 @@
             var total = parseInt(uang) - parseInt(total);
             $("#kembali").val(total);
         });
+    });
+</script>
+
+<script>
+    //GET CONFIRM DELETE
+    $('.delete-record').on('click', function() {
+        var invoice_id = $(this).data('invoice');
+        $('[name="delete_id"]').val(invoice_id);
     });
 </script>
 

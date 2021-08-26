@@ -32,13 +32,14 @@ class Mod_kasir extends CI_Model
       $this->db->set('subtotal', $subtotal);
       $this->db->where('kode_barang', $kod);
       $this->db->update('tbl_tampung');
-      redirect('kasir/penjualan');
+      redirect('kasir');
       // echo "ok";
     } else {
 
 
       $subtotal = 1 * intval(htmlspecialchars($this->input->post('harga_jual', true)));
       $data = [
+        'invoice_t' => htmlspecialchars($this->input->post('invoice', true)),
         'kode_barang' => htmlspecialchars($this->input->post('kode_barang', true)),
         'barang' => htmlspecialchars($this->input->post('nama_barang', true)),
         'qty' => 1,
@@ -48,7 +49,7 @@ class Mod_kasir extends CI_Model
       ];
 
       $this->db->insert('tbl_tampung', $data);
-      redirect('kasir/penjualan');
+      redirect('kasir');
     }
   }
 }

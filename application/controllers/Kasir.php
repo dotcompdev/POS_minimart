@@ -13,18 +13,6 @@ class Kasir extends CI_Controller
 
     public function index()
     {
-        $data['judul'] = 'Penjualan';
-        $data['user'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
-
-        $data['invoice'] = $this->Mod_kasir->invoice_no();
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('kasir/penjualanV', $data);
-        $this->load->view('templates/footer');
-    }
-
-    public function penjualan()
-    {
         $data['muncul'] = $this->db->get('tbl_tampung')->row_array();
         // $data['row'] = $this->db->get_where('tbl_tampung', ['id_trans' => $this->input->post('id_trans')])->row_array();
         $data['tampung'] = $this->db->get('tbl_tampung')->result_array();
@@ -41,6 +29,10 @@ class Kasir extends CI_Controller
         } else {
             $this->Mod_kasir->tampung();
         }
+    }
+
+    public function penjualan()
+    {
     }
 
     public function wishlist()
