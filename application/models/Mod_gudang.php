@@ -71,6 +71,26 @@ class Mod_gudang extends CI_Model
         return $query;
     }
 
+    public function ubahBrg()
+    {
+        $id_brg = $this->input->post('id_brg');
+        $kodeBrg = $this->input->post('kode_barang');
+        $namaBrg = $this->input->post('nama_barang');
+        $kategori = $this->input->post('kategori');
+        $satuan = $this->input->post('satuan');
+        $harga = $this->input->post('harga_jual');
+
+        $this->db->set('kode_brg', $kodeBrg);
+        $this->db->set('nama_brg', $namaBrg);
+        $this->db->set('kategori', $kategori);
+        $this->db->set('unit', $satuan);
+        $this->db->set('harga_jual', $harga);
+        $this->db->where('id_brg', $id_brg);
+        $this->db->update('tbl_barang');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diperbaharui!</div>');
+        redirect('gudang/infoStok');
+    }
+
     public function tambahSupplier()
     {
         $supp = $this->input->post('nama_sup', true);

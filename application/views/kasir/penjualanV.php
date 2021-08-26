@@ -19,26 +19,25 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="row">
-                        <div class="col-lg-4">
+                        <!-- <div class="col-lg-4">
                             <div class="form-group">
-                                <!-- <label for="date">Tanggal Transaksi</label> -->
                                 <div class="input-group input-group-sm">
-                                    <input type="number" class="form-control form-control-sm form-control-user" id="date" name="date" placeholder="Tanggal Transaksi" value="<?= date('Y-m-d'); ?>">
-                                </div>    
+                                    <input type="date" class="form-control form-control-sm form-control-user" id="date" name="date" placeholder="Tanggal Transaksi" value="<?= date('Y-m-d'); ?>">
+                                </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <!-- <label for="nama_kasir">Nama Kasir</label> -->
                                 <div class="input-group input-group-sm">
-                                    <input type="number" class="form-control form-control-sm form-control-user" id="nama_kasir" name="nama_kasir" placeholder="Nama Kasir" readonly>
-                                </div>  
+                                    <input type="text" class="form-control form-control-sm form-control-user" id="nama_kasir" name="nama_kasir" value="<?= $user['username']; ?>" readonly>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                
+
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="form-group">
@@ -58,7 +57,7 @@
                                     <button type="submit" class="btn btn-primary btn-sm" style="margin-top: 30px;">
                                         Tambah
                                     </button>
-                                </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -69,12 +68,12 @@
 
                     <div class="row d-flex justify-content-end">
                         <div class="form-group">
-                                <h5><b><span>BM017PDIP</span></b></h5>
+                            <h5><b><span><?= $invoice; ?></span></b></h5>
                         </div>
                     </div>
                     <div class="row d-flex justify-content-end">
                         <div class="form-group">
-                                <h1><b><span>Rp. 60.000</span></b></h1>
+                            <h1><b><span>Rp. 60.000</span></b></h1>
                         </div>
                     </div>
                 </div>
@@ -103,35 +102,7 @@
                                     <td align="center">-</td>
                                     <td align="right">15000</td>
                                 </tr>
-                                <tr>    
-                                    <td>Umbul-umbul PDIP Kemerdekaan</td>
-                                    <td align="center">1</td>
-                                    <td align="right">15000</td>
-                                    <td align="center">-</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>
-                                    <td>Umbul-umbul PDIP Kemerdekaan</td>
-                                    <td align="center">1</td>
-                                    <td align="right">15000</td>
-                                    <td align="center">-</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>    
-                                    <td>Umbul-umbul PDIP Kemerdekaan</td>
-                                    <td align="center">1</td>
-                                    <td align="right">15000</td>
-                                    <td align="center">-</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>
-                                    <td>Umbul-umbul PDIP Kemerdekaan</td>
-                                    <td align="center">1</td>
-                                    <td align="right">15000</td>
-                                    <td align="center">-</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                
+
                             </tbody>
                         </table>
                     </div>
@@ -152,61 +123,58 @@
                 </div>
             </div>
 
-            
+
         </div>
     </div>
 
     <!-- Modal Box -->
     <div class="modal fade" id="modal-default">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Pembayaran</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              
-                <div class="form-group">
-                    <label for="total_diskon">Total Diskon</label>
-                        <div class="input-group input-group-sm">
-                            <input type="number" class="form-control form-control-sm form-control-user" 
-                                    id="total_diskon" name="total_diskon" placeholder="Total Diskon" readonly>
-                        </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="total">Total</label>
-                        <div class="input-group input-group-sm">
-                            <input type="number" class="form-control form-control-sm form-control-user" 
-                                    id="total" name="total" placeholder="Total" readonly>
-                        </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="kembali">Kembali</label>
-                        <div class="input-group input-group-sm">
-                            <input type="number" class="form-control form-control-sm form-control-user" 
-                                    id="kembali" name="kembali" placeholder="Kembali" readonly>
-                        </div>
-                </div>
-
-            </div>
-
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <a href="<?= base_url('transaksi/cetakStruk'); ?>" target="_blank">
-                    <button type="button" class="btn btn-primary">
-                        Print Sturk
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Pembayaran</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
                     </button>
-              </a>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="total_diskon">Total Diskon</label>
+                        <div class="input-group input-group-sm">
+                            <input type="number" class="form-control form-control-sm form-control-user" id="total_diskon" name="total_diskon" placeholder="Total Diskon" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="total">Total</label>
+                        <div class="input-group input-group-sm">
+                            <input type="number" class="form-control form-control-sm form-control-user" id="total" name="total" placeholder="Total" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="kembali">Kembali</label>
+                        <div class="input-group input-group-sm">
+                            <input type="number" class="form-control form-control-sm form-control-user" id="kembali" name="kembali" placeholder="Kembali" readonly>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <a href="<?= base_url('transaksi/cetakStruk'); ?>" target="_blank">
+                        <button type="button" class="btn btn-primary">
+                            Print Sturk
+                        </button>
+                    </a>
+                </div>
             </div>
-          </div>
-          <!-- /.modal-content -->
+            <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
+    </div>
+    <!-- /.modal -->
 
 </div>

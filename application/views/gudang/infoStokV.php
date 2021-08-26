@@ -40,7 +40,7 @@
         </section>
 
         <!-- Main content -->
-      
+
         <div class="card col-lg-8">
             <!-- /.card-header -->
             <div class="card-body">
@@ -59,13 +59,13 @@
                         <?php foreach ($barang as $brg) : ?>
                             <tr>
                                 <td>
-                                    <a href="<?= base_url('gudang/ubah/') . $brg['id_brg']; ?>" type="button" class="btn btn-warning far fa-edit"></a>
-                                    <a href="<?= base_url('gudang/hapus/') . $brg['id_brg']; ?>" type="button" class="btn btn-danger far fa-trash-alt"></a>
+                                    <a href="<?= base_url('gudang/ubah/') . $brg['id_brg']; ?>" type="button" class="btn btn-warning btn-sm far fa-edit"></a>
+                                    <a href="<?= base_url('gudang/hapus/') . $brg['id_brg']; ?>" type="button" class="btn btn-danger btn-sm far fa-trash-alt"></a>
                                 </td>
                                 <td><?= $brg['kode_brg']; ?></td>
                                 <td><?= $brg['nama_brg']; ?></td>
                                 <td><?= $brg['kategori']; ?></td>
-                                <td><?= $brg['harga_jual']; ?></td>
+                                <td><?= indo_currency($brg['harga_jual']); ?></td>
                                 <td><?= $brg['qty']; ?></td>
                             </tr>
                         <?php endforeach; ?>

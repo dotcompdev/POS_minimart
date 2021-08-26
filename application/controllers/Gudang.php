@@ -76,9 +76,33 @@ class Gudang extends CI_Controller
         }
     }
 
-    public function ubah()
+    public function ubah($id)
     {
-        echo "berhasil";
+        $data['judul'] = "Ubah Barang";
+        $data['barang'] = $this->db->get_where('tbl_barang', ['id_brg' => $id])->row_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('gudang/editStokV', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function ubahBarang()
+    {
+        $this->form_validation->set_rules('kode_barang', 'Kode barang', 'required|trim');
+        $this->form_validation->set_rules('nama_barang', 'Nama barang', 'trim|required');
+        $this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
+        $this->form_validation->set_rules('satuan', 'Satuan', 'trim|required');
+        $this->form_validation->set_rules('harga_jual', 'Harga', 'trim|required');
+
+        if ($this->form_validation->run() == false) {
+            $data['judul'] = "Ubah Barang";
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('gudang/eidtStokV', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Mod_gudang->ubahBrg();
+        }
     }
 
     public function hapus($id)
