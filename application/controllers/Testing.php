@@ -12,26 +12,30 @@ class Testing extends CI_Controller
     // PEMBUKUAN--------------------------------------------------
     public function j_penjualan()
     {
-
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
+        $data['judul'] = 'Jurnal Penjualan';
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('supervisor/pembukuan/j_penjualanV');
         $this->load->view('templates/footer');
     }
 
     public function j_pembelian()
     {
-
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
+        $data['judul'] = 'Jurnal Pembelian';
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('supervisor/pembukuan/j_pembelianV');
         $this->load->view('templates/footer');
     }
 
     public function j_retur()
     {
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
+        $data['judul'] = 'Jurnal Retur';
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('supervisor/pembukuan/j_returV');
         $this->load->view('templates/footer');
     }
@@ -40,16 +44,20 @@ class Testing extends CI_Controller
 
     public function promo()
     {
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
+        $data['judul'] = 'Info Promo';
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('supervisor/promo/promoV');
         $this->load->view('templates/footer');
     }
 
     public function tenPromo()
     {
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
+        $data['judul'] = 'Tentukan Promo';
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('supervisor/promo/tenPromoV');
         $this->load->view('templates/footer');
     }

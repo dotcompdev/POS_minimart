@@ -15,6 +15,12 @@
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/dist/css/adminlte.min.css">
+
+  <style>
+    body {
+      color: #454d55;
+    }
+  </style>
 </head>
 
 <body class="hold-transition login-page">
@@ -26,7 +32,7 @@
       </div>
 
       <div class="card-body">
-        <p class="login-box-msg">Login</p>
+        <h5 class="login-box-msg">Login</h5>
 
         <?= $this->session->flashdata('message'); ?>
 
@@ -55,7 +61,7 @@
           <div class="row">
 
             <div class="col-12">
-              <button type="submit" class="btn btn-primary btn-block">Login</button>
+              <button type="submit" class="btn btn-primary btn-block swalDefaultSuccess">Login</button>
             </div>
 
           </div>

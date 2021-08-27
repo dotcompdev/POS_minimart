@@ -12,11 +12,13 @@ class Supervisor extends CI_Controller
         $this->load->model('Mod_supervisor');
         $this->load->library('form_validation');
     }
-
+    
     public function index()
     {
         $data['judul'] = "Supervisor";
         $data['user'] = $this->Mod_supervisor->get();
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+        
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
@@ -26,6 +28,7 @@ class Supervisor extends CI_Controller
 
     public function registration()
     {
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
         $this->form_validation->set_rules('name', 'Name', 'trim|required');
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[tbl_user.email]', [
             'is_unique' => 'This email has already registered!'
@@ -43,7 +46,7 @@ class Supervisor extends CI_Controller
         // $this->form_validation->set_rules('image', 'Image', 'required|trim');
 
         if ($this->form_validation->run() == false) {
-            $data['judul'] = "Tambah Akun";
+            $data['judul'] = "Tambah Pegawai";
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar');
             $this->load->view('supervisor/pegawai/registrationV');
@@ -56,6 +59,7 @@ class Supervisor extends CI_Controller
     {
         $data['judul'] = "Info Pegawai";
         $data['user'] = $this->Mod_supervisor->getPegawai();
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
         if ($this->input->post('keywordPegawai')) {
             $data['user'] = $this->Mod_supervisor->cariDataPegawai();
         }
@@ -94,6 +98,8 @@ class Supervisor extends CI_Controller
     {
         $this->load->view('cetak/jurnalRetur');
     }
+
+    // ---------------------------------------------------------------------------------------------------------------------------
     public function ubah($id)
     {
         $data['pegawai'] = $this->db->get_where('tbl_user', ['id_user' => $id])->row_array();

@@ -21,10 +21,13 @@ class Mod_auth extends CI_Model
                     ];
                     $this->session->set_userdata($data);
                     if ($user['role_id'] == 1) {
+                        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat Datang!</div>');
                         redirect('supervisor');
                     } elseif ($user['role_id'] == 2) {
+                        $this->session->set_flashdata('message', '<div class="alert alert-Success" role="alert">Selamat Datang!</div>');
                         redirect('kasir');
                     } else {
+                        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat Datang!</div>');
                         redirect('gudang');
                     }
                 } else {

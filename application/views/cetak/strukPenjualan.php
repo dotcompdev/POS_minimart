@@ -36,7 +36,7 @@ $html = '<!DOCTYPE html>
     </div>
     <hr />
 
-    <table class="table table-sm table-borderless">
+    <table class="table table-sm" rules="all">
         <thead>
             <tr>
                 <th scope="col">Barang</th>

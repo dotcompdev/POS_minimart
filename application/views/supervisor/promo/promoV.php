@@ -19,11 +19,13 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2 ">
-                    <button type="button" class="btn btn-block btn-success mt-1">
-                        Tentukan Promo
-                    </button>
+                    <a href="<?= base_url('testing/tenPromo'); ?>">
+                        <button type="button" class="btn btn-block btn-success mt-1">
+                            Tentukan Promo
+                        </button>
+                    </a>
                 </div>
-                <div class="col-md-4 ml-1 mt-1 ">
+                <div class="col-md-4 ml-1 mt-1">
                     <form action="#" class="justify-content-end">
                         <div class="input-group">
                             <input type="search" class="form-control form-control-md" placeholder="Cari promo">

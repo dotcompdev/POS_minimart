@@ -87,7 +87,8 @@
                         <table class="table table-head-fixed text-nowrap">
                             <thead>
                                 <tr>
-                                    <th width="400px">Barang</th>
+                                    <th width="100px">Aksi</th>
+                                    <th width="300px">Barang</th>
                                     <th style="text-align: center;" width="100px">QTY</th>
                                     <th style="text-align: right;" width="100px">Harga Jual</th>
                                     <th style="text-align: center;" width="150px">Diskon</th>
@@ -97,27 +98,10 @@
 
                             <tbody>
                                 <tr>
-                                    <td>Umbul-umbul PDIP Kemerdekaan</td>
-                                    <td align="center">1</td>
-                                    <td align="right">15000</td>
-                                    <td align="center">-</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>    
-                                    <td>Umbul-umbul PDIP Kemerdekaan</td>
-                                    <td align="center">1</td>
-                                    <td align="right">15000</td>
-                                    <td align="center">-</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>
-                                    <td>Umbul-umbul PDIP Kemerdekaan</td>
-                                    <td align="center">1</td>
-                                    <td align="right">15000</td>
-                                    <td align="center">-</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>    
+                                    <td>
+                                        <button type="button" class="btn btn-warning far fa-edit btn-sm"></button>
+                                        <button type="button" class="btn btn-danger far fa-trash-alt btn-sm"></button>
+                                    </td>
                                     <td>Umbul-umbul PDIP Kemerdekaan</td>
                                     <td align="center">1</td>
                                     <td align="right">15000</td>
@@ -125,6 +109,43 @@
                                     <td align="right">15000</td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-warning far fa-edit btn-sm"></button>
+                                        <button type="button" class="btn btn-danger far fa-trash-alt btn-sm"></button>
+                                    </td>    
+                                    <td>Umbul-umbul PDIP Kemerdekaan</td>
+                                    <td align="center">1</td>
+                                    <td align="right">15000</td>
+                                    <td align="center">-</td>
+                                    <td align="right">15000</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-warning far fa-edit btn-sm"></button>
+                                        <button type="button" class="btn btn-danger far fa-trash-alt btn-sm"></button>
+                                    </td>
+                                    <td>Umbul-umbul PDIP Kemerdekaan</td>
+                                    <td align="center">1</td>
+                                    <td align="right">15000</td>
+                                    <td align="center">-</td>
+                                    <td align="right">15000</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-warning far fa-edit btn-sm"></button>
+                                        <button type="button" class="btn btn-danger far fa-trash-alt btn-sm"></button>
+                                    </td>    
+                                    <td>Umbul-umbul PDIP Kemerdekaan</td>
+                                    <td align="center">1</td>
+                                    <td align="right">15000</td>
+                                    <td align="center">-</td>
+                                    <td align="right">15000</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-warning far fa-edit btn-sm"></button>
+                                        <button type="button" class="btn btn-danger far fa-trash-alt btn-sm"></button>
+                                    </td>
                                     <td>Umbul-umbul PDIP Kemerdekaan</td>
                                     <td align="center">1</td>
                                     <td align="right">15000</td>

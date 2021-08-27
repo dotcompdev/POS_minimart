@@ -11,24 +11,31 @@ class Kasir extends CI_Controller
 
     public function penjualan()
     {
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
+        $data['judul'] = 'Penjualan';
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('kasir/penjualanV');
         $this->load->view('templates/footer');
+        
     }
 
     public function wishlist()
     {
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
+        $data['judul'] = 'Wishlist';
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('kasir/wishlistV');
         $this->load->view('templates/footer');
     }
 
     public function returment()
     {
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
+        $data['judul'] = 'Returment';
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('kasir/returmentV');
         $this->load->view('templates/footer');
     }
