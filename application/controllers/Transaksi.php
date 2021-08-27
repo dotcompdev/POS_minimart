@@ -11,10 +11,19 @@ class Transaksi extends CI_Controller
 
     public function cetakStruk()
     {
+
+
         $data = array();
         $trans = $this->db->get('tbl_tampung')->result_array();
 
         foreach ($trans as $d) {
+            $brg = $this->db->get_where('tbl_barang', ['kode_brg' => $d['kode_barang']])->row_array();
+
+            $da = $brg['qty'] - $d['qty'];
+            $this->db->set('qty', $da);
+            $this->db->where('kode_brg', $d['kode_barang']);
+            $this->db->update('tbl_barang');
+
 
             array_push($data, array(
                 'invoice' => $this->input->post('invoice', true),

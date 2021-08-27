@@ -22,6 +22,7 @@ class Mod_kasir extends CI_Model
 
   public function tampung()
   {
+
     $nama = $this->db->get_where('tbl_tampung', ['kode_barang' => $this->input->post('kode_barang')])->row_array();
     $kod = $this->input->post('kode_barang');
     $qty = $nama['qty'];
@@ -32,11 +33,9 @@ class Mod_kasir extends CI_Model
       $this->db->set('subtotal', $subtotal);
       $this->db->where('kode_barang', $kod);
       $this->db->update('tbl_tampung');
+
       redirect('kasir');
-      // echo "ok";
     } else {
-
-
       $subtotal = 1 * intval(htmlspecialchars($this->input->post('harga_jual', true)));
       $data = [
         'invoice_t' => htmlspecialchars($this->input->post('invoice', true)),
