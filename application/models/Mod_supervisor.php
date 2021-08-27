@@ -116,18 +116,6 @@ class Mod_supervisor extends CI_Model
         return $this->db->get('tbl_user')->result_array();
     }
 
-    public function fetch_data($query)
-    {
-        $this->db->select("*");
-        $this->db->from("tbl_user");
-        if ($query != '') {
-            $this->db->like('nama_user', $query);
-            $this->db->or_like('email', $query);
-        }
-        $this->db->order_by('id_user', 'DESC');
-        return $this->db->get();
-    }
-
     public function hapusPegawai($id)
     {
         $this->db->delete('tbl_user', ['id_user' => $id]);

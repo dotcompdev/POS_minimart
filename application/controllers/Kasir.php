@@ -30,21 +30,25 @@ class Kasir extends CI_Controller
         }
     }
 
-    public function penjualan()
-    {
-    }
-
     public function wishlist()
     {
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('kasir/wishlistV');
-        $this->load->view('templates/footer');
+        $data['wish'] = $this->Mod_kasir->getWish();
+        $this->form_validation->set_rules('nama_wish', 'Nama barang', 'trim|required');
+        if ($this->form_validation->run() == false) {
+            $data['judul'] = 'Wishlist';
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('kasir/wishlistV', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Mod_kasir->wishlist();
+        }
     }
 
     public function returment()
     {
-        $this->load->view('templates/header');
+        $data['judul'] = 'Returment';
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('kasir/returmentV');
         $this->load->view('templates/footer');

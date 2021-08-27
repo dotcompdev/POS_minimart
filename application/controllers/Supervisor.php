@@ -141,20 +141,6 @@ class Supervisor extends CI_Controller
         }
     }
 
-    public function fetch()
-    {
-        $query = '';
-        if ($this->input->post('query')) {
-            $query = $this->input->post('query');
-        }
-        $data['judul'] = "Info Pegawai";
-        $data['user'] = $this->Mod_supervisor->fetch_data($query);
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('supervisor/pegawai/infoPegawai', $data);
-        $this->load->view('templates/footer');
-    }
-
     // PEMBUKUAN--------------------------------------------------
     public function j_penjualan()
     {

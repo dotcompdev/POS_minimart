@@ -11,8 +11,6 @@ class Transaksi extends CI_Controller
 
     public function cetakStruk()
     {
-
-
         $data = array();
         $trans = $this->db->get('tbl_tampung')->result_array();
 

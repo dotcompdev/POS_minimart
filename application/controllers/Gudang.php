@@ -137,4 +137,47 @@ class Gudang extends CI_Controller
             $this->Mod_gudang->tambahSupplier();
         }
     }
+
+    public function fetch()
+    {
+        $output = '';
+        $query = '';
+        if ($this->input->post('query')) {
+            $query = $this->input->post('query');
+        }
+        $data = $this->Mod_gudang->fetch_data($query);
+        $output .= '
+        <table class="table table-head-fixed text-nowrap">
+        <thead>
+            <tr>
+                <th>Kode Barang</th>
+                <th>Nama Barang</th>
+                <th>Harga</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+        ';
+        if ($data->num_rows() > 0) {
+            foreach ($data->result() as $row) {
+                $output .= '
+                    <tr>
+                        <td>' . $row["kode_brg"] . '</td>
+                        <td>' . $row["nama_brg"] . '</td>
+                        <td>' . indo_currency($row["harga_jual"]) . '</td>
+                        <td><button id="pilih" class="btn btn-primary btn-sm" type="submit" data-kode="' . $row["kode_brg"] . '" data-nama="' . $row["nama_brg"] . '" data-kategori="' . $row["kategori"] . '" data-satuan="' . $row["unit"] . '" data-harga="' . $row["harga_jual"] . '" data-qty="' . $row["qty"] . '">Pilih</button></td>
+                    </tr>
+                
+                ';
+            }
+        } else {
+            $output .= '<tr>
+							<td colspan="5">No Data Found</td>
+						</tr>';
+        }
+        $output .= '
+        </tbody>
+        </table>';
+        echo $output;
+    }
 }

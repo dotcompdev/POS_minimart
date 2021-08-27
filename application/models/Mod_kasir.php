@@ -51,4 +51,23 @@ class Mod_kasir extends CI_Model
       redirect('kasir');
     }
   }
+
+  public function wishlist()
+  {
+    $barang = [
+      'nama_brg' => htmlspecialchars($this->input->post('nama_wish', true)),
+      'created' => time()
+    ];
+
+    $this->db->insert('tbl_barang', $barang);
+    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Barang berhasil ditambahkan!</div>');
+    redirect('kasir/wishlist');
+  }
+
+  public function getWish()
+  {
+    $this->db->from('tbl_barang');
+    $this->db->where('kategori', '');
+    return $this->db->get()->result_array();
+  }
 }

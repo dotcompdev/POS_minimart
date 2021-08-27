@@ -52,7 +52,9 @@ class Mod_gudang extends CI_Model
 
     public function get()
     {
-        return $this->db->get('tbl_barang')->result_array();
+        $this->db->from('tbl_barang');
+        $this->db->where('kategori !=', '');
+        return $this->db->get()->result_array();
     }
 
     public function getBarang()
@@ -119,5 +121,17 @@ class Mod_gudang extends CI_Model
     public function getSupplier()
     {
         return $this->db->get('tbl_supplier')->result_array();
+    }
+
+    public function fetch_data($query)
+    {
+        $this->db->select("*");
+        $this->db->from("tbl_barang");
+        if ($query != '') {
+            $this->db->like('nama_brg', $query);
+            $this->db->or_like('kode_brg', $query);
+        }
+        $this->db->order_by('id_brg', 'DESC');
+        return $this->db->get();
     }
 }
