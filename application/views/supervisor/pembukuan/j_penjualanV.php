@@ -53,22 +53,22 @@
                             <table class="table table-head-fixed text-nowrap">
                                 <thead>
                                     <tr>
-                                        <th style="text-align: center;" width="150px">Tanggal</th>
-                                        <th width="100px">Invoice</th>
-                                        <th width="150px">Kode Barang</th>
-                                        <th style="text-align: center;" width="100px">QTY</th>
-                                        <th style="text-align: right;" width="100px">Sub Total</th>
+                                        <th style="text-align: center;" width="150px">Waktu</th>
+                                        <th width="100px">User</th>
+                                        <th width="150px">Invoice</th>
+                                        <th style="text-align: center;" width="100px">Total</th>
+                                        <th style="text-align: right;" width="100px">Cash</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
                                     <?php foreach ($penjualan as $jual) : ?>
                                         <tr>
-                                            <td align="center"><?= date('d-m-Y H:i', $jual['tgl_transaksi']);; ?></td>
+                                            <td align="center"><?= date('d-m-Y H:i', $jual['waktu_trans']);; ?></td>
+                                            <td><?= $jual['user']; ?></td>
                                             <td><?= $jual['invoice']; ?></td>
-                                            <td><?= $jual['barang_id']; ?></td>
-                                            <td align="center"><?= $jual['qty_jual']; ?></td>
-                                            <td align="right"><?= $jual['sub_total']; ?></td>
+                                            <td align="center"><?= $jual['total_bayar']; ?></td>
+                                            <td align="right"><?= $jual['cash']; ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

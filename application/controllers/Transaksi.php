@@ -13,6 +13,7 @@ class Transaksi extends CI_Controller
     {
         $data = array();
         $trans = $this->db->get('tbl_tampung')->result_array();
+
         foreach ($trans as $d) {
 
             array_push($data, array(
@@ -28,6 +29,17 @@ class Transaksi extends CI_Controller
             ));
         }
         $sql = $this->Mod_transaksi->save_batch($data);
+
+        $total = $this->Mod_transaksi->readTransQty();
+
+        $result = [
+            'waktu_trans' => time(),
+            'user' => $this->input->post('nama_kasir', true),
+            'invoice' => $this->input->post('invoice', true),
+            'cash' => $this->input->post('cash', true),
+            'total_bayar' => $total
+        ];
+        $this->db->insert('tbl_jual_detail', $result);
 
         if ($sql) {
             $id = $this->input->post('delete_id', true);

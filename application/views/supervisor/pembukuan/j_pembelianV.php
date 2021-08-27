@@ -52,7 +52,7 @@
                                 <thead>
                                     <tr>
                                         <th width="70px">Supplier</th>
-                                        <th width="200px">Nama Barang</th>
+                                        <th width="150px">Nama Barang</th>
                                         <th style="text-align: right;" width="100px">Harga Beli</th>
                                         <th style="text-align: center;" width="50px">QTY</th>
                                         <th width="100px">Tanggal</th>
@@ -66,7 +66,7 @@
                                             <td><?= $beli['brg_nama']; ?></td>
                                             <td align="right"><?= indo_currency($beli['harga_beli']); ?></td>
                                             <td align="center"><?= $beli['qty_beli']; ?></td>
-                                            <td><?= date('d F Y', $beli['tgl_beli']); ?></td>
+                                            <td><?= date('d-m-y ~ H:i', $beli['tgl_beli']); ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

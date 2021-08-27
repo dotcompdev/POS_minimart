@@ -14,10 +14,9 @@ class Kasir extends CI_Controller
     public function index()
     {
         $data['muncul'] = $this->db->get('tbl_tampung')->row_array();
-        // $data['row'] = $this->db->get_where('tbl_tampung', ['id_trans' => $this->input->post('id_trans')])->row_array();
         $data['tampung'] = $this->db->get('tbl_tampung')->result_array();
         $this->form_validation->set_rules('kode_barang', 'Kode barang', 'trim|required');
-        $data['barang'] = $this->Mod_gudang->get();
+        $data['barang'] = $this->Mod_gudang->getBarang();
         if ($this->form_validation->run() == false) {
             $data['judul'] = 'Penjualan';
             $data['user'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();

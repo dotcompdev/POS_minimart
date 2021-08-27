@@ -140,6 +140,6 @@ class Mod_supervisor extends CI_Model
 
     public function getPenjualan()
     {
-        return $this->db->get('tbl_trans_jual')->result_array();
+        return $this->db->get('tbl_jual_detail')->result_array();
     }
 }
