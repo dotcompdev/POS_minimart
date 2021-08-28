@@ -30,6 +30,18 @@ class Kasir extends CI_Controller
         }
     }
 
+    public function ubah($id)
+    {
+        $data['item'] = $this->db->get_where('tbl_tampung', ['id_trans' => $id])->row_array();
+    }
+
+    public function hapus($id)
+    {
+        $data['item'] = $this->db->get_where('tbl_tampung', ['id_trans' => $id])->row_array();
+        $this->Mod_kasir->hapusItem($id);
+        redirect('kasir');
+    }
+
     public function wishlist()
     {
         $data['wish'] = $this->Mod_kasir->getWish();

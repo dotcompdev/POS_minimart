@@ -52,6 +52,11 @@ class Mod_kasir extends CI_Model
     }
   }
 
+  public function hapusItem($id)
+  {
+    $this->db->delete('tbl_tampung', ['id_trans' => $id]);
+  }
+
   public function wishlist()
   {
     $barang = [
