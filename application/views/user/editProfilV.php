@@ -66,7 +66,7 @@
           <a href="<?= base_url('user'); ?>" type="button" class="btn btn-danger btn-block"><i class="fas fa-times"></i> Batal</a>
         </div>
         <div class="form-group col-sm-3">
-          <button type="submit" class="btn btn-success btn-block"><i class="far fa-save"></i> Simpan</button>
+          <button type="submit" class="btn btn-success btn-block swalDefaultSuccess"><i class="far fa-save"></i> Simpan</button>
         </div>
       </div>
       </form>
