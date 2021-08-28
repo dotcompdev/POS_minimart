@@ -39,7 +39,7 @@ $html = '<!DOCTYPE html>
             <div class="row">
                 <div class="col-lg">
                     <div class="card-body table-responsive p-0" style="height: 300px;">
-                        <table class="table table-head-fixed text-nowrap" ru.es="all">
+                        <table class="table table-head-fixed text-nowrap" rules="all" table-bordered>
                             <thead>
                                 <tr>
                                     <th width="100px">ID Transaksi</th>

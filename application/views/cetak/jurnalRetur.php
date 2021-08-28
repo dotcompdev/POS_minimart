@@ -39,7 +39,7 @@ $html = '<!DOCTYPE html>
             <div class="row">
                 <div class="col-lg">
                     <div class="card-body table-responsive p-0" style="height: 300px;">
-                        <table class="table table-head-fixed text-nowrap">
+                        <table class="table table-head-fixed text-nowrap table-bordered">
                             <thead>
                                 <tr>
                                     <th style="text-align: left;" width="150px">ID Retur</th>
