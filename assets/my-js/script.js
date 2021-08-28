@@ -12,6 +12,7 @@
 // 		});
 // 	}
 
+
 // 	$("#table_search").keyup(function () {
 // 		var search = $(this).val();
 // 		if (search != "") {
@@ -21,6 +22,17 @@
 // 		}
 // 	});
 // });
+
+
+// SWEET ALERT--------------------------------------------------------------------
+$(".toastsDefaultSuccess").click(function () {
+	$(document).Toasts("create", {
+		class: "bg-success",
+		title: "Toast Title",
+		subtitle: "Subtitle",
+		body: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
+	});
+});
 
 // sum total transaksi
 var table = document.getElementById("nilai"),
@@ -33,3 +45,4 @@ for (var t = 1; t < table.rows.length; t++) {
 document.getElementById("hasil").innerHTML = sumHsl;
 document.getElementById("total").value = sumHsl;
 document.getElementById("total_diskon").value = sumDiskon;
+

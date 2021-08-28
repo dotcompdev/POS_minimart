@@ -23,6 +23,8 @@ class Gudang extends CI_Controller
     {
         $data['judul'] = "Info Stok";
         $data['barang'] = $this->Mod_gudang->get();
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('gudang/infoStokV', $data);
@@ -44,6 +46,7 @@ class Gudang extends CI_Controller
         $this->form_validation->set_rules('harga_beli', 'Harga beli', 'trim|required|is_natural_no_zero');
         $this->form_validation->set_rules('harga_jual', 'Harga jual', 'trim|required|is_natural_no_zero');
         $data['barang'] = $this->Mod_gudang->get();
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
 
         if ($this->form_validation->run() == false) {
             $data['judul'] = "Input Barang";
@@ -68,7 +71,7 @@ class Gudang extends CI_Controller
             $data['judul'] = "Input Barang";
             $data['supplier'] = $this->Mod_gudang->getSupplier();
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar');
+            $this->load->view('templates/sidebar', $data);
             $this->load->view('gudang/inputBarangV', $data);
             $this->load->view('templates/footer');
         } else {
@@ -118,6 +121,7 @@ class Gudang extends CI_Controller
     {
         $data['judul'] = "Info Supplier";
         $data['supplier'] = $this->Mod_gudang->getSupplier();
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('gudang/infoSupplierV', $data);

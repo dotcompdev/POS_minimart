@@ -43,47 +43,56 @@
             </div>
         </section>
 
+
         <!-- Main content -->
-        <div class="card col-lg-8 ml-3">
-            <!-- /.card-header -->
-            <div id="tabelPegawai" class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>AKSI</th>
-                            <th>ID Pegawai</th>
-                            <th>Nama Pegawai</th>
-                            <th>Role</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($user as $us) : ?>
-                            <tr>
-                                <td>
-                                    <a href="<?= base_url('supervisor/ubah/') . $us['id_user']; ?>" type="button" class="btn btn-warning far fa-edit"></a>
-                                    <a href="<?= base_url('supervisor/hapus/') . $us['id_user']; ?>" type="button" class="btn btn-danger far fa-trash-alt"></a>
-                                </td>
-                                <td><?= $us['id_user']; ?></td>
-                                <td><?= $us['nama_user']; ?></td>
-                                <td><?php
-                                    if ($us['role_id'] == 2) {
-                                        echo "Kasir";
-                                    } elseif ($us['role_id'] == 3) {
-                                        echo "Petugas Gudang";
-                                    }
-                                    ?></td>
-                            </tr>
-                        <?php endforeach; ?>
+        <div class="card col-lg-7">
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- TABEL -->
+                <div class="row">
+                    <div class="col">
+                        <div class="card-body table-responsive p-0" style="height: 300px;">
+                            <table class="table table-head-fixed text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th width="100px">Aksi</th>
+                                        <th width="100px">ID Pegawai</th>
+                                        <th width="100px">Nama Pegawai</th>
+                                        <th width="150px">Role</th>
+                                    </tr>
+                                </thead>
 
-                    </tbody>
-
-                </table>
+                                <tbody>
+                                <?php foreach ($user as $us) : ?>
+                                    <tr>
+                                        <td>
+                                            <a href="<?= base_url('supervisor/ubah/') . $us['id_user']; ?>" type="button" class="btn btn-warning far fa-edit btn-sm"></a>
+                                            <a href="<?= base_url('supervisor/hapus/') . $us['id_user']; ?>" type="button" class="btn btn-danger far fa-trash-alt btn-sm"></a>
+                                        </td>
+                                        <td><?= $us['id_user']; ?></td>
+                                        <td><?= $us['nama_user']; ?></td>
+                                        <td><?php
+                                            if ($us['role_id'] == 2) {
+                                                echo "Kasir";
+                                            } elseif ($us['role_id'] == 3) {
+                                                echo "Petugas Gudang";
+                                            }
+                                            ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- END TABEL -->
             </div>
             <!-- /.card-body -->
         </div>
         <!-- /.card -->
 
-    </div>
+</div>
     <footer class="main-footer">
         <strong>Copyright &copy; 2021 <a href="#">Dotcomp</a>.</strong>
         All rights reserved.

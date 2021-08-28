@@ -49,7 +49,9 @@ table {
             <div class="row">
                 <div class="col-lg">
                     <div class="card-body table-responsive p-0" style="height: 300px;">
+
                         <table class="table table-border table-head-fixed text-nowrap">
+
                             <thead>
                                 <tr>
                                 <th width="200px">Supplier</th>

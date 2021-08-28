@@ -94,8 +94,9 @@
                         <table id="nilai" class="table table-head-fixed text-nowrap">
                             <thead>
                                 <tr>
-                                    <th>AKSI</th>
-                                    <th width="400px">Barang</th>
+
+                                    <th width="100px">Aksi</th>
+                                    <th width="300px">Barang</th>
                                     <th style="text-align: center;" width="100px">QTY</th>
                                     <th style="text-align: right;" width="100px">Harga Jual</th>
                                     <th style="text-align: center;" width="150px">Diskon</th>
@@ -104,6 +105,7 @@
                             </thead>
 
                             <tbody>
+
                                 <?php foreach ($tampung as $t) : ?>
                                     <?php if ($muncul != null) : ?>
                                         <input hidden type="number" name="id_trans" id="id_trans" value="<?= $t['id_trans']; ?>">
@@ -121,6 +123,7 @@
                                         <td align="right"><?= $t['subtotal']; ?></td>
                                     </tr>
                                 <?php endforeach; ?>
+
                             </tbody>
                         </table>
                     </div>

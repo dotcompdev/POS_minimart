@@ -79,40 +79,48 @@
                     </div>
                 </div>
         </section>
+        <br>
 
-        <!-- Main content -->
-        <div class="card">
-            <!-- /.card-header -->
-            <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <!-- <th>No.</th> -->
-                            <th>AKSI</th>
-                            <th>Nama Supplier</th>
-                            <th>Alamat Supplier</th>
-                            <th>No. Telepon</th>
-                            <th>Keterangan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($supplier as $sup) : ?>
-                            <tr>
-                                <!-- <td><?= ++$start; ?></td> -->
-                                <td>
-                                    <button type="button" class="btn btn-warning far fa-edit"></button>
-                                    <button type="button" class="btn btn-danger far fa-trash-alt"></button>
-                                </td>
-                                <td><?= $sup['nama_supplier']; ?></td>
-                                <td><?= $sup['alamat_supplier']; ?></td>
-                                <td><?= $sup['no_telp']; ?></td>
-                                <td><?= $sup['keterangan']; ?></td>
-                            </tr>
-                        <?php endforeach; ?>
+       <!-- Main content -->
+       <div class="card">
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- TABEL -->
+                <div class="row">
+                    <div class="col">
+                        <div class="card-body table-responsive p-0" style="height: 350px;">
+                            <table class="table table-head-fixed text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th width="100px">Aksi</th>
+                                        <th width="100px">Nama Supplier</th>
+                                        <th width="150px">Alamat Supplier</th>
+                                        <th width="100px">No. Telepon</th>
+                                        <th width="150px">Keterangan</th>
+                                    </tr>
+                                </thead>
 
-                    </tbody>
-
-                </table>
+                                <tbody>
+                                <?php foreach ($supplier as $sup) : ?>
+                                    <tr>
+                                        <!-- <td><?= ++$start; ?></td> -->
+                                        <td>
+                                            <button type="button" class="btn btn-warning far fa-edit btn-sm"></button>
+                                            <button type="button" class="btn btn-danger far fa-trash-alt btn-sm"></button>
+                                        </td>
+                                        <td><?= $sup['nama_supplier']; ?></td>
+                                        <td><?= $sup['alamat_supplier']; ?></td>
+                                        <td><?= $sup['no_telp']; ?></td>
+                                        <td><?= $sup['keterangan']; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- END TABEL -->
             </div>
             <!-- /.card-body -->
         </div>

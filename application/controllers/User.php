@@ -12,11 +12,12 @@ class User extends CI_Controller
 
     public function index()
     {
-        $data['judul'] = 'My Profile';
+        $data['judul'] = 'Profil Saya';
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
         $data['user'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('user/index', $data);
         $this->load->view('templates/footer');
     }
@@ -25,6 +26,8 @@ class User extends CI_Controller
     {
         $data['judul'] = 'Edit Profile';
         $data['user'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+
 
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
         $this->form_validation->set_rules('username', 'Username', 'required|trim');
@@ -32,7 +35,7 @@ class User extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar');
+            $this->load->view('templates/sidebar', $data);
             $this->load->view('user/editProfilV', $data);
             $this->load->view('templates/footer');
         } else {
@@ -42,8 +45,10 @@ class User extends CI_Controller
 
     public function gantiPassword()
     {
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
+        $data['judul'] = 'Ganti Password';
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('user/gantiPasswordV');
         $this->load->view('templates/footer');
     }

@@ -10,6 +10,39 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
 
+        <li class="nav-item dropdown user user-menu">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                <img src="<?= base_url('assets/img/profile/') . $nama['image']; ?>" class="user-image img-circle elevation-2 alt="User Image">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <!-- User image -->
+                <li class="user-header bg-primary">
+                    <img src="<?= base_url('assets/img/profile/') . $nama['image']; ?>" class="img-circle elevation-2" alt="User Image">
+
+                    <p>
+                    <?= $nama['nama_user']; ?>
+                    <small> <?= $nama['role_id']; ?></small>
+                    </p>
+                </li>
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                    <div class="row">
+                        <div class="col-lg-6 d-flex justify-content-start">
+                            <a type="button" class="btn btn-info" href="<?= base_url('user/index'); ?>">
+                                    Profil
+                            </a>
+                        </div>
+                        <div class="col-lg-6 d-flex justify-content-end">
+                            <a type="button" class="btn btn-danger" href="<?= base_url('auth/logout'); ?>">
+                                    Logout
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+
     </ul>
 </nav>
 <!-- /.navbar -->

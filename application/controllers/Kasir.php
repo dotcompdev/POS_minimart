@@ -13,6 +13,7 @@ class Kasir extends CI_Controller
 
     public function index()
     {
+        
         $data['muncul'] = $this->db->get('tbl_tampung')->row_array();
         $data['tampung'] = $this->db->get('tbl_tampung')->result_array();
         $this->form_validation->set_rules('kode_barang', 'Kode barang', 'trim|required');
@@ -44,6 +45,7 @@ class Kasir extends CI_Controller
 
     public function wishlist()
     {
+
         $data['wish'] = $this->Mod_kasir->getWish();
         $this->form_validation->set_rules('nama_wish', 'Nama barang', 'trim|required');
         if ($this->form_validation->run() == false) {
@@ -60,8 +62,11 @@ class Kasir extends CI_Controller
     public function returment()
     {
         $data['judul'] = 'Returment';
+
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
+        $this->load->view('templates/sidebar', $data);
+      
         $this->load->view('kasir/returmentV');
         $this->load->view('templates/footer');
     }

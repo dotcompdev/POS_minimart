@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group">
                         <label for="kategori">Kategori</label>
-                        <input type="text" class="form-control form-control-sm form-control-user" id="kategori" name="kategori" placeholder="kategori" value="<?= set_value('kategori'); ?>" readonly>
+                        <input type="text" class="form-control form-control-sm form-control-user" id="kategori" name="kategori" placeholder="Kategori" value="<?= set_value('kategori'); ?>" readonly>
                         <?= form_error('kategori', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                     </div>
                 </div>
@@ -107,22 +107,22 @@
                         </div>
                         <?= form_error('harga_jual', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                     </div>
+                    <div class="row d-flex justify-content-end">
+                        <div class="form-group col-lg-5">
+                            <a href="<?= base_url('gudang/infoStok'); ?>" type="button" class="btn btn-danger btn-user btn-block">
+                                Batal
+                            </a>
+                        </div>
+                        <div class="form-group col-lg-5 float-lg-left">
+                            <button type="submit" class="btn btn-success btn-user btn-block">
+                                Simpan
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
             </div>
-            <div class="row d-flex justify-content-end">
-                <div class="form-group col-lg-2">
-                    <a href="<?= base_url('gudang/infoStok'); ?>" type="button" class="btn btn-danger btn-user btn-block">
-                        Batal
-                    </a>
-                </div>
-                <div class="form-group col-lg-2 float-lg-left">
-                    <button type="submit" class="btn btn-success btn-user btn-block">
-                        Simpan
-                    </button>
-                </div>
-            </div>
-            </form>
+            <!-- </form> -->
         </div>
     </div>
 </div>

@@ -41,7 +41,9 @@
     });
 </script>
 <script src="<?= base_url('assets/my-js/chart.js'); ?>"></script>
-<script src="<?= base_url('/assets/my-js/script.js'); ?>"></script>
+
+<script src="<?= base_url('assets/my-js/script.js'); ?>"></script>
+
 
 <script type='text/javascript'>
     $(document).ready(function() {
