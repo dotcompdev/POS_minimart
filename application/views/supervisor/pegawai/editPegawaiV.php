@@ -47,7 +47,7 @@
           <?= form_error('password1', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
         </div>
         <div class="form-group">
-          <label for="password2">Ulangi password</label>
+          <label for="password2">Ulangi password</label>>
           <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Ulangi Password..">
           <?= form_error('password2', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
         </div>

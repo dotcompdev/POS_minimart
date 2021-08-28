@@ -3,16 +3,17 @@
 
 // 	function load_data(query) {
 // 		$.ajax({
-// 			url: "<?php echo base_url(); ?>Supervisor/fetch",
+// 			url: "<?= base_url(); ?>/Gudang/fetch",
 // 			method: "POST",
 // 			data: { query: query },
 // 			success: function (data) {
-// 				$("#tabelPegawai").html(data);
+// 				$("#container").html(data);
 // 			},
 // 		});
 // 	}
 
-// 	$("#keywordPegawai").keyup(function () {
+
+// 	$("#table_search").keyup(function () {
 // 		var search = $(this).val();
 // 		if (search != "") {
 // 			load_data(search);
@@ -21,6 +22,7 @@
 // 		}
 // 	});
 // });
+
 
 // SWEET ALERT--------------------------------------------------------------------
 $(".toastsDefaultSuccess").click(function () {
@@ -31,3 +33,16 @@ $(".toastsDefaultSuccess").click(function () {
 		body: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
 	});
 });
+
+// sum total transaksi
+var table = document.getElementById("nilai"),
+	sumHsl = 0,
+	sumDiskon = 0;
+for (var t = 1; t < table.rows.length; t++) {
+	sumHsl = sumHsl + parseInt(table.rows[t].cells[5].innerHTML);
+	sumDiskon = sumDiskon + parseInt(table.rows[t].cells[4].innerHTML);
+}
+document.getElementById("hasil").innerHTML = sumHsl;
+document.getElementById("total").value = sumHsl;
+document.getElementById("total_diskon").value = sumDiskon;
+

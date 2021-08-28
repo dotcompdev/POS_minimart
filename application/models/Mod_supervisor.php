@@ -56,8 +56,14 @@ class Mod_supervisor extends CI_Model
         $nama = $this->input->post('name');
         $username = $this->input->post('username');
         $email = $this->input->post('email');
-        $no_telp = $this->input->post('no_telp');
+        $no_telp = $this->input->post('telp');
         $role_id = $this->input->post('posisi');
+        $pass = $this->input->post('password1');
+
+        if ($pass != '') {
+            $passDB = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
+            $this->db->set('password', $passDB);
+        }
 
         // cek jika ada gambar yang akan di upload
         $upload_image = $_FILES['image']['name'];
@@ -110,20 +116,18 @@ class Mod_supervisor extends CI_Model
         return $this->db->get('tbl_user')->result_array();
     }
 
-    public function fetch_data($query)
-    {
-        $this->db->select("*");
-        $this->db->from("tbl_user");
-        if ($query != '') {
-            $this->db->like('nama_user', $query);
-            $this->db->or_like('email', $query);
-        }
-        $this->db->order_by('id_user', 'DESC');
-        return $this->db->get();
-    }
-
     public function hapusPegawai($id)
     {
         $this->db->delete('tbl_user', ['id_user' => $id]);
+    }
+
+    public function getPembelian()
+    {
+        return $this->db->get('tbl_trans_beli')->result_array();
+    }
+
+    public function getPenjualan()
+    {
+        return $this->db->get('tbl_jual_detail')->result_array();
     }
 }
