@@ -41,6 +41,7 @@
     });
 </script>
 <script src="<?= base_url('assets/my-js/chart.js'); ?>"></script>
+<script src="<?= base_url('/assets/my-js/script.js'); ?>"></script>
 
 <script type='text/javascript'>
     $(document).ready(function() {
@@ -61,34 +62,26 @@
         });
     });
 </script>
-<!-- 
-<script>
+
+<script type="text/javascript">
     $(document).ready(function() {
-        load_data();
+        $("#cash").keyup(function() {
+            var total = $("#total").val();
+            var uang = $("#cash").val();
 
-        function load_data(query) {
-            $.ajax({
-                url: "<?php echo base_url(); ?>/Supervisor/fetch",
-                method: "POST",
-                data: {
-                    query: query
-                },
-                success: function(data) {
-                    $("#tabelPegawai").html(data);
-                },
-            });
-        }
-
-        $("#keywordPegawai").keyup(function() {
-            var search = $(this).val();
-            if (search != "") {
-                load_data(search);
-            } else {
-                load_data();
-            }
+            var total = parseInt(uang) - parseInt(total);
+            $("#kembali").val(total);
         });
     });
-</script> -->
+</script>
+
+<script>
+    //GET CONFIRM DELETE
+    $('.delete-record').on('click', function() {
+        var invoice_id = $(this).data('invoice');
+        $('[name="delete_id"]').val(invoice_id);
+    });
+</script>
 </body>
 
 </html>

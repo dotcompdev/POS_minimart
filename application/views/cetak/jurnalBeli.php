@@ -8,9 +8,19 @@ $mpdf = new \Mpdf\Mpdf();
 $html = '<!DOCTYPE html>
 <html lang="en">
 <head>
+<style>
+table, td, th {
+  border: 1px solid black;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+</style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Struk</title>
 </head>
 <body>
@@ -39,69 +49,31 @@ $html = '<!DOCTYPE html>
             <div class="row">
                 <div class="col-lg">
                     <div class="card-body table-responsive p-0" style="height: 300px;">
-                        <table class="table table-head-fixed text-nowrap">
+                        <table class="table table-border table-head-fixed text-nowrap">
                             <thead>
                                 <tr>
-                                    <th style="text-align: left;" width="400px">Barang</th>
-                                    <th style="text-align: center;" width="100px">QTY</th>
-                                    <th style="text-align: right;" width="100px">Harga Jual</th>
-                                    <th style="text-align: center;" width="150px">Diskon</th>
-                                    <th style="text-align: right;" width="100px">Subtotal</th>
+                                <th width="200px">Supplier</th>
+                                <th width="200px">Nama Barang</th>
+                                <th width="100px">Harga Beli</th>
+                                <th style="text-align: center;" width="100px">QTY</th>
+                                <th width="150px">Tanggal</th>
                                 </tr>
                             </thead>
 
-                            <tbody>
-                                <tr>
-                                    <td>Umbul-umbul PDIP Kemerdekaan</td>
-                                    <td align="center">1</td>
-                                    <td align="right">15000</td>
-                                    <td align="center">-</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>    
-                                    <td>Umbul-umbul PDIP Kemerdekaan</td>
-                                    <td align="center">1</td>
-                                    <td align="right">15000</td>
-                                    <td align="center">-</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>
-                                    <td>Umbul-umbul PDIP Kemerdekaan</td>
-                                    <td align="center">1</td>
-                                    <td align="right">15000</td>
-                                    <td align="center">-</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>    
-                                    <td>Umbul-umbul PDIP Kemerdekaan</td>
-                                    <td align="center">1</td>
-                                    <td align="right">15000</td>
-                                    <td align="center">-</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>
-                                    <td>Umbul-umbul PDIP Kemerdekaan</td>
-                                    <td align="center">1</td>
-                                    <td align="right">15000</td>
-                                    <td align="center">-</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>
-                                    <td>Umbul-umbul PDIP Kemerdekaan</td>
-                                    <td align="center">1</td>
-                                    <td align="right">15000</td>
-                                    <td align="center">-</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>
-                                    <td>Umbul-umbul PDIP Kemerdekaan</td>
-                                    <td align="center">1</td>
-                                    <td align="right">15000</td>
-                                    <td align="center">-</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                
-                            </tbody>
+                            <tbody>';
+
+foreach ($pembelian as $beli) :
+    $html .= ' <tr>
+                                    <td align="center">' . $beli["supplier_nama"] . '</td>
+                                    <td align="center">' . $beli["brg_nama"] . '</td>
+                                    <td align="right">' . indo_currency($beli["harga_beli"]) . '</td>
+                                    <td align="center">' . $beli["qty_beli"] . '</td>
+                                    <td align="center">' . date("d F Y", $beli["tgl_beli"]) . '</td>
+                                </tr>';
+endforeach;
+
+
+$html .= ' </tbody>
                         </table>
                     </div>
                 </div>
@@ -135,6 +107,3 @@ $html = '<!DOCTYPE html>
 
 $mpdf->WriteHTML($html);
 $mpdf->Output('jurnal-pembelian.pdf', \Mpdf\Output\Destination::INLINE);
-
-?>
-

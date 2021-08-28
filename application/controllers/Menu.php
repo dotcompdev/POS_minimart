@@ -7,6 +7,7 @@ class Menu extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Mod_kasir');
     }
 
     public function index()
@@ -15,6 +16,10 @@ class Menu extends CI_Controller
 
     public function barangTerlaris()
     {
+        check_supervisor();
+
+        $this->db->get('tbl_trans_jual')->result_array();
+
         $data['judul'] = "Barang Terlaris";
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
@@ -33,10 +38,11 @@ class Menu extends CI_Controller
 
     public function pencarianPelanggan()
     {
+        $data['wish'] = $this->Mod_kasir->getWish();
         $data['judul'] = "Pencarian Pelanggan";
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('supervisor/rangkuman/pencarianPelangganV');
+        $this->load->view('supervisor/rangkuman/pencarianPelangganV', $data);
         $this->load->view('templates/footer');
     }
 }

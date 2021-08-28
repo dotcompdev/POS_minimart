@@ -78,22 +78,6 @@ class Supervisor extends CI_Controller
         redirect('supervisor/infoPegawai');
     }
 
-    // FUNCTION CETAK 3 JURNAL----------------------------------------------------------------------------------------------------
-
-    public function cetakJurnalJual()
-    {
-        $this->load->view('cetak/jurnalJual');
-    }
-
-    public function cetakJurnalBeli()
-    {
-        $this->load->view('cetak/jurnalBeli');
-    }
-
-    public function cetakJurnalRetur()
-    {
-        $this->load->view('cetak/jurnalRetur');
-    }
     public function ubah($id)
     {
         $data['pegawai'] = $this->db->get_where('tbl_user', ['id_user' => $id])->row_array();
@@ -157,17 +141,51 @@ class Supervisor extends CI_Controller
         }
     }
 
-    public function fetch()
+    // PEMBUKUAN--------------------------------------------------
+    public function j_penjualan()
     {
-        $query = '';
-        if ($this->input->post('query')) {
-            $query = $this->input->post('query');
-        }
-        $data['user'] = $this->Mod_supervisor->fetch_data($query);
-        $data['judul'] = "Info Pegawai";
+        $data['judul'] = "Jurnal Penjualan";
+        $data['penjualan'] = $this->Mod_supervisor->getPenjualan();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('supervisor/pegawai/infoPegawai', $data);
+        $this->load->view('supervisor/pembukuan/j_penjualanV');
         $this->load->view('templates/footer');
+    }
+
+    public function j_pembelian()
+    {
+        $data['judul'] = "Jurnal Pembelian";
+        $data['pembelian'] = $this->Mod_supervisor->getPembelian();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('supervisor/pembukuan/j_pembelianV');
+        $this->load->view('templates/footer');
+    }
+
+    public function j_retur()
+    {
+        $data['judul'] = "Jurnal Retur";
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('supervisor/pembukuan/j_returV');
+        $this->load->view('templates/footer');
+    }
+
+    // FUNCTION CETAK 3 JURNAL----------------------------------------------------------------------------------------------------
+
+    public function cetakJurnalJual()
+    {
+        $this->load->view('cetak/jurnalJual');
+    }
+
+    public function cetakJurnalBeli()
+    {
+        $data['pembelian'] = $this->Mod_supervisor->getPembelian();
+        $this->load->view('cetak/jurnalBeli', $data);
+    }
+
+    public function cetakJurnalRetur()
+    {
+        $this->load->view('cetak/jurnalRetur');
     }
 }

@@ -31,6 +31,7 @@ class Mod_gudang extends CI_Model
         $trans_beli = [
             'supplier_nama' => htmlspecialchars($this->input->post('supplier', true)) == '' ? "-" : htmlspecialchars($this->input->post('supplier', true)),
             'brg_kode' => htmlspecialchars($this->input->post('kode_barang', true)),
+            'brg_nama' => htmlspecialchars($this->input->post('nama_barang', true)),
             'harga_beli' => htmlspecialchars($this->input->post('harga_beli', true)),
             'qty_beli' => htmlspecialchars($this->input->post('qtyM', true)),
             'tgl_beli' => time()
@@ -51,7 +52,18 @@ class Mod_gudang extends CI_Model
 
     public function get()
     {
-        return $this->db->get('tbl_barang')->result_array();
+        $this->db->from('tbl_barang');
+        $this->db->where('kategori !=', '');
+        return $this->db->get()->result_array();
+    }
+
+    public function getBarang()
+    {
+        $param = 0;
+        $this->db->from('tbl_barang');
+        $this->db->where('harga_jual >', $param);
+        $query = $this->db->get();
+        return $query->result_array();
     }
 
     public function getStok($cari)
@@ -69,6 +81,26 @@ class Mod_gudang extends CI_Model
         }
         $query = $this->db->get();
         return $query;
+    }
+
+    public function ubahBrg()
+    {
+        $id_brg = $this->input->post('id_brg');
+        $kodeBrg = $this->input->post('kode_barang');
+        $namaBrg = $this->input->post('nama_barang');
+        $kategori = $this->input->post('kategori');
+        $satuan = $this->input->post('satuan');
+        $harga = $this->input->post('harga_jual');
+
+        $this->db->set('kode_brg', $kodeBrg);
+        $this->db->set('nama_brg', $namaBrg);
+        $this->db->set('kategori', $kategori);
+        $this->db->set('unit', $satuan);
+        $this->db->set('harga_jual', $harga);
+        $this->db->where('id_brg', $id_brg);
+        $this->db->update('tbl_barang');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diperbaharui!</div>');
+        redirect('gudang/infoStok');
     }
 
     public function tambahSupplier()
@@ -89,5 +121,17 @@ class Mod_gudang extends CI_Model
     public function getSupplier()
     {
         return $this->db->get('tbl_supplier')->result_array();
+    }
+
+    public function fetch_data($query)
+    {
+        $this->db->select("*");
+        $this->db->from("tbl_barang");
+        if ($query != '') {
+            $this->db->like('nama_brg', $query);
+            $this->db->or_like('kode_brg', $query);
+        }
+        $this->db->order_by('id_brg', 'DESC');
+        return $this->db->get();
     }
 }
