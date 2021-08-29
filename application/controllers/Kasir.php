@@ -16,6 +16,7 @@ class Kasir extends CI_Controller
         
         $data['muncul'] = $this->db->get('tbl_tampung')->row_array();
         $data['tampung'] = $this->db->get('tbl_tampung')->result_array();
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
         $this->form_validation->set_rules('kode_barang', 'Kode barang', 'trim|required');
         $data['barang'] = $this->Mod_gudang->getBarang();
         if ($this->form_validation->run() == false) {
@@ -47,6 +48,7 @@ class Kasir extends CI_Controller
     {
 
         $data['wish'] = $this->Mod_kasir->getWish();
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
         $this->form_validation->set_rules('nama_wish', 'Nama barang', 'trim|required');
         if ($this->form_validation->run() == false) {
             $data['judul'] = 'Wishlist';

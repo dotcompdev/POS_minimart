@@ -150,6 +150,7 @@ class Supervisor extends CI_Controller
     {
         $data['judul'] = "Jurnal Penjualan";
         $data['penjualan'] = $this->Mod_supervisor->getPenjualan();
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('supervisor/pembukuan/j_penjualanV');
@@ -160,6 +161,7 @@ class Supervisor extends CI_Controller
     {
         $data['judul'] = "Jurnal Pembelian";
         $data['pembelian'] = $this->Mod_supervisor->getPembelian();
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('supervisor/pembukuan/j_pembelianV');
@@ -169,6 +171,7 @@ class Supervisor extends CI_Controller
     public function j_retur()
     {
         $data['judul'] = "Jurnal Retur";
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('supervisor/pembukuan/j_returV');

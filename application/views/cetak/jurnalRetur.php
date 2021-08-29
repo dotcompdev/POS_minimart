@@ -80,18 +80,7 @@ $html = '<!DOCTYPE html>
                                     <td>Buku Pedoman Kader PDIP</td>
                                     <td>Tidak sesuai ekspektasi</td>
                                 </tr>
-                                <tr>
-                                    <td>001</td>
-                                    <td>SK017</td>
-                                    <td>Buku Pedoman Kader PDIP</td>
-                                    <td>Tidak sesuai ekspektasi</td>
-                                </tr>
-                                <tr>
-                                    <td>001</td>
-                                    <td>SK017</td>
-                                    <td>Buku Pedoman Kader PDIP</td>
-                                    <td>Tidak sesuai ekspektasi</td>
-                                </tr>
+                            
                                 
                             </tbody>
                         </table>

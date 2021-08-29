@@ -84,30 +84,7 @@ $html = '<!DOCTYPE html>
                                     <td align="center">2</td>
                                     <td align="right">15000</td>
                                 </tr>
-                                <tr>
-                                    <td>001</td>
-                                    <td align="center">08-03-2021</td>
-                                    <td>BM017</td>
-                                    <td>Buku Pedoman Kader PDIP</td>
-                                    <td align="center">2</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>
-                                    <td>001</td>
-                                    <td align="center">08-03-2021</td>
-                                    <td>BM017</td>
-                                    <td>Buku Pedoman Kader PDIP</td>
-                                    <td align="center">2</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>
-                                    <td>001</td>
-                                    <td align="center">08-03-2021</td>
-                                    <td>BM017</td>
-                                    <td>Buku Pedoman Kader PDIP</td>
-                                    <td align="center">2</td>
-                                    <td align="right">15000</td>
-                                </tr>
+                           
                                 
                             </tbody>
                         </table>

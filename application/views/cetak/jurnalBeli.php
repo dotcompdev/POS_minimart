@@ -64,18 +64,18 @@ table {
 
                             <tbody>';
 
-foreach ($pembelian as $beli) :
-    $html .= ' <tr>
+                            foreach ($pembelian as $beli) :
+                                $html .= ' <tr>
                                     <td align="center">' . $beli["supplier_nama"] . '</td>
                                     <td align="center">' . $beli["brg_nama"] . '</td>
                                     <td align="right">' . indo_currency($beli["harga_beli"]) . '</td>
                                     <td align="center">' . $beli["qty_beli"] . '</td>
                                     <td align="center">' . date("d F Y", $beli["tgl_beli"]) . '</td>
                                 </tr>';
-endforeach;
+                            endforeach;
 
 
-$html .= ' </tbody>
+                            $html .= ' </tbody>
                         </table>
                     </div>
                 </div>
