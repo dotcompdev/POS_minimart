@@ -18,6 +18,8 @@
         <!-- Main content -->
         <div class="p-3 col-lg">
 
+            <?= form_open_multipart('Kasir/returment'); ?>
+
             <div class="row">
                 <div class="col-lg-5">
                     <div class="row-lg">
@@ -60,20 +62,22 @@
                     <div class="form-group">
                         <label for="qty_retur">QTY Retur</label>
                         <input type="text" class="form-control form-control-user form-control-sm" id="qty_retur" name="qty_retur" placeholder="QTY Retur">
+                        <?= form_error('qty_retur', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                     </div>
 
                     <div class="form-group">
                         <label>Opsi</label>
-                        <select id="satuan_modal" name="satuan_modal" class="form-control form-control-sm">
+                        <select id="opsi" name="opsi" class="form-control form-control-sm">
                             <option value="">- Pilih -</option>
-                            <option value="tukar barang" <?= set_value('satuan_modal') == 'tukar barang' ? "selected" : null ?>>tukar barang</option>
-                            <option value="uang kembali" <?= set_value('satuan_modal') == 'uang kembali' ? "selected" : null ?>>uang kembali</option>
+                            <option value="tukar barang" <?= set_value('opsi') == 'tukar barang' ? "selected" : null ?>>tukar barang</option>
+                            <option value="uang kembali" <?= set_value('opsi') == 'uang kembali' ? "selected" : null ?>>uang kembali</option>
                         </select>
+                        <?= form_error('opsi', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                     </div>
 
                     <div class="form-group">
                         <label for="keterangan">Keterangan</label>
-                        <textarea class="form-control form-control-sm" rows="5" name="keterngan" id="keterangan" placeholder="Keterangan"></textarea>
+                        <textarea class="form-control form-control-sm" rows="5" name="keterangan" id="keterangan" placeholder="Keterangan"></textarea>
                     </div>
 
                 </div>
@@ -91,7 +95,7 @@
                     </button>
                 </div>
             </div>
-
+            </form>
         </div>
     </div>
 </div>

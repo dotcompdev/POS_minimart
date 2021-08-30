@@ -86,4 +86,19 @@ class Mod_kasir extends CI_Model
     $this->db->where('invoice', $invoice);
     return $this->db->get();
   }
+
+  public function returment()
+  {
+    $data = [
+      'invoice_jual' => htmlspecialchars($this->input->post('id_transaksi', true)),
+      'kode_brg_retur' => htmlspecialchars($this->input->post('id_barang', true)),
+      'nama_brg_retur' => htmlspecialchars($this->input->post('nama_barang', true)),
+      'harga_jual' => htmlspecialchars($this->input->post('harga_barang', true)),
+      'qty_retur' => htmlspecialchars($this->input->post('qty_retur', true)),
+      'opsi' => htmlspecialchars($this->input->post('opsi', true)),
+      'keterangan' => htmlspecialchars($this->input->post('keterangan', true))
+    ];
+
+    $this->db->insert('tbl_retur', $data);
+  }
 }

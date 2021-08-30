@@ -62,15 +62,22 @@ class Kasir extends CI_Controller
 
     public function returment()
     {
-        $data['judul'] = 'Returment';
-        $data['detail'] = $this->Mod_kasir->getTransJual();
-
         $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
 
-        $this->load->view('kasir/returmentV', $data);
-        $this->load->view('templates/footer');
+        $this->form_validation->set_rules('qty_retur', 'QTY', 'required|trim');
+        $this->form_validation->set_rules('opsi', 'Opsi', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            $data['judul'] = 'Returment';
+            $data['detail'] = $this->Mod_kasir->getTransJual();
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('kasir/returmentV', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Mod_kasir->returment();
+            redirect('Kasir/returment');
+        }
     }
 
     public function getItem($invoice)
