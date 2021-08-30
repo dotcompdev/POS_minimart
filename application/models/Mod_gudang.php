@@ -5,12 +5,12 @@ class Mod_gudang extends CI_Model
 {
     public function tambahBarang()
     {
-        $kodeBarang = $this->input->post('kode_barang', true);
+        $kodeBarang = $this->input->post('kode_barang_modal', true);
         $barang = [
             'kode_brg' => htmlspecialchars($kodeBarang),
-            'nama_brg' => htmlspecialchars($this->input->post('nama_barang'), true),
-            'kategori' => htmlspecialchars($this->input->post('kategori', true)),
-            'unit' => htmlspecialchars($this->input->post('satuan', true)),
+            'nama_brg' => htmlspecialchars($this->input->post('nama_barang_modal'), true),
+            'kategori' => htmlspecialchars($this->input->post('kategori_modal', true)),
+            'unit' => htmlspecialchars($this->input->post('satuan_modal', true)),
             'harga_jual' => 0,
             'qty' => 0,
             'created' => time()
@@ -59,9 +59,8 @@ class Mod_gudang extends CI_Model
 
     public function getBarang()
     {
-        $param = 0;
         $this->db->from('tbl_barang');
-        $this->db->where('harga_jual >', $param);
+        $this->db->where('harga_jual >', 0);
         $query = $this->db->get();
         return $query->result_array();
     }

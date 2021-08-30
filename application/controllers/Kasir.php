@@ -13,17 +13,17 @@ class Kasir extends CI_Controller
 
     public function index()
     {
-        
+        // $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
         $data['muncul'] = $this->db->get('tbl_tampung')->row_array();
         $data['tampung'] = $this->db->get('tbl_tampung')->result_array();
         $this->form_validation->set_rules('kode_barang', 'Kode barang', 'trim|required');
         $data['barang'] = $this->Mod_gudang->getBarang();
         if ($this->form_validation->run() == false) {
             $data['judul'] = 'Penjualan';
+            $data['invoice_item'] = $this->Mod_kasir->invoice_no();
             $data['user'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
-            $data['invoice'] = $this->Mod_kasir->invoice_no();
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar');
+            $this->load->view('templates/sidebar', $data);
             $this->load->view('kasir/penjualanV', $data);
             $this->load->view('templates/footer');
         } else {
@@ -45,6 +45,7 @@ class Kasir extends CI_Controller
 
     public function wishlist()
     {
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
 
         $data['wish'] = $this->Mod_kasir->getWish();
         $this->form_validation->set_rules('nama_wish', 'Nama barang', 'trim|required');
@@ -62,12 +63,19 @@ class Kasir extends CI_Controller
     public function returment()
     {
         $data['judul'] = 'Returment';
+        $data['detail'] = $this->Mod_kasir->getTransJual();
 
         $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
-      
-        $this->load->view('kasir/returmentV');
+
+        $this->load->view('kasir/returmentV', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function getItem($invoice)
+    {
+        $item = $this->Mod_kasir->getTransItem($invoice)->result();
+        echo json_encode($item);
     }
 }

@@ -65,6 +65,47 @@
     });
 </script>
 
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $(document).on("click", "#pilihID", function() {
+            var invoice = $(this).data("invoice");
+            $("#id_transaksi").val(invoice);
+            ambilData(invoice);
+            $("#modalTransJual").modal("hide");
+        });
+    });
+
+    function ambilData(invoice) {
+        $.ajax({
+            type: 'POST',
+            url: '<?= base_url() . "Kasir/getItem/" ?>' + invoice,
+            dataType: 'json',
+            success: function(data) {
+                var baris = '';
+                for (var i = 0; i < data.length; i++) {
+                    baris += '<tr>' +
+                        '<td>' + data[i].barang_id + '</td>' +
+                        '<td>' + data[i].qty_jual + '</td>' +
+                        '<td>' + data[i].barang_id + '</td>' +
+                        '<td><button id="pilihItem" class="btn btn-primary btn-sm" type="button data-invoice="' + data[i].barang_id + '">Pilih</button></td>' +
+                        '</tr>'
+                }
+                $('#containerItem').html(baris);
+            }
+        });
+    }
+</script>
+
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $(document).on("click", "#pilihItem", function() {
+            var invoice = $(this).data("invoice");
+            $("#id_transaksi").val(invoice);
+            $("#modalTransJual").modal("hide");
+        });
+    });
+</script>
+
 <script type="text/javascript">
     $(document).ready(function() {
         $("#cash").keyup(function() {
@@ -84,6 +125,8 @@
         $('[name="delete_id"]').val(invoice_id);
     });
 </script>
+
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
 </body>
 
 </html>

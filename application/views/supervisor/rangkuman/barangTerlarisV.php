@@ -10,39 +10,39 @@
                     </div>
                 </div>
                 <!-- /.row -->
-            </div>        
+            </div>
             <!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
 
         <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- <div class="col-md-1 ">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- <div class="col-md-1 ">
                     <button type="button" class="btn btn-block btn-success mt-1">
                         Cetak
                     </button>
                 </div> -->
-                <div class="col-md-4 ml-1 mt-1">
-                    <form action="#" class="justify-content-end">
-                        <div class="input-group">
-                            <input type="search" class="form-control form-control-md" placeholder="Cari">
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-default mb-4">
-                                    <i class="fa fa-search"></i>
-                                </button>
+                    <div class="col-md-4 ml-1 mt-1">
+                        <form action="#" class="justify-content-end">
+                            <div class="input-group">
+                                <input type="search" class="form-control form-control-md" placeholder="Cari">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default mb-4">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
         <!-- Main content -->
-       <div class="card col-lg-8">
-              <!-- /.card-header -->
-              <div class="card-body">
+        <div class="card col-lg-8">
+            <!-- /.card-header -->
+            <div class="card-body">
                 <!-- TABEL -->
                 <div class="row">
                     <div class="col">
@@ -51,43 +51,19 @@
                                 <thead>
                                     <tr>
                                         <th width="100px">ID Barang</th>
-                                        <th width="150px">Nama Barang</th>
-                                        <th style="text-align: center;" width="100px">Jumlah Terjual</th>
-                                      </tr>
+                                        <th width="50px">QTY</th>
+                                        <th style="text-align: center;" width="100px">Waktu</th>
+                                    </tr>
                                 </thead>
 
                                 <tbody>
-                                <tr>
-                                  <td>001</td>
-                                  <td>Buku Pedoman Kader PDIP</td>
-                                  <td align="center">50</td>
-                                </tr>
-                                <tr>
-                                  <td>001</td>
-                                  <td>Buku Pedoman Kader PDIP</td>
-                                  <td align="center">50</td>
-                                </tr>
-                                <tr>
-                                  <td>001</td>
-                                  <td>Buku Pedoman Kader PDIP</td>
-                                  <td align="center">50</td>
-                                </tr>
-                                <tr>
-                                  <td>001</td>
-                                  <td>Buku Pedoman Kader PDIP</td>
-                                  <td align="center">50</td>
-                                </tr>
-                                <tr>
-                                  <td>001</td>
-                                  <td>Buku Pedoman Kader PDIP</td>
-                                  <td align="center">50</td>
-                                </tr>
-                                <tr>
-                                  <td>001</td>
-                                  <td>Buku Pedoman Kader PDIP</td>
-                                  <td align="center">50</td>
-                                </tr>
-                                    
+                                    <?php foreach ($trans as $t) : ?>
+                                        <tr>
+                                            <td><?= $t['barang_id']; ?></td>
+                                            <td><?= $t['qty_jual']; ?></td>
+                                            <td align="center"><?= date('d M Y', $t['tgl_transaksi']); ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -98,7 +74,7 @@
             <!-- /.card-body -->
         </div>
         <!-- /.card -->
-        
+
     </div>
     <footer class="main-footer">
         <strong>Copyright &copy; 2021 <a href="#">Dotcomp</a>.</strong>
@@ -107,5 +83,5 @@
             <b>Version</b> 1.0
         </div>
     </footer>
-    
+
 </div>

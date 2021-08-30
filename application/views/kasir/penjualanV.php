@@ -49,7 +49,7 @@
                                     <input type="text" class="form-control form-control-sm form-control-user" id="kode_barang" name="kode_barang" placeholder="Kode Barang" value="<?= set_value('kode_barang'); ?>">
                                     <input type="text" name="nama_barang" id="nama_barang" hidden>
                                     <input type="number" name="harga_jual" id="harga_jual" hidden>
-                                    <input type="text" name="invoice" value="<?= $invoice; ?>" hidden>
+                                    <input type="text" name="invoice" value="<?= $invoice_item; ?>" hidden>
                                     <div class="input-group-append">
                                         <button class="btn btn-info" data-toggle="modal" data-target="#modalBarang" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
                                     </div>
@@ -75,8 +75,8 @@
 
                     <div class="row d-flex justify-content-end">
                         <div class="form-group">
-                            <h5><b><span><?= $invoice; ?></span></b></h5>
-                            <input type="text" name="invoice" value="<?= $invoice; ?>" hidden>
+                            <h5><b><span><?= $invoice_item; ?></span></b></h5>
+                            <input type="text" name="invoice_item" value="<?= $invoice_item; ?>" hidden>
                         </div>
                     </div>
                     <div class="row d-flex justify-content-end">
@@ -140,7 +140,7 @@
                     </button>
                 </div>
                 <div class="form-group col-lg-2 float-lg-left">
-                    <button data-invoice="<?= $invoice; ?>" type="button" class="btn btn-success btn-user btn-block btn-sm  delete-record" data-toggle="modal" data-target="#modal-default">
+                    <button data-invoice="<?= $invoice_item; ?>" type="button" class="btn btn-success btn-user btn-block btn-sm  delete-record" data-toggle="modal" data-target="#modal-default">
                         Pembayaran
                     </button>
                 </div>
@@ -221,7 +221,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" name="invoice" value="<?= $invoice; ?>" hidden>
+                    <input type="text" name="invoice_item" value="<?= $invoice_item; ?>" hidden>
                     <input type="text" name="nama_kasir" value="<?= $user['username']; ?>" hidden>
                     <!-- 
                     <div class="form-group">

@@ -12,13 +12,14 @@ class Supervisor extends CI_Controller
         $this->load->model('Mod_supervisor');
         $this->load->library('form_validation');
     }
-    
+
     public function index()
     {
         $data['judul'] = "Supervisor";
         $data['user'] = $this->Mod_supervisor->get();
+        $data['supplier'] = $this->Mod_supervisor->getSupplier();
         $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
-        
+        $data['total_brg'] = $this->Mod_supervisor->getAllQty();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
@@ -148,29 +149,35 @@ class Supervisor extends CI_Controller
     // PEMBUKUAN--------------------------------------------------
     public function j_penjualan()
     {
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+
         $data['judul'] = "Jurnal Penjualan";
         $data['penjualan'] = $this->Mod_supervisor->getPenjualan();
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('supervisor/pembukuan/j_penjualanV');
         $this->load->view('templates/footer');
     }
 
     public function j_pembelian()
     {
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+
         $data['judul'] = "Jurnal Pembelian";
         $data['pembelian'] = $this->Mod_supervisor->getPembelian();
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('supervisor/pembukuan/j_pembelianV');
         $this->load->view('templates/footer');
     }
 
     public function j_retur()
     {
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+
         $data['judul'] = "Jurnal Retur";
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('supervisor/pembukuan/j_returV');
         $this->load->view('templates/footer');
     }

@@ -62,21 +62,21 @@ class Gudang extends CI_Controller
 
     public function barangBaru()
     {
-        $this->form_validation->set_rules('supplier', 'Supplier', 'trim');
-        $this->form_validation->set_rules('kode_barang', 'Kode barang', 'required|trim');
-        $this->form_validation->set_rules('nama_barang', 'Nama barang', 'trim|required');
-        $this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
+        // $this->form_validation->set_rules('kode_barang_modal', 'Kode barang', 'required|trim');
+        // $this->form_validation->set_rules('nama_barang_modal', 'Nama barang', 'trim|required');
+        // $this->form_validation->set_rules('kategori_modal', 'Kategori', 'trim|required');
+        // $this->form_validation->set_rules('satuan_modal', 'Satuan', 'trim|required');
 
-        if ($this->form_validation->run() == false) {
-            $data['judul'] = "Input Barang";
-            $data['supplier'] = $this->Mod_gudang->getSupplier();
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('gudang/inputBarangV', $data);
-            $this->load->view('templates/footer');
-        } else {
-            $this->Mod_gudang->tambahBarang();
-        }
+        // if ($this->form_validation->run() == false) {
+        //     $data['judul'] = "Input Barang";
+        //     $data['supplier'] = $this->Mod_gudang->getSupplier();
+        //     $this->load->view('templates/header', $data);
+        //     $this->load->view('templates/sidebar', $data);
+        //     $this->load->view('gudang/inputBarangV', $data);
+        //     $this->load->view('templates/footer');
+        // } else {
+        $this->Mod_gudang->tambahBarang();
+        // }
     }
 
     public function ubah($id)

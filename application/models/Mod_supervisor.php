@@ -50,6 +50,13 @@ class Mod_supervisor extends CI_Model
         return $query;
     }
 
+    public function getSupplier($id = null)
+    {
+        $this->db->from('tbl_supplier');
+        $query = $this->db->get();
+        return $query;
+    }
+
     public function edit($data)
     {
         $id = $this->input->post('id_user');
@@ -124,6 +131,13 @@ class Mod_supervisor extends CI_Model
     public function getPembelian()
     {
         return $this->db->get('tbl_trans_beli')->result_array();
+    }
+
+    public function getAllQty()
+    {
+        $this->db->select('SUM(qty) as t_qty');
+        $this->db->from('tbl_barang');
+        return $this->db->get()->row()->t_qty;
     }
 
     public function getPenjualan()

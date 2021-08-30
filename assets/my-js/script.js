@@ -12,7 +12,6 @@
 // 		});
 // 	}
 
-
 // 	$("#table_search").keyup(function () {
 // 		var search = $(this).val();
 // 		if (search != "") {
@@ -22,7 +21,6 @@
 // 		}
 // 	});
 // });
-
 
 // SWEET ALERT--------------------------------------------------------------------
 $(".toastsDefaultSuccess").click(function () {
@@ -45,4 +43,3 @@ for (var t = 1; t < table.rows.length; t++) {
 document.getElementById("hasil").innerHTML = sumHsl;
 document.getElementById("total").value = sumHsl;
 document.getElementById("total_diskon").value = sumDiskon;
-

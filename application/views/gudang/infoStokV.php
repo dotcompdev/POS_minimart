@@ -40,14 +40,14 @@
         </section>
 
 
-       <!-- Main content -->
-       <div class="card col-lg-10">
-              <!-- /.card-header -->
-              <div class="card-body">
+        <!-- Main content -->
+        <div class="card col-lg">
+            <!-- /.card-header -->
+            <div class="card-body">
                 <!-- TABEL -->
                 <div class="row">
                     <div class="col">
-                        <div class="card-body table-responsive p-0" style="height: 350px;">
+                        <div class="card-body table-responsive p-0" style="height: 320px;">
                             <table class="table table-head-fixed text-nowrap">
                                 <thead>
                                     <tr>
@@ -61,20 +61,20 @@
                                 </thead>
 
                                 <tbody>
-                                <?php foreach ($barang as $brg) : ?>
-                                    <tr>
-                                        <td>
-                                            <a href="<?= base_url('gudang/ubah/') . $brg['id_brg']; ?>" type="button" class="btn btn-warning far fa-edit btn-sm"></a>
-                                            <a href="<?= base_url('gudang/hapus/') . $brg['id_brg']; ?>" type="button" class="btn btn-danger far fa-trash-alt btn-sm"></a>
-                                        </td>
-                                        <td><?= $brg['kode_brg']; ?></td>
-                                        <td><?= $brg['nama_brg']; ?></td>
-                                        <td><?= $brg['kategori']; ?></td>
-                                        <td><?= $brg['harga_jual']; ?></td>
-                                        <td style="text-align: center;"><?= $brg['qty']; ?></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                                    
+                                    <?php foreach ($barang as $brg) : ?>
+                                        <tr>
+                                            <td>
+                                                <a href="<?= base_url('gudang/ubah/') . $brg['id_brg']; ?>" type="button" class="btn btn-warning far fa-edit btn-sm"></a>
+                                                <a href="<?= base_url('gudang/hapus/') . $brg['id_brg']; ?>" type="button" class="btn btn-danger far fa-trash-alt btn-sm"></a>
+                                            </td>
+                                            <td><?= $brg['kode_brg']; ?></td>
+                                            <td><?= $brg['nama_brg']; ?></td>
+                                            <td><?= $brg['kategori']; ?></td>
+                                            <td><?= $brg['harga_jual']; ?></td>
+                                            <td style="text-align: center;"><?= $brg['qty']; ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+
                                 </tbody>
                             </table>
                         </div>

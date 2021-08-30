@@ -11,49 +11,58 @@ class Transaksi extends CI_Controller
 
     public function cetakStruk()
     {
-        $data = array();
-        $trans = $this->db->get('tbl_tampung')->result_array();
+        $kembalian = $this->input->post('kembali');
 
-        foreach ($trans as $d) {
-            $brg = $this->db->get_where('tbl_barang', ['kode_brg' => $d['kode_barang']])->row_array();
+        if ($kembalian >= 0) {
+            $data = array();
+            $trans = $this->db->get('tbl_tampung')->result_array();
 
-            $da = $brg['qty'] - $d['qty'];
-            $this->db->set('qty', $da);
-            $this->db->where('kode_brg', $d['kode_barang']);
-            $this->db->update('tbl_barang');
+            foreach ($trans as $d) {
+                $brg = $this->db->get_where('tbl_barang', ['kode_brg' => $d['kode_barang']])->row_array();
+
+                $da = $brg['qty'] - $d['qty'];
+                $this->db->set('qty', $da);
+                $this->db->where('kode_brg', $d['kode_barang']);
+                $this->db->update('tbl_barang');
 
 
-            array_push($data, array(
+                array_push($data, array(
+                    'invoice' => $this->input->post('invoice', true),
+                    'barang_id' => $d['kode_barang'],
+                    'barang_nama' => $d['barang'],
+                    'tgl_transaksi' => time(),
+                    'user_id' => $this->input->post('nama_kasir', true),
+                    'qty_jual' => $d['qty'],
+                    'sub_total' => $d['subtotal'],
+                    'total_diskon' => $d['diskon'],
+                    'cash' => $this->input->post('cash', true),
+                    'promo_id' => "-"
+                ));
+            }
+            $sql = $this->Mod_transaksi->save_batch($data);
+
+            $total = $this->Mod_transaksi->readTransTotal();
+            $t_qty = $this->Mod_transaksi->readTransQty();
+
+            $result = [
+                'waktu_trans' => time(),
+                'user' => $this->input->post('nama_kasir', true),
                 'invoice' => $this->input->post('invoice', true),
-                'barang_id' => $d['kode_barang'],
-                'tgl_transaksi' => time(),
-                'user_id' => $this->input->post('nama_kasir', true),
-                'qty_jual' => $d['qty'],
-                'sub_total' => $d['subtotal'],
-                'total_diskon' => $d['diskon'],
+                'total_qty' => $t_qty,
                 'cash' => $this->input->post('cash', true),
-                'promo_id' => "-"
-            ));
-        }
-        $sql = $this->Mod_transaksi->save_batch($data);
+                'total_bayar' => $total
+            ];
+            $this->db->insert('tbl_jual_detail', $result);
 
-        $total = $this->Mod_transaksi->readTransQty();
-
-        $result = [
-            'waktu_trans' => time(),
-            'user' => $this->input->post('nama_kasir', true),
-            'invoice' => $this->input->post('invoice', true),
-            'cash' => $this->input->post('cash', true),
-            'total_bayar' => $total
-        ];
-        $this->db->insert('tbl_jual_detail', $result);
-
-        if ($sql) {
-            $id = $this->input->post('delete_id', true);
-            $this->Mod_transaksi->delete_tampung($id);
-            $this->load->view('cetak/strukPenjualan');
+            if ($sql) {
+                $id = $this->input->post('delete_id', true);
+                $this->Mod_transaksi->delete_tampung($id);
+                $this->load->view('cetak/strukPenjualan');
+            } else {
+                redirect('kasir');
+            }
         } else {
-            echo "gagal";
+            redirect('kasir');
         }
     }
 }

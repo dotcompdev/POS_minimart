@@ -22,7 +22,6 @@ class Mod_kasir extends CI_Model
 
   public function tampung()
   {
-
     $nama = $this->db->get_where('tbl_tampung', ['kode_barang' => $this->input->post('kode_barang')])->row_array();
     $kod = $this->input->post('kode_barang');
     $qty = $nama['qty'];
@@ -74,5 +73,17 @@ class Mod_kasir extends CI_Model
     $this->db->from('tbl_barang');
     $this->db->where('kategori', '');
     return $this->db->get()->result_array();
+  }
+
+  public function getTransJual()
+  {
+    return $this->db->get('tbl_jual_detail')->result_array();
+  }
+
+  public function getTransItem($invoice)
+  {
+    $this->db->from('tbl_trans_jual');
+    $this->db->where('invoice', $invoice);
+    return $this->db->get();
   }
 }
