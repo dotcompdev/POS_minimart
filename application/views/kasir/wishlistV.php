@@ -32,12 +32,17 @@
                                 <input type="text" class="form-control form-control-user form-control-sm" id="nama_wish" name="nama_wish" placeholder="Nama Barang">
                                 <?= form_error('nama_wish', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                             </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-block btn-primary btn-sm">
-                                    Simpan
-                                </button>
+                         
+
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-block btn-primary btn-sm">
+                                        Simpan
+                                    </button>
+                                </div>
                             </div>
                         </div>
+
                         </form>
                     </div>
                 </div>

@@ -64,7 +64,7 @@
                                 <tbody>
                                     <?php foreach ($penjualan as $jual) : ?>
                                         <tr>
-                                            <td align="center"><?= date('d-m-Y H:i', $jual['waktu_trans']);; ?></td>
+                                            <td align="center"><?= date('d-m-Y H:i', $jual['waktu_trans']); ?></td>
                                             <td><?= $jual['user']; ?></td>
                                             <td><?= $jual['invoice']; ?></td>
                                             <td align="center"><?= $jual['total_bayar']; ?></td>

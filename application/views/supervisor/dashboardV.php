@@ -8,16 +8,18 @@
                     <h1 class="m-0">Dashboard</h1>
                 </div>
                 
-                    <?= $this->session->flashdata('message'); ?>
-            
-
+                
+                
             </div>
             <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    
+    <div class="d-flex justify-content-end">
+        <?= $this->session->flashdata('message'); ?>
+    </div>
+
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">

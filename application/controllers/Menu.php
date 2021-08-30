@@ -38,15 +38,24 @@ class Menu extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function pencarianPelanggan()
+    public function listPemesanan()
     {
-
-        $data['wish'] = $this->Mod_kasir->getWish();
         $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
         $data['judul'] = "Pencarian Pelanggan";
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('supervisor/rangkuman/pencarianPelangganV', $data);
+        $this->load->view('supervisor/rangkuman/listPemesananV', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function wishlist()
+    {
+        $data['wish'] = $this->Mod_kasir->getWish();
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['judul'] = "Wishlist";
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('supervisor/rangkuman/wishlistV', $data);
         $this->load->view('templates/footer');
     }
 }

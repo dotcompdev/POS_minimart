@@ -182,7 +182,8 @@ class Supervisor extends CI_Controller
 
     public function cetakJurnalJual()
     {
-        $this->load->view('cetak/jurnalJual');
+        $data['penjualan'] = $this->Mod_supervisor->getPenjualan();
+        $this->load->view('cetak/jurnalJual', $data);
     }
 
     public function cetakJurnalBeli()
@@ -193,6 +194,7 @@ class Supervisor extends CI_Controller
 
     public function cetakJurnalRetur()
     {
+        $data['retur'] = $this->Mod_supervisor->getReturment();
         $this->load->view('cetak/jurnalRetur');
     }
 }

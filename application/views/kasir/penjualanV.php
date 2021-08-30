@@ -257,9 +257,11 @@
                 <div class="modal-footer justify-content-between">
                     <input type="hidden" name="delete_id" required>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">
-                        Print Sturk
-                    </button>
+                    <!-- <a href="" target="_blank"> -->
+                        <button type="submit" class="btn btn-primary">
+                            Print Struk
+                        </button>
+                    <!-- </a> -->
                 </div>
             </div>
             <!-- /.modal-content -->

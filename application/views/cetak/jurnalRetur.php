@@ -49,39 +49,17 @@ $html = '<!DOCTYPE html>
                                 </tr>
                             </thead>
 
-                            <tbody>
-                                <tr>
-                                    <td>001</td>
-                                    <td>SK017</td>
-                                    <td>Buku Pedoman Kader PDIP</td>
-                                    <td>Tidak sesuai ekspektasi</td>
-                                </tr>
-                                <tr>    
-                                    <td>001</td>
-                                    <td>SK017</td>
-                                    <td>Buku Pedoman Kader PDIP</td>
-                                    <td>Tidak sesuai ekspektasi</td>
-                                </tr>
-                                <tr>
-                                    <td>001</td>
-                                    <td>SK017</td>
-                                    <td>Buku Pedoman Kader PDIP</td>
-                                    <td>Tidak sesuai ekspektasi</td>
-                                </tr>
-                                <tr>    
-                                    <td>001</td>
-                                    <td>SK017</td>
-                                    <td>Buku Pedoman Kader PDIP</td>
-                                    <td>Tidak sesuai ekspektasi</td>
-                                </tr>
-                                <tr>
-                                    <td>001</td>
-                                    <td>SK017</td>
-                                    <td>Buku Pedoman Kader PDIP</td>
-                                    <td>Tidak sesuai ekspektasi</td>
-                                </tr>
+                            <tbody> ';
+                                foreach ($returment as $retur) :
+                                    $html .= ' <tr>
+                                        <td align="center">' . $retur["id_return"] . '</td>
+                                        <td align="center">' . $retur["id_barang"] . '</td>
+                                        <td>' . $retur["nama_barang"] . '</td>
+                                        <td>' . $retur["keterangan"] . '</td>
+                                    </tr>';
+                                endforeach;
                             
-                                
+                            $html .= '
                             </tbody>
                         </table>
                     </div>

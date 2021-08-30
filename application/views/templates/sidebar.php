@@ -187,9 +187,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('menu/pencarianPelanggan'); ?>" class="nav-link">
-                                <i class="fas fa-search-dollar nav-icon"></i>
-                                <p>Pencarian dari pelanggan</p>
+                            <a href="<?= base_url('menu/wishlist'); ?>" class="nav-link">
+                                <i class="fas fa-clipboard-list nav-icon"></i>
+                                <p>Wishlist</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('menu/listPemesanan'); ?>" class="nav-link">
+                                <i class="fas fa-list-alt nav-icon"></i>
+                                <p>List Pemesanan</p>
                             </a>
                         </li>
                     </ul>
