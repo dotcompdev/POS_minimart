@@ -15,7 +15,7 @@ class Mod_transaksi extends CI_Model
 
   function readTransTotal()
   {
-    $inv = $this->input->post('invoice', true);
+    $inv = $this->input->post('invoice_item', true);
     $this->db->select('SUM(sub_total) as total');
     $this->db->where('invoice', $inv);
     $this->db->from('tbl_trans_jual');
@@ -24,7 +24,7 @@ class Mod_transaksi extends CI_Model
 
   function readTransQty()
   {
-    $inv = $this->input->post('invoice', true);
+    $inv = $this->input->post('invoice_item', true);
     $this->db->select('SUM(qty_jual) as t_qty');
     $this->db->where('invoice', $inv);
     $this->db->from('tbl_trans_jual');

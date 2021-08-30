@@ -37,7 +37,7 @@ class Mod_kasir extends CI_Model
     } else {
       $subtotal = 1 * intval(htmlspecialchars($this->input->post('harga_jual', true)));
       $data = [
-        'invoice_t' => htmlspecialchars($this->input->post('invoice', true)),
+        'invoice_t' => htmlspecialchars($this->input->post('invoice_item', true)),
         'kode_barang' => htmlspecialchars($this->input->post('kode_barang', true)),
         'barang' => htmlspecialchars($this->input->post('nama_barang', true)),
         'qty' => 1,

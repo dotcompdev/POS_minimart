@@ -140,7 +140,7 @@
                     </button>
                 </div>
                 <div class="form-group col-lg-2 float-lg-left">
-                    <button data-invoice="<?= $invoice_item; ?>" type="button" class="btn btn-success btn-user btn-block btn-sm  delete-record" data-toggle="modal" data-target="#modal-default">
+                    <button data-invoice="<?= $invoice_item; ?>" type="button" class="btn btn-success btn-user btn-block btn-sm delete-record" data-toggle="modal" data-target="#modal-default">
                         Pembayaran
                     </button>
                 </div>

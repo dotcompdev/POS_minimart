@@ -85,9 +85,9 @@
                 for (var i = 0; i < data.length; i++) {
                     baris += '<tr>' +
                         '<td>' + data[i].barang_id + '</td>' +
+                        '<td>' + data[i].barang_nama + '</td>' +
                         '<td>' + data[i].qty_jual + '</td>' +
-                        '<td>' + data[i].barang_id + '</td>' +
-                        '<td><button id="pilihItem" class="btn btn-primary btn-sm" type="button data-invoice="' + data[i].barang_id + '">Pilih</button></td>' +
+                        '<td><button id="pilihItem" class="btn btn-primary btn-sm" type="button" data-invoice="' + data[i].invoice + '" data-harga="' + data[i].harga_jual + '" data-id="' + data[i].barang_id + '" data-nama="' + data[i].barang_nama + '">Pilih</button></td>' +
                         '</tr>'
                 }
                 $('#containerItem').html(baris);
@@ -99,9 +99,15 @@
 <script type='text/javascript'>
     $(document).ready(function() {
         $(document).on("click", "#pilihItem", function() {
+            var nama_brg = $(this).data("nama");
+            var id_brg = $(this).data("id");
             var invoice = $(this).data("invoice");
+            var harga = $(this).data("harga");
+            $("#nama_barang").val(nama_brg);
+            $("#id_barang").val(id_brg);
             $("#id_transaksi").val(invoice);
-            $("#modalTransJual").modal("hide");
+            $("#harga_barang").val(harga);
+            $("#modalTransItem").modal("hide");
         });
     });
 </script>

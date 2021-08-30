@@ -185,7 +185,6 @@
                                 <input type="text" id="invoice_item" name="invoice_item" hidden>
                                 <thead>
                                     <tr>
-                                        <th>Waktu</th>
                                         <th>ID Barang</th>
                                         <th>Nama Barang</th>
                                         <th>QTY</th>

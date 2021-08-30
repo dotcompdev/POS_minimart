@@ -27,11 +27,12 @@ class Transaksi extends CI_Controller
 
 
                 array_push($data, array(
-                    'invoice' => $this->input->post('invoice', true),
+                    'invoice' => $this->input->post('invoice_item', true),
                     'barang_id' => $d['kode_barang'],
                     'barang_nama' => $d['barang'],
                     'tgl_transaksi' => time(),
                     'user_id' => $this->input->post('nama_kasir', true),
+                    'harga_jual' => $d['harga_jual'],
                     'qty_jual' => $d['qty'],
                     'sub_total' => $d['subtotal'],
                     'total_diskon' => $d['diskon'],
@@ -47,7 +48,7 @@ class Transaksi extends CI_Controller
             $result = [
                 'waktu_trans' => time(),
                 'user' => $this->input->post('nama_kasir', true),
-                'invoice' => $this->input->post('invoice', true),
+                'invoice' => $this->input->post('invoice_item', true),
                 'total_qty' => $t_qty,
                 'cash' => $this->input->post('cash', true),
                 'total_bayar' => $total
@@ -55,7 +56,7 @@ class Transaksi extends CI_Controller
             $this->db->insert('tbl_jual_detail', $result);
 
             if ($sql) {
-                $id = $this->input->post('delete_id', true);
+                $id = htmlspecialchars($this->input->post('delete_id', true));
                 $this->Mod_transaksi->delete_tampung($id);
                 $this->load->view('cetak/strukPenjualan');
             } else {
