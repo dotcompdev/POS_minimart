@@ -102,6 +102,46 @@
     });
 </script>
 
+<!-- View Promo -->
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $(document).on("click", "#updateP", function() {
+            var idpromo = $(this).data("id");
+            var nama = $(this).data("nama");
+            var tglMulai = $(this).data("mulai");
+            var tglBerakhir = $(this).data("berakhir");
+            var hari = $(this).data("hari");
+            ambilDataPromo(idpromo);
+            $("#idP").val(idpromo);
+            $("#namaP").val(nama);
+            $("#tglMulai").val(tglMulai);
+            $("#tglAkhir").val(tglBerakhir);
+            $("#hariP").val(hari);
+        });
+    });
+
+    function ambilDataPromo(itemPromo) {
+        $.ajax({
+            type: 'POST',
+            url: '<?= base_url() . "supervisor/getItem/" ?>' + itemPromo,
+            dataType: 'json',
+            success: function(data) {
+                var baris = '';
+                var kol = data[0].length;
+                for (var i = 0; i < kol; i++) {
+                    baris += '<tr>'
+                    for (var j = 0; j < data.length; j++) {
+                        baris +=
+                            '<td>' + data[j][i] + '</td>'
+
+                    }
+                    baris += '</tr>'
+                }
+                $('#containerItemPromo').html(baris);
+            }
+        });
+    }
+</script>
 
 <!-- pilih barang melalui modal box -->
 <script type='text/javascript'>

@@ -223,6 +223,12 @@ class Supervisor extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function getItem($itemPromo)
+    {
+        $items = $this->Mod_supervisor->getAllItem($itemPromo);
+        echo json_encode($items);
+    }
+
     public function promoBatal()
     {
         $this->db->empty_table('tbl_promo');
@@ -239,6 +245,20 @@ class Supervisor extends CI_Controller
         $this->load->view('templates/sidebar', $data);
         $this->load->view('supervisor/promo/tenPromoV', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function editPromo($itemPromo)
+    {
+        $items = $this->Mod_supervisor->getAllItem($itemPromo);
+        $this->Mod_supervisor->tampungItemEdit($items);
+        // $data['items'] = $this->Mod_supervisor->getItemPromo();
+        // $data['product'] = $this->db->get_where('tbl_barang', ['kategori !=' => ''])->result_array();
+        // $data['judul'] = 'Tentukan Promo';
+        // $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+        // $this->load->view('templates/header', $data);
+        // $this->load->view('templates/sidebar', $data);
+        // $this->load->view('supervisor/promo/tenPromoV', $data);
+        // $this->load->view('templates/footer');
     }
 
     public function tampungPromo()

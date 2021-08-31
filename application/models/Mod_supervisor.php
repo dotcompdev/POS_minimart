@@ -167,6 +167,31 @@ class Mod_supervisor extends CI_Model
         $this->db->insert_batch('tbl_promo', $data);
     }
 
+    public function tampungItemEdit($items)
+    {
+
+        function fill_chunck($array, $parts)
+        {
+            $t = 0;
+            $result = array_fill(0, $parts - 1, array());
+            $max = ceil(count($array) / $parts);
+            foreach ($array as $v) {
+                count($result[$t]) >= $max and $t++;
+                $result[$t][] = $v;
+            }
+            return $result;
+        }
+
+        for ($j = 0; $j < count($items[0]); $j++) {
+            for ($i = 0; $i < count($items); $i++) {
+                $data[] = $items[$i][$j];
+            }
+        }
+
+        // $hasil = fill_chunck($data, 5);
+        print_r($data);
+    }
+
     public function addItemPromo()
     {
         $itemPromo = $this->db->get('tbl_promo')->result_array();
@@ -269,6 +294,28 @@ class Mod_supervisor extends CI_Model
         }
 
         return $data;
+    }
+
+    public function getAllItem($itemPromo)
+    {
+        $this->db->from('tbl_promo_detail');
+        $this->db->where('id', $itemPromo);
+        $data = $this->db->get()->row_array();
+        $kode = explode(', ', $data['kode_brg']);
+        $nama = explode(', ', $data['nama_brg']);
+        $qty = explode(', ', $data['qty_brg']);
+        $harga = explode(', ', $data['harga_brg']);
+        $diskon = explode(', ', $data['diskon_brg']);
+
+        $result = array(
+            $kode,
+            $nama,
+            $qty,
+            $harga,
+            $diskon
+        );
+
+        return $result;
     }
 
     public function updatePromo()

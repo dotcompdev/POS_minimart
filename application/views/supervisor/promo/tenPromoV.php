@@ -190,6 +190,7 @@
     </div>
 </div>
 
+<!-- edit item promo -->
 <?= form_open_multipart('supervisor/updateItemPromo'); ?>
 <div class="modal fade" id="modalUpdatePromo">
     <div class="modal-dialog">
