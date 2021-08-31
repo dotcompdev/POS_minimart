@@ -54,82 +54,25 @@
                                 <thead>
                                     <tr>
                                         <th style="text-align: center;" width="100px">Aksi</th>
-                                        <th style="text-align: center;" width="100px">ID Promo</th>
-                                        <th width="100px">Nama Promo</th>
-                                        <th style="text-align: center;" width="150px">Harga Promo</th>
-                                        <th style="text-align: center;" width="100px">ID Bundle</th>
-                                        <th style="text-align: center;" width="100px">ID Jadwal</th>
-                                        <th style="text-align: center;" width="100px">Keterangan</th>
+                                        <th style="text-align: center;" width="100px">Nama Promo</th>
+                                        <th style="text-align: center;" width="70px">Total Diskon</th>
+                                        <th style="text-align: center;" width="100px">Jadwal</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <a href="" type="button" class="btn btn-info far fa-eye btn-sm"></a>
-                                            <a href="" type="button" class="btn btn-warning far fa-edit btn-sm"></a>
-                                            <a href="" type="button" class="btn btn-danger far fa-trash-alt btn-sm"></a>
-                                        </td>
-                                        <td align="center">001</td>
-                                        <td>Promo Sayap Kebhinekaan</td>
-                                        <td align="center">20000</td>
-                                        <td align="center">B001</td>
-                                        <td align="center">J001</td>
-                                        <td>Available</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="" type="button" class="btn btn-info far fa-eye btn-sm"></a>
-                                            <a href="" type="button" class="btn btn-warning far fa-edit btn-sm"></a>
-                                            <a href="" type="button" class="btn btn-danger far fa-trash-alt btn-sm"></a>
-                                        </td>
-                                        <td align="center">001</td>
-                                        <td>Promo Sayap Kebhinekaan</td>
-                                        <td align="center">20000</td>
-                                        <td align="center">B001</td>
-                                        <td align="center">J001</td>
-                                        <td>Available</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="" type="button" class="btn btn-info far fa-eye btn-sm"></a>
-                                            <a href="" type="button" class="btn btn-warning far fa-edit btn-sm"></a>
-                                            <a href="" type="button" class="btn btn-danger far fa-trash-alt btn-sm"></a>
-                                        </td>
-                                        <td align="center">001</td>
-                                        <td>Promo Sayap Kebhinekaan</td>
-                                        <td align="center">20000</td>
-                                        <td align="center">B001</td>
-                                        <td align="center">J001</td>
-                                        <td>Available</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="" type="button" class="btn btn-info far fa-eye btn-sm"></a>
-                                            <a href="" type="button" class="btn btn-warning far fa-edit btn-sm"></a>
-                                            <a href="" type="button" class="btn btn-danger far fa-trash-alt btn-sm"></a>
-                                        </td>
-                                        <td align="center">001</td>
-                                        <td>Promo Sayap Kebhinekaan</td>
-                                        <td align="center">20000</td>
-                                        <td align="center">B001</td>
-                                        <td align="center">J001</td>
-                                        <td>Available</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="" type="button" class="btn btn-info far fa-eye btn-sm"></a>
-                                            <a href="" type="button" class="btn btn-warning far fa-edit btn-sm"></a>
-                                            <a href="" type="button" class="btn btn-danger far fa-trash-alt btn-sm"></a>
-                                        </td>
-                                        <td align="center">001</td>
-                                        <td>Promo Sayap Kebhinekaan</td>
-                                        <td align="center">20000</td>
-                                        <td align="center">B001</td>
-                                        <td align="center">J001</td>
-                                        <td>Available</td>
-                                    </tr>
-
+                                    <?php foreach ($ItemPromo as $item) : ?>
+                                        <tr>
+                                            <td>
+                                                <a href="" type="button" class="btn btn-info far fa-eye btn-sm"></a>
+                                                <a href="" type="button" class="btn btn-warning far fa-edit btn-sm"></a>
+                                                <a href="" type="button" class="btn btn-danger far fa-trash-alt btn-sm"></a>
+                                            </td>
+                                            <td align="center"><?= $item['nama_promo']; ?></td>
+                                            <td align="center"><?= $item['diskon_brg']; ?></td>
+                                            <td align="center"><?= $item['jadwal']; ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

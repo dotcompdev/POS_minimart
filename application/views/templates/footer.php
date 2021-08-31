@@ -71,8 +71,19 @@
 
 <script src="<?= base_url('assets/my-js/script.js'); ?>"></script>
 
+<!-- modal pilih hari untuk promo -->
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $(document).on("click", "#pilihHari", function() {
+            var hari = $('#selectHari').val();
+            $("#hari").val(hari);
+            $("#modalPilihHari").modal("hide");
+        });
+    });
+</script>
 
-<!-- pilih barang melalui moodal box -->
+
+<!-- pilih barang melalui modal box -->
 <script type='text/javascript'>
     $(document).ready(function() {
         $(document).on("click", "#pilih", function() {

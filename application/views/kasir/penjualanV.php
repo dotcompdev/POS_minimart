@@ -39,8 +39,6 @@
 
 
                     <?= form_open_multipart('kasir'); ?>
-
-
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="form-group">

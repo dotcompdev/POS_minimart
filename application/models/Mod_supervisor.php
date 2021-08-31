@@ -145,22 +145,38 @@ class Mod_supervisor extends CI_Model
         return $this->db->get('tbl_jual_detail')->result_array();
     }
 
-    public function addItemPromo($brg)
+    public function tampungItem($brg)
     {
+        $data = array();
         foreach ($brg as $b => $val) {
             $this->db->select('*');
             $this->db->from('tbl_barang');
             $this->db->where('kode_brg', $_POST['barang'][$b]);
-            $data[] = $this->db->get()->row_array();
+            $dataBrg[] = $this->db->get()->row_array();
         }
 
-        for ($i = 0; $i < count($data); $i++) {
-            $kodeBrg[] = $data[$i]['kode_brg'];
-            $namaBrg[] = $data[$i]['nama_brg'];
-            $qtyBrg[] = '1';
-            $hargaBrg[] = $data[$i]['harga_jual'];
-            $diskonBrg[] = '0';
-            $jadwalId[] = '0';
+        foreach ($dataBrg as $brg) {
+            array_push($data, array(
+                'kode_brg' => $brg['kode_brg'],
+                'nama_brg' => $brg['nama_brg'],
+                'qty_brg' => 1,
+                'harga_brg' => $brg['harga_jual'],
+                'diskon_brg' => 0
+            ));
+        }
+        $this->db->insert_batch('tbl_promo', $data);
+    }
+
+    public function addItemPromo()
+    {
+        $itemPromo = $this->db->get('tbl_promo')->result_array();
+
+        for ($i = 0; $i < count($itemPromo); $i++) {
+            $kodeBrg[] = $itemPromo[$i]['kode_brg'];
+            $namaBrg[] = $itemPromo[$i]['nama_brg'];
+            $qtyBrg[] = $itemPromo[$i]['qty_brg'];
+            $hargaBrg[] = $itemPromo[$i]['harga_brg'];
+            $diskonBrg[] = $itemPromo[$i]['diskon_brg'];
         }
 
         $kode = implode(', ', $kodeBrg);
@@ -168,39 +184,53 @@ class Mod_supervisor extends CI_Model
         $qty = implode(', ', $qtyBrg);
         $harga = implode(', ', $hargaBrg);
         $diskon = implode(', ', $diskonBrg);
-        $jadwal = implode(', ', $jadwalId);
+
+        $waktuAwal = strtotime($this->input->post('tglAwal'));
+        $waktuAkhir = strtotime($this->input->post('tglAkhir'));
+
+        $hari = $this->input->post('hari');
+
+        $jadwal = [
+            'tgl_mulai' => $waktuAwal,
+            'tgl_berakhir' => $waktuAkhir,
+            'hari_frek' => $hari
+        ];
+
+        $this->db->insert('tbl_jadwal', $jadwal);
+        $jadwal_id = $this->db->insert_id();
 
         $result = [
-            'nama_promo' => '-',
+            'nama_promo' => htmlspecialchars($this->input->post('nama_promo')),
             'kode_brg' => $kode,
             'nama_brg' => $nama,
             'qty_brg' => $qty,
             'harga_brg' => $harga,
             'diskon_brg' => $diskon,
-            'jadwal_id' => $jadwal
+            'jadwal' => $jadwal_id
         ];
 
-        $sql = $this->db->insert('tbl_promo', $result);
+        $sql = $this->db->insert('tbl_promo_detail', $result);
+        $this->db->empty_table('tbl_promo');
 
         if ($sql) {
-            echo "berhasil";
+            redirect('supervisor/promo');
         } else {
-            echo "gagal";
+            redirect('supervisor/tenPromo');
         }
     }
 
     public function getItemPromo()
     {
-        $items = $this->db->get('tbl_promo')->result_array();
-        $data = [
-            'id_promo' => $items[0]['id_promo'],
-            'kode' => explode(', ', $items[0]['kode_brg']),
-            'nama' => explode(', ', $items[0]['nama_brg']),
-            'qty' => explode(', ', $items[0]['qty_brg']),
-            'harga' => explode(', ', $items[0]['harga_brg']),
-            'diskon' => explode(', ', $items[0]['diskon_brg'])
-        ];
+        return $this->db->get('tbl_promo')->result_array();
+    }
 
-        return $data;
+    public function hapusItemPromoID($id)
+    {
+        $this->db->delete('tbl_promo', ['id_promo' => $id]);
+    }
+
+    public function getAllItemPromo()
+    {
+        return $this->db->get('tbl_promo_detail')->result_array();
     }
 }

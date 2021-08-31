@@ -213,6 +213,7 @@ class Supervisor extends CI_Controller
 
     public function promo()
     {
+        $data['ItemPromo'] = $this->Mod_supervisor->getAllItemPromo();
         $data['judul'] = 'Info Promo';
         $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
@@ -224,19 +225,39 @@ class Supervisor extends CI_Controller
     public function tenPromo()
     {
         $data['items'] = $this->Mod_supervisor->getItemPromo();
-        print_r($data['items']['id_promo']);
-        // $data['product'] = $this->db->get('tbl_barang')->result_array();
-        // $data['judul'] = 'Tentukan Promo';
-        // $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
-        // $this->load->view('templates/header', $data);
-        // $this->load->view('templates/sidebar', $data);
-        // $this->load->view('supervisor/promo/tenPromoV', $data);
-        // $this->load->view('templates/footer');
+        $data['product'] = $this->db->get('tbl_barang')->result_array();
+        $data['judul'] = 'Tentukan Promo';
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('supervisor/promo/tenPromoV', $data);
+        $this->load->view('templates/footer');
     }
 
-    public function buatPromo()
+    public function tampungPromo()
     {
         $brg = $this->input->post('barang', true);
-        $this->Mod_supervisor->addItemPromo($brg);
+        $this->Mod_supervisor->tampungItem($brg);
+        redirect('supervisor/tenPromo');
+    }
+
+    public function hapusItemPromo($id)
+    {
+        $this->Mod_supervisor->hapusItemPromoID($id);
+        redirect('supervisor/tenPromo');
+    }
+
+    public function tambahPromo()
+    {
+        // $this->form_validation->set_rules('nama_promo', 'Nama Promo', 'trim|required');
+        // $this->form_validation->set_rules('tglAwal', 'Waktu awal', 'required|trim|valid_email');
+        // $this->form_validation->set_rules('tglAkhir', 'Waktu akhir', 'required|trim');
+        // $this->form_validation->set_rules('hari', 'Hari', 'required|trim');
+        // if ($this->form_validation->run() == false) {
+        //     redirect('supervisor/tenPromo');
+        // } else {
+        $this->Mod_supervisor->addItemPromo();
+        // redirect('supervisor/promo');
+        // }
     }
 }
