@@ -149,13 +149,13 @@
                     </a>
                     <ul class="nav nav-treeview small ml-1">
                         <li class="nav-item">
-                            <a href="<?= base_url('testing/promo'); ?>" class="nav-link">
+                            <a href="<?= base_url('Supervisor/promo'); ?>" class="nav-link">
                                 <i class="fas fa-info-circle nav-icon"></i>
                                 <p>Info promo</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('testing/tenPromo'); ?>" class="nav-link">
+                            <a href="<?= base_url('Supervisor/tenPromo'); ?>" class="nav-link">
                                 <i class="fas fa-tags nav-icon"></i>
                                 <p>Tentukan promo</p>
                             </a>

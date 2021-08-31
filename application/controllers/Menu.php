@@ -37,7 +37,10 @@ class Menu extends CI_Controller
         }
         if ($arrProd != '') {
             $data['chart'] = $arrProd;
+        } else {
+            $data['chart'] = '';
         }
+
         $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
 
         $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();

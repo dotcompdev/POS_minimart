@@ -76,6 +76,7 @@ class Kasir extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $this->Mod_kasir->returment();
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil disimpan!</div>');
             redirect('Kasir/returment');
         }
     }

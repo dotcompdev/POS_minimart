@@ -144,4 +144,63 @@ class Mod_supervisor extends CI_Model
     {
         return $this->db->get('tbl_jual_detail')->result_array();
     }
+
+    public function addItemPromo($brg)
+    {
+        foreach ($brg as $b => $val) {
+            $this->db->select('*');
+            $this->db->from('tbl_barang');
+            $this->db->where('kode_brg', $_POST['barang'][$b]);
+            $data[] = $this->db->get()->row_array();
+        }
+
+        for ($i = 0; $i < count($data); $i++) {
+            $kodeBrg[] = $data[$i]['kode_brg'];
+            $namaBrg[] = $data[$i]['nama_brg'];
+            $qtyBrg[] = '1';
+            $hargaBrg[] = $data[$i]['harga_jual'];
+            $diskonBrg[] = '0';
+            $jadwalId[] = '0';
+        }
+
+        $kode = implode(', ', $kodeBrg);
+        $nama = implode(', ', $namaBrg);
+        $qty = implode(', ', $qtyBrg);
+        $harga = implode(', ', $hargaBrg);
+        $diskon = implode(', ', $diskonBrg);
+        $jadwal = implode(', ', $jadwalId);
+
+        $result = [
+            'nama_promo' => '-',
+            'kode_brg' => $kode,
+            'nama_brg' => $nama,
+            'qty_brg' => $qty,
+            'harga_brg' => $harga,
+            'diskon_brg' => $diskon,
+            'jadwal_id' => $jadwal
+        ];
+
+        $sql = $this->db->insert('tbl_promo', $result);
+
+        if ($sql) {
+            echo "berhasil";
+        } else {
+            echo "gagal";
+        }
+    }
+
+    public function getItemPromo()
+    {
+        $items = $this->db->get('tbl_promo')->result_array();
+        $data = [
+            'id_promo' => $items[0]['id_promo'],
+            'kode' => explode(', ', $items[0]['kode_brg']),
+            'nama' => explode(', ', $items[0]['nama_brg']),
+            'qty' => explode(', ', $items[0]['qty_brg']),
+            'harga' => explode(', ', $items[0]['harga_brg']),
+            'diskon' => explode(', ', $items[0]['diskon_brg'])
+        ];
+
+        return $data;
+    }
 }

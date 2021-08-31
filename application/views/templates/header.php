@@ -10,14 +10,28 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/fontawesome-free/css/all.min.css">
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/dist/css/adminlte.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/daterangepicker/daterangepicker.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- dropzonejs -->
+    <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/dropzone/min/dropzone.min.css">
+    <!-- Bootstrap4 Duallistbox -->
+    <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- bootstrap select -->
+    <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('assets'); ?>/css/bootstrap-select.css">
 
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
 
     <script type="text/javascript">
         window.onload = function() {

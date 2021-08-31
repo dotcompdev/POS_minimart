@@ -89,16 +89,32 @@ class Mod_kasir extends CI_Model
 
   public function returment()
   {
+    $invoice_j = htmlspecialchars($this->input->post('id_transaksi', true));
+    $kode_brg_ret = htmlspecialchars($this->input->post('id_barang', true));
+    $qty_ret = htmlspecialchars($this->input->post('qty_retur', true));
+
     $data = [
-      'invoice_jual' => htmlspecialchars($this->input->post('id_transaksi', true)),
-      'kode_brg_retur' => htmlspecialchars($this->input->post('id_barang', true)),
+      'invoice_jual' => $invoice_j,
+      'kode_brg_retur' => $kode_brg_ret,
       'nama_brg_retur' => htmlspecialchars($this->input->post('nama_barang', true)),
       'harga_jual' => htmlspecialchars($this->input->post('harga_barang', true)),
-      'qty_retur' => htmlspecialchars($this->input->post('qty_retur', true)),
+      'qty_retur' => $qty_ret,
       'opsi' => htmlspecialchars($this->input->post('opsi', true)),
       'keterangan' => htmlspecialchars($this->input->post('keterangan', true))
     ];
 
     $this->db->insert('tbl_retur', $data);
+
+    $brg = $this->db->get_where('tbl_barang', ['kode_brg' => $kode_brg_ret])->row_array();
+    $da = $brg['qty'] - $qty_ret;
+    $this->db->set('qty', $da);
+    $this->db->where('kode_brg', $kode_brg_ret);
+    $this->db->update('tbl_barang');
+
+    $trans = $this->db->get_where('tbl_trans_jual', ['barang_id' => $kode_brg_ret])->row_array();
+    $da_ret = $trans['qty_jual'] - $qty_ret;
+    $this->db->set('qty_jual', $da_ret);
+    $this->db->where('barang_id', $kode_brg_ret);
+    $this->db->update('tbl_trans_jual');
   }
 }

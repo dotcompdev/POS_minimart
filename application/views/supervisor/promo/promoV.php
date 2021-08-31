@@ -16,36 +16,36 @@
         <!-- /.content-header -->
 
         <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-2 ">
-                    <a href="<?= base_url('testing/tenPromo'); ?>">
-                        <button type="button" class="btn btn-block btn-success mt-1">
-                            Tentukan Promo
-                        </button>
-                    </a>
-                </div>
-                <div class="col-md-4 ml-1 mt-1">
-                    <form action="#" class="justify-content-end">
-                        <div class="input-group">
-                            <input type="search" class="form-control form-control-md" placeholder="Cari promo">
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-default mb-4">
-                                    <i class="fa fa-search"></i>
-                                </button>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2 ">
+                        <a href="<?= base_url('supervisor/tenPromo'); ?>">
+                            <button type="button" class="btn btn-block btn-success mt-1">
+                                Tentukan Promo
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-md-4 ml-1 mt-1">
+                        <form action="#" class="justify-content-end">
+                            <div class="input-group">
+                                <input type="search" class="form-control form-control-md" placeholder="Cari promo">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default mb-4">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+
                 </div>
-                
             </div>
-        </div>
-    </section>
+        </section>
 
         <!-- Main content -->
         <div class="card">
-              <!-- /.card-header -->
-              <div class="card-body">
+            <!-- /.card-header -->
+            <div class="card-body">
                 <!-- TABEL -->
                 <div class="row">
                     <div class="col">
@@ -77,7 +77,7 @@
                                         <td align="center">J001</td>
                                         <td>Available</td>
                                     </tr>
-                                    <tr>    
+                                    <tr>
                                         <td>
                                             <a href="" type="button" class="btn btn-info far fa-eye btn-sm"></a>
                                             <a href="" type="button" class="btn btn-warning far fa-edit btn-sm"></a>
@@ -103,7 +103,7 @@
                                         <td align="center">J001</td>
                                         <td>Available</td>
                                     </tr>
-                                    <tr>    
+                                    <tr>
                                         <td>
                                             <a href="" type="button" class="btn btn-info far fa-eye btn-sm"></a>
                                             <a href="" type="button" class="btn btn-warning far fa-edit btn-sm"></a>
@@ -129,7 +129,7 @@
                                         <td align="center">J001</td>
                                         <td>Available</td>
                                     </tr>
-                                    
+
                                 </tbody>
                             </table>
                         </div>
@@ -140,8 +140,8 @@
             <!-- /.card-body -->
         </div>
         <!-- /.card -->
-        
-        
+
+
     </div>
     <footer class="main-footer">
         <strong>Copyright &copy; 2021 <a href="#">Dotcomp</a>.</strong>
@@ -150,5 +150,5 @@
             <b>Version</b> 1.0
         </div>
     </footer>
-    
+
 </div>

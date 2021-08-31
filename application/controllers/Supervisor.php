@@ -15,6 +15,17 @@ class Supervisor extends CI_Controller
 
     public function index()
     {
+        $this->db->select('waktu_trans,total_qty');
+        $dataProdukChart = $this->db->get("tbl_jual_detail")->result();
+        foreach ($dataProdukChart as $k => $v) {
+            $arrProd[] = ['label' => date('h M y', $v->waktu_trans), 'y' => $v->total_qty];
+        }
+        if ($arrProd != '') {
+            $data['chart'] = $arrProd;
+        } else {
+            $data['chart'] = '';
+        }
+
         $data['judul'] = "Supervisor";
         $data['user'] = $this->Mod_supervisor->get();
         $data['supplier'] = $this->Mod_supervisor->getSupplier();
@@ -198,5 +209,34 @@ class Supervisor extends CI_Controller
     public function cetakJurnalRetur()
     {
         $this->load->view('cetak/jurnalRetur');
+    }
+
+    public function promo()
+    {
+        $data['judul'] = 'Info Promo';
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('supervisor/promo/promoV');
+        $this->load->view('templates/footer');
+    }
+
+    public function tenPromo()
+    {
+        $data['items'] = $this->Mod_supervisor->getItemPromo();
+        print_r($data['items']['id_promo']);
+        // $data['product'] = $this->db->get('tbl_barang')->result_array();
+        // $data['judul'] = 'Tentukan Promo';
+        // $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+        // $this->load->view('templates/header', $data);
+        // $this->load->view('templates/sidebar', $data);
+        // $this->load->view('supervisor/promo/tenPromoV', $data);
+        // $this->load->view('templates/footer');
+    }
+
+    public function buatPromo()
+    {
+        $brg = $this->input->post('barang', true);
+        $this->Mod_supervisor->addItemPromo($brg);
     }
 }

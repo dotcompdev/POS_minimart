@@ -8,6 +8,10 @@
                     <h1 class="m-0">Returment</h1>
                 </div>
             </div>
+
+            <div class="row">
+                <?= $this->session->flashdata('message'); ?>
+            </div>
             <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
@@ -61,7 +65,7 @@
                 <div class="col-lg-5">
                     <div class="form-group">
                         <label for="qty_retur">QTY Retur</label>
-                        <input type="text" class="form-control form-control-user form-control-sm" id="qty_retur" name="qty_retur" placeholder="QTY Retur">
+                        <input type="text" class="form-control form-control-user form-control-sm" id="qty_retur" name="qty_retur" placeholder="QTY Retur" autocomplete="off">
                         <?= form_error('qty_retur', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                     </div>
 

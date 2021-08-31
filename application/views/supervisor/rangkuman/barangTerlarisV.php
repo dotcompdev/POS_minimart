@@ -40,13 +40,13 @@
         </section>
 
         <!-- Main content -->
-        <div class="card col-lg-8">
+        <div class="card col-lg">
             <!-- /.card-header -->
-            <div class="card-body">
+            <div class="card-body col-lg-8">
                 <!-- TABEL -->
                 <div class="row">
                     <div class="col">
-                        <div class="card-body table-responsive p-0" style="height: 300px;">
+                        <div class="card-body table-responsive p-0" style="height: 320px;">
                             <table class="table table-head-fixed text-nowrap">
                                 <thead>
                                     <tr>

@@ -34,6 +34,33 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?= base_url('assets'); ?>/dist/js/pages/dashboard2.js"></script>
 
+<!-- Bootstrap4 Duallistbox -->
+<script src="<?= base_url('assets'); ?>/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<!-- InputMask -->
+<script src="<?= base_url('assets'); ?>/plugins/moment/moment.min.js"></script>
+<script src="<?= base_url('assets'); ?>/plugins/inputmask/jquery.inputmask.min.js"></script>
+
+<!-- date-range-picker -->
+<script src="<?= base_url('assets'); ?>/plugins/daterangepicker/daterangepicker.js"></script>
+/
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="<?= base_url('assets'); ?>/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- BS-Stepper -->
+<script src="<?= base_url('assets'); ?>/plugins/bs-stepper/js/bs-stepper.min.js"></script>
+<!-- dropzonejs -->
+<script src="<?= base_url('assets'); ?>/plugins/dropzone/min/dropzone.min.js"></script>
+<!-- bootstrap select -->
+<script src="<?php echo base_url('assets/js/bootstrap.bundle.js'); ?>"></script>
+<script src="<?= base_url('assets'); ?>/my-js/bootstrap-select.js"></script>
+
+<!-- select barang pada menu promos -->
+<script>
+    $(document).ready(function() {
+        $('.bootstrap-select').selectpicker();
+    });
+</script>
+
+<!-- muncul nama file pada upload foto -->
 <script>
     $('.custom-file-input').on('change', function() {
         let filename = $(this).val().split('\\').pop();
@@ -45,6 +72,7 @@
 <script src="<?= base_url('assets/my-js/script.js'); ?>"></script>
 
 
+<!-- pilih barang melalui moodal box -->
 <script type='text/javascript'>
     $(document).ready(function() {
         $(document).on("click", "#pilih", function() {
@@ -65,6 +93,7 @@
     });
 </script>
 
+<!-- pilih ID transaksi untuk menu returment -->
 <script type='text/javascript'>
     $(document).ready(function() {
         $(document).on("click", "#pilihID", function() {
@@ -96,6 +125,7 @@
     }
 </script>
 
+<!-- pilih barang untuk menu retur -->
 <script type='text/javascript'>
     $(document).ready(function() {
         $(document).on("click", "#pilihItem", function() {
@@ -112,6 +142,7 @@
     });
 </script>
 
+<!-- menghitung total belanjaan pada menu pejualan -->
 <script type="text/javascript">
     $(document).ready(function() {
         $("#cash").keyup(function() {
@@ -124,11 +155,28 @@
     });
 </script>
 
+<!-- menghapus item barang pada tabel tampung untuk penjualan -->
 <script>
     //GET CONFIRM DELETE
     $('.delete-record').on('click', function() {
         var invoice_id = $(this).data('invoice');
         $('[name="delete_id"]').val(invoice_id);
+    });
+</script>
+
+<!-- fungsi pilih tanggal pada menu promo -->
+<script type="text/javascript">
+    $(function() {
+        $('#datetimepicker7').datetimepicker();
+        $('#datetimepicker8').datetimepicker({
+            useCurrent: false
+        });
+        $("#datetimepicker7").on("change.datetimepicker", function(e) {
+            $('#datetimepicker8').datetimepicker('minDate', e.date);
+        });
+        $("#datetimepicker8").on("change.datetimepicker", function(e) {
+            $('#datetimepicker7').datetimepicker('maxDate', e.date);
+        });
     });
 </script>
 
