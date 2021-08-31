@@ -28,9 +28,9 @@
                         </a>
                     </div>
                     <div class="col-md-4 ml-1 mt-1 ">
-                        <form action="#" class="justify-content-end">
+                        <form action="" method="post" class="justify-content-end">
                             <div class="input-group">
-                                <input type="search" class="form-control form-control-md" placeholder="Cari">
+                                <input id="keywordPenjualan" name="keywordPenjualan" type="text" class="form-control form-control-md" placeholder="Cari" autofocus autocomplete="off">
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-default mb-4">
                                         <i class="fa fa-search"></i>
@@ -84,13 +84,5 @@
 
     </div>
     <!-- End Content Wrapper -->
-
-    <footer class="main-footer">
-        <strong>Copyright &copy; 2021 <a href="#">Dotcomp</a>.</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 1.0
-        </div>
-    </footer>
 
 </div>

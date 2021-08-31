@@ -44,89 +44,17 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="card-body table-responsive p-0" style="height: 300px;">
-                            <table id="example1" class="table table-bordered table-striped">
+                    
+                            <table class="table table-head-fixed text-nowrap">
                                 <thead>
-                                        <tr>
-                                            <th style="text-align: center;" width="50px">Aksi</th>
-                                            <th style="text-align: center;" width="100px">ID Barang</th>
-                                            <th width="150px">Nama Barang</th>
-                                            <th style="text-align: center;" width="100px">Harga Jual</th>
-                                            <th style="text-align: center;" width="80px">QTY</th>
-                                        </tr>
+                                  
                                 </thead>
 
                                 <tbody>
-                                        <tr>
-                                            
-                                            <td style="text-align: center;">
-                                                <div class="icheck-primary d-inline">
-                                                    <input type="checkbox" id="checkboxPrimary2">
-                                                        <label for="checkboxPrimary2">
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td align="center">001</td>
-                                            <td>Buku Kader PDIP</td>
-                                            <td align="center">20000</td>
-                                            <td align="center">1</td>
-                                        </tr>
-                                        <tr>    
-                                            
-                                            <td style="text-align: center;">
-                                                <div class="icheck-primary d-inline">
-                                                    <input type="checkbox" id="checkboxPrimary2">
-                                                        <label for="checkboxPrimary2">
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td align="center">001</td>
-                                            <td>Buku Kader PDIP</td>
-                                            <td align="center">20000</td>
-                                            <td align="center">1</td>
-                                        </tr>
-                                        <tr>
-                                            
-                                            <td style="text-align: center;">
-                                                <div class="icheck-primary d-inline">
-                                                    <input type="checkbox" id="checkboxPrimary2">
-                                                        <label for="checkboxPrimary2">
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td align="center">001</td>
-                                            <td>Buku Kader PDIP</td>
-                                            <td align="center">20000</td>
-                                            <td align="center">1</td>
-                                        </tr>
-                                        <tr>    
-                                            <td style="text-align: center;">
-                                                <div class="icheck-primary d-inline">
-                                                    <input type="checkbox" id="checkboxPrimary2">
-                                                        <label for="checkboxPrimary2">
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td align="center">001</td>
-                                            <td>Buku Kader PDIP</td>
-                                            <td align="center">20000</td>
-                                            <td align="center">1</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: center;">
-                                                <div class="icheck-primary d-inline">
-                                                    <input type="checkbox" id="checkboxPrimary2">
-                                                        <label for="checkboxPrimary2">
-                                                    </label>
-                                                </div>
-                                            </td> 
-                                            <td align="center">001</td>
-                                            <td>Buku Kader PDIP</td>
-                                            <td align="center">20000</td>
-                                            <td align="center">1</td>
-                                        </tr>
-                                        
-                                    </tbody>
+                                   
+                                </tbody>
                             </table>
+                        
                         </div>
                     </div>
 
@@ -191,12 +119,5 @@
     </div>
         <!-- /.card -->
 </div>
-    <footer class="main-footer">
-        <strong>Copyright &copy; 2021 <a href="#">Dotcomp</a>.</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 1.0
-        </div>
-    </footer>
     
 </div>

@@ -29,8 +29,6 @@ $html = '<!DOCTYPE html>
             <label>ID Transaksi</label>
         </div>
         <div class="col-6 float-right">
-            <label>ID Kasir</label>
-            <br />
             <label>Nama Kasir</label>
         </div>
     </div>
@@ -70,24 +68,24 @@ $html = '<!DOCTYPE html>
                 <tr class="border-bottom-1">
                     <th>Total</th>
                     <th>:</th>
-                    <th>Total</th>
+                    <th style="text-align: right;">Total</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>Diskon</td>
                     <td>:</td>
-                    <td>Jumlah diskon</td>
+                    <td style="text-align: right;">Jumlah diskon</td>
                 </tr>
                 <tr>
                     <td>Bayar</td>
                     <td>:</td>
-                    <td>Jumlah Bayar</td>
+                    <td style="text-align: right;">Jumlah Bayar</td>
                 </tr>
                 <tr>
                     <td>Kembali</td>
                     <td>:</td>
-                    <td>Uang Kembali</td>
+                    <td style="text-align: right;">Uang Kembali</td>
                 </tr>
             </tbody>
         </table>

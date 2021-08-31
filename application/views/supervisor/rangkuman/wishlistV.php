@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">List Pemesanan</h1>
+                        <h1 class="m-0">Wishlist</h1>
                     </div>
                 </div>
                 <!-- /.row -->
@@ -20,11 +20,11 @@
                 <div class="row">
                     <div class="col-md-4 ml-1 mt-1">
                         <div class="row-md">
-                            <form action="#" class="justify-content-end">
+                            <form action="<?= base_url('menu/wishlist'); ?>" method="post" class="justify-content-end">
                                 <div class="input-group">
-                                    <input type="search" class="form-control form-control-md" placeholder="Cari">
+                                    <input type="text" name="keyword" class="form-control form-control-md" placeholder="Cari" autofocus>
                                     <div class="input-group-append">
-                                        <button type="submit" class="btn btn-default mb-4">
+                                        <button type="submit" name="submit" class="btn btn-default mb-4">
                                             <i class="fa fa-search"></i>
                                         </button>
                                     </div>
@@ -35,7 +35,7 @@
                 </div>
             </div>
         </section>
-
+   
         <!-- Main content -->
         <div class="card">
             <!-- /.card-header -->
@@ -70,13 +70,5 @@
 
             </div>
         </div>
-
-        <footer class="main-footer">
-            <strong>Copyright &copy; 2021 <a href="#">Dotcomp</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 1.0
-            </div>
-        </footer>
 
     </div>
