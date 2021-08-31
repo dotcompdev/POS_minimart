@@ -50,7 +50,7 @@
                     <div class="form-group">
                         <label for="kode_barang">Kode Barang</label>
                         <div class="input-group input-group-sm">
-                            <input type="text" class="form-control form-control-sm form-control-user" id="kode_barang" name="kode_barang" placeholder="Kode Barang" value="<?= set_value('kode_barang'); ?>" autocomplete="off">
+                            <input type="text" class="form-control form-control-sm form-control-user" id="kode_barang" name="kode_barang" placeholder="Pilih Kode           -------------->" value="<?= set_value('kode_barang'); ?>" autocomplete="off">
                             <div class="input-group-append">
                                 <button class="btn btn-info" data-toggle="modal" data-target="#modalBarang" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
                             </div>
@@ -110,12 +110,12 @@
                     </div>
                     <div class="row d-flex justify-content-end">
                         <div class="form-group col-lg-5">
-                            <a href="<?= base_url('gudang/infoStok'); ?>" type="button" class="btn btn-danger btn-user btn-block">
+                            <a href="<?= base_url('gudang/infoStok'); ?>" type="button" class="btn btn-sm btn-danger btn-user btn-block">
                                 Batal
                             </a>
                         </div>
                         <div class="form-group col-lg-5 float-lg-left">
-                            <button type="submit" class="btn btn-success btn-user btn-block">
+                            <button type="submit" class="btn btn-sm btn-success btn-user btn-block">
                                 Simpan
                             </button>
                         </div>

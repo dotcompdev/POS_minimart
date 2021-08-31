@@ -10,10 +10,6 @@ class Menu extends CI_Controller
         $this->load->model('Mod_kasir');
     }
 
-    public function index()
-    {
-    }
-
     public function barangTerlaris()
     {
         check_supervisor();

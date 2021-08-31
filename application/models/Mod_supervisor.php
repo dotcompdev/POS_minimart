@@ -328,4 +328,12 @@ class Mod_supervisor extends CI_Model
         $this->db->where('id_promo', $idPromo);
         $this->db->update('tbl_promo');
     }
+
+    public function pilihBarang()
+    {
+        $this->db->select('SUM(qty_jual) as totalQty');
+        $this->db->where('barang_id', 'PM0003');
+        $this->db->from('tbl_trans_jual');
+        return $this->db->get()->row()->totalQty;
+    }
 }

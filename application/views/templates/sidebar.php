@@ -175,19 +175,19 @@
                     </a>
                     <ul class="nav nav-treeview small ml-1">
                         <li class="nav-item">
-                            <a href="<?= base_url('menu/barangTerlaris'); ?>" class="nav-link">
+                            <a href="<?= base_url('supervisor/barangTerlaris'); ?>" class="nav-link">
                                 <i class="fas fa-chart-line nav-icon"></i>
                                 <p>Barang terlaris</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('menu/waktuTerpadat'); ?>" class="nav-link">
+                            <a href="<?= base_url('supervisor/waktuTerpadat'); ?>" class="nav-link">
                                 <i class="fas fa-business-time nav-icon"></i>
                                 <p>Waktu terpadat</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('menu/pencarianPelanggan'); ?>" class="nav-link">
+                            <a href="<?= base_url('suupervisor/pencarianPelanggan'); ?>" class="nav-link">
                                 <i class="fas fa-search-dollar nav-icon"></i>
                                 <p>Pencarian dari pelanggan</p>
                             </a>

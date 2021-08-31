@@ -9,6 +9,7 @@ class Supervisor extends CI_Controller
         parent::__construct();
         is_logged_in();
         check_supervisor();
+        $this->load->model('Mod_kasir');
         $this->load->model('Mod_supervisor');
         $this->load->library('form_validation');
     }
@@ -186,6 +187,7 @@ class Supervisor extends CI_Controller
     {
         $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
 
+        $data['retur'] = $this->db->get('tbl_retur')->result_array();
         $data['judul'] = "Jurnal Retur";
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -304,5 +306,57 @@ class Supervisor extends CI_Controller
     {
         $this->Mod_supervisor->updatePromo();
         redirect('supervisor/tenPromo');
+    }
+
+    public function barangTerlaris()
+    {
+        check_supervisor();
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $hasil = $this->Mod_supervisor->pilihBarang();
+        echo $hasil;
+        // $data['trans'] = $this->db->get('tbl_trans_jual')->result_array();
+
+        // $data['judul'] = "Barang Terlaris";
+        // $this->load->view('templates/header', $data);
+        // $this->load->view('templates/sidebar', $data);
+        // $this->load->view('supervisor/rangkuman/barangTerlarisV', $data);
+        // $this->load->view('templates/footer');
+    }
+
+    public function waktuTerpadat()
+    {
+        $this->db->select('waktu_trans,total_qty');
+        $dataProdukChart = $this->db->get("tbl_jual_detail")->result();
+        foreach ($dataProdukChart as $k => $v) {
+            $arrProd[] = ['label' => date('h M y', $v->waktu_trans), 'y' => $v->total_qty];
+        }
+        if ($arrProd != '') {
+            $data['chart'] = $arrProd;
+        } else {
+            $data['chart'] = '';
+        }
+
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['judul'] = "Waktu Terpadat";
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('supervisor/rangkuman/waktuV');
+        $this->load->view('templates/footer');
+    }
+
+    public function pencarianPelanggan()
+    {
+        $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['wish'] = $this->Mod_kasir->getWish();
+
+        $data['judul'] = "Pencarian Pelanggan";
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('supervisor/rangkuman/pencarianPelangganV', $data);
+        $this->load->view('templates/footer');
     }
 }

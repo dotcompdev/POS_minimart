@@ -13,6 +13,7 @@ class Kasir extends CI_Controller
 
     public function index()
     {
+        $now = time();
         // $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
         $data['muncul'] = $this->db->get('tbl_tampung')->row_array();
         $data['tampung'] = $this->db->get('tbl_tampung')->result_array();
