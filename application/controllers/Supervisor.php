@@ -213,7 +213,8 @@ class Supervisor extends CI_Controller
 
     public function promo()
     {
-        $data['ItemPromo'] = $this->Mod_supervisor->getAllItemPromo();
+        $data['itemPromo'] = $this->Mod_supervisor->getAllItemPromo();
+
         $data['judul'] = 'Info Promo';
         $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
@@ -222,10 +223,16 @@ class Supervisor extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function promoBatal()
+    {
+        $this->db->empty_table('tbl_promo');
+        redirect('supervisor/promo');
+    }
+
     public function tenPromo()
     {
         $data['items'] = $this->Mod_supervisor->getItemPromo();
-        $data['product'] = $this->db->get('tbl_barang')->result_array();
+        $data['product'] = $this->db->get_where('tbl_barang', ['kategori !=' => ''])->result_array();
         $data['judul'] = 'Tentukan Promo';
         $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
@@ -247,6 +254,18 @@ class Supervisor extends CI_Controller
         redirect('supervisor/tenPromo');
     }
 
+    public function hapusPromo($id)
+    {
+        $this->db->select('jadwal');
+        $this->db->where('id', $id);
+        $this->db->from('tbl_promo_detail');
+        $idJadwal = $this->db->get()->result_array();
+        $jadwal = $idJadwal[0]['jadwal'];
+
+        $this->Mod_supervisor->hapusPromoID($id, $jadwal);
+        redirect('supervisor/promo');
+    }
+
     public function tambahPromo()
     {
         // $this->form_validation->set_rules('nama_promo', 'Nama Promo', 'trim|required');
@@ -259,5 +278,11 @@ class Supervisor extends CI_Controller
         $this->Mod_supervisor->addItemPromo();
         // redirect('supervisor/promo');
         // }
+    }
+
+    public function updateItemPromo()
+    {
+        $this->Mod_supervisor->updatePromo();
+        redirect('supervisor/tenPromo');
     }
 }

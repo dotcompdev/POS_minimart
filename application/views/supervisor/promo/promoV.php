@@ -55,24 +55,26 @@
                                     <tr>
                                         <th style="text-align: center;" width="100px">Aksi</th>
                                         <th style="text-align: center;" width="100px">Nama Promo</th>
-                                        <th style="text-align: center;" width="70px">Total Diskon</th>
-                                        <th style="text-align: center;" width="100px">Jadwal</th>
+                                        <th style="text-align: center;" width="100px">Mulai</th>
+                                        <th style="text-align: center;" width="100px">Akhir</th>
+                                        <th style="text-align: center;" width="100px">Hari</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    <?php foreach ($ItemPromo as $item) : ?>
+                                    <?php for ($i = 1; $i < count($itemPromo); $i++) : ?>
                                         <tr>
-                                            <td>
+                                            <td align="center">
                                                 <a href="" type="button" class="btn btn-info far fa-eye btn-sm"></a>
-                                                <a href="" type="button" class="btn btn-warning far fa-edit btn-sm"></a>
-                                                <a href="" type="button" class="btn btn-danger far fa-trash-alt btn-sm"></a>
+                                                <a href="<?= base_url('supervisor/editPromo/') . $itemPromo[$i]['idPromo']; ?>" type="button" class="btn btn-warning far fa-edit btn-sm"></a>
+                                                <a href="<?= base_url('supervisor/hapusPromo/') . $itemPromo[$i]['idPromo']; ?>" type=" button" class="btn btn-danger far fa-trash-alt btn-sm"></a>
                                             </td>
-                                            <td align="center"><?= $item['nama_promo']; ?></td>
-                                            <td align="center"><?= $item['diskon_brg']; ?></td>
-                                            <td align="center"><?= $item['jadwal']; ?></td>
+                                            <td align="center"><?= $itemPromo[$i]['namaPromo']; ?></td>
+                                            <td align="center"><?= date('d M Y ~ H:i', $itemPromo[$i]['waktuAwal']); ?></td>
+                                            <td align="center"><?= date('d M Y ~ H:i', $itemPromo[$i]['waktuAkhir']); ?></td>
+                                            <td align="center"><?= $itemPromo[$i]['hari']; ?></td>
                                         </tr>
-                                    <?php endforeach; ?>
+                                    <?php endfor; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -86,12 +88,4 @@
 
 
     </div>
-    <footer class="main-footer">
-        <strong>Copyright &copy; 2021 <a href="#">Dotcomp</a>.</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 1.0
-        </div>
-    </footer>
-
 </div>

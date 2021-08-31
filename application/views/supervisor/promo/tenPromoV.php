@@ -34,7 +34,7 @@
                                         <th width="100px">Nama Barang</th>
                                         <th width="50px">QTY</th>
                                         <th width="100px" style="text-align: center;">Harga</th>
-                                        <th width="100px">Diskon</th>
+                                        <th width="100px" style="text-align: center;">Diskon</th>
                                         <th width="70px">aksi</th>
                                     </tr>
                                 </thead>
@@ -46,9 +46,9 @@
                                             <td><?= $item['nama_brg']; ?></td>
                                             <td><?= $item['qty_brg']; ?></td>
                                             <td align="right"><?= indo_currency($item['harga_brg']); ?></td>
-                                            <td><?= $item['diskon_brg']; ?></td>
+                                            <td align="right"><?= indo_currency($item['diskon_brg']); ?></td>
                                             <td>
-                                                <a href="" id="updateItemPromo" type="button" class="btn btn-warning far fa-edit btn-sm"></a>
+                                                <button data-toggle="modal" data-target="#modalUpdatePromo" id="updateItemPromo" type="button" class="btn btn-warning far fa-edit btn-sm" data-id="<?= $item['id_promo']; ?>" data-kode="<?= $item['kode_brg']; ?>" data-nama="<?= $item['nama_brg']; ?>" data-harga="<?= $item['harga_brg']; ?>" data-qty="<?= $item['qty_brg']; ?>" data-diskon="<?= $item['diskon_brg']; ?>"></button>
                                                 <a href="<?= base_url('supervisor/hapusItemPromo/') . $item['id_promo']; ?>" id="hapusItemPromo" type="button" class="btn btn-danger far fa-trash-alt btn-sm"></a>
                                             </td>
                                         </tr>
@@ -99,7 +99,7 @@
 
                         <div class="row">
                             <div class="form-group col-lg">
-                                <a href="<?= base_url('Supervisor/promo'); ?>" type="button" class="btn btn-danger btn-user btn-block btn-sm">
+                                <a href="<?= base_url('Supervisor/promoBatal'); ?>" type="button" class="btn btn-danger btn-user btn-block btn-sm">
                                     Batal
                                 </a>
                             </div>
@@ -189,3 +189,67 @@
         </div>
     </div>
 </div>
+
+<?= form_open_multipart('supervisor/updateItemPromo'); ?>
+<div class="modal fade" id="modalUpdatePromo">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Tentukan diskon</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="number" id="idPromo" name="idPromo" hidden>
+                <div class="form-group">
+                    <label for="kodeBrg">Kode Barang</label>
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control form-control-sm form-control-user" id="kodeBrg" name="kodeBrg" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="namaBrg">Nama Barang</label>
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control form-control-sm form-control-user" id="namaBrg" name="namaBrg" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="hargaJual">Harga Jual</label>
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control form-control-sm form-control-user" id="hargaJual" name="hargaJual" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="qty">QTY</label>
+                    <div class="input-group input-group-sm">
+                        <input type="number" class="form-control form-control-sm form-control-user" id="qty" name="qty">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="diskon">Diskon</label>
+                    <div class="input-group input-group-sm">
+                        <input type="number" class="form-control form-control-sm form-control-user" id="diskon" name="diskon">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer justify-content-between">
+                <input type="hidden" name="delete_id" required>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">
+                    Simpan
+                </button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+</form>
+<!-- /.modal -->

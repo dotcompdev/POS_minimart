@@ -25,7 +25,7 @@
             <?= form_open_multipart('Kasir/returment'); ?>
 
             <div class="row">
-                <div class="col-lg-5">
+                <div class="col-lg-4">
                     <div class="row-lg">
                         <div class="form-group">
                             <label for="id_transaksi">ID Transaksi</label>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-5">
+                <div class="col-lg-4">
                     <div class="form-group">
                         <label for="qty_retur">QTY Retur</label>
                         <input type="text" class="form-control form-control-user form-control-sm" id="qty_retur" name="qty_retur" placeholder="QTY Retur" autocomplete="off">
@@ -88,12 +88,12 @@
 
             </div>
             <div class="row">
-                <div class="form-group col-lg-1">
-                    <button type="button" class="btn btn-danger btn-user btn-block btn-sm">
+                <div class="form-group col-lg-4">
+                    <a href="<?= base_url('kasir'); ?>" type="button" class="btn btn-danger btn-user btn-block btn-sm">
                         Batal
-                    </button>
+                    </a>
                 </div>
-                <div class="form-group col-lg-1 float-lg-left">
+                <div class="form-group col-lg-4">
                     <button type="submit" class="btn btn-success btn-user btn-block btn-sm">
                         Simpan
                     </button>

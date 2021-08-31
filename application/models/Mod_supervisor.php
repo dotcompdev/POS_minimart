@@ -229,8 +229,56 @@ class Mod_supervisor extends CI_Model
         $this->db->delete('tbl_promo', ['id_promo' => $id]);
     }
 
+    public function hapusPromoID($id, $jadwal)
+    {
+        $this->db->delete('tbl_promo_detail', ['id' => $id]);
+        $this->db->delete('tbl_jadwal', ['id_jadwal' => $jadwal]);
+    }
+
     public function getAllItemPromo()
     {
-        return $this->db->get('tbl_promo_detail')->result_array();
+        $data = array('');
+        $item = $this->db->get('tbl_promo_detail')->result_array();
+        foreach ($item as $i) {
+            $this->db->select('tgl_mulai');
+            $this->db->where('id_jadwal', $i['jadwal']);
+            $this->db->from('tbl_jadwal');
+            $waktuAwal = $this->db->get()->result_array();
+            $waktuMulai = $waktuAwal[0]['tgl_mulai'];
+
+            $this->db->select('tgl_berakhir');
+            $this->db->where('id_jadwal', $i['jadwal']);
+            $this->db->from('tbl_jadwal');
+            $waktuAkhir = $this->db->get()->result_array();
+            $waktuBerakhir = $waktuAkhir[0]['tgl_berakhir'];
+
+            $this->db->select('hari_frek');
+            $this->db->where('id_jadwal', $i['jadwal']);
+            $this->db->from('tbl_jadwal');
+            $hari = $this->db->get()->result_array();
+            $hariFrek = $hari[0]['hari_frek'];
+
+            array_push($data, array(
+                'namaPromo' => $i['nama_promo'],
+                'waktuAwal' => $waktuMulai,
+                'waktuAkhir' => $waktuBerakhir,
+                'hari' => $hariFrek,
+                'idPromo' => $i['id'],
+                'jadwalPromo' => $i['jadwal']
+            ));
+        }
+
+        return $data;
+    }
+
+    public function updatePromo()
+    {
+        $idPromo = $this->input->post('idPromo');
+        $qtyPromo = $this->input->post('qty');
+        $diskonPromo = $this->input->post('diskon');
+        $this->db->set('qty_brg', $qtyPromo);
+        $this->db->set('diskon_brg', $diskonPromo);
+        $this->db->where('id_promo', $idPromo);
+        $this->db->update('tbl_promo');
     }
 }

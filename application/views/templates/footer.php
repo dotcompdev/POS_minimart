@@ -82,6 +82,26 @@
     });
 </script>
 
+<!-- update item promo -->
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $(document).on("click", "#updateItemPromo", function() {
+            var idpromo = $(this).data("id");
+            var kode = $(this).data("kode");
+            var nama = $(this).data("nama");
+            var harga = $(this).data("harga");
+            var qty = $(this).data("qty");
+            var diskon = $(this).data("diskon");
+            $("#idPromo").val(idpromo);
+            $("#kodeBrg").val(kode);
+            $("#namaBrg").val(nama);
+            $("#hargaJual").val(harga);
+            $("#qty").val(qty);
+            $("#diskon").val(diskon);
+        });
+    });
+</script>
+
 
 <!-- pilih barang melalui modal box -->
 <script type='text/javascript'>
