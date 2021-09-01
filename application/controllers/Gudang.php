@@ -8,14 +8,17 @@ class Gudang extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Mod_gudang');
+        $this->load->model('Mod_supervisor');
     }
 
     public function index()
     {
+        $data['supplier'] = $this->Mod_supervisor->getSupplier();
+        $data['total_brg'] = $this->Mod_supervisor->getAllQty();
         $data['judul'] = "Petugas Gudang";
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('dashboard3V');
+        $this->load->view('dashboard3V', $data);
         $this->load->view('templates/footer');
     }
 
@@ -38,6 +41,8 @@ class Gudang extends CI_Controller
 
     public function inputBarang()
     {
+        $data['product'] = $this->db->get_where('tbl_barang', ['kategori' => ''])->result_array();
+
         $this->form_validation->set_rules('supplier', 'Supplier', 'trim');
         $this->form_validation->set_rules('kode_barang', 'Kode barang', 'required|trim');
         $this->form_validation->set_rules('nama_barang', 'Nama barang', 'trim|required');
@@ -62,21 +67,8 @@ class Gudang extends CI_Controller
 
     public function barangBaru()
     {
-        $this->form_validation->set_rules('supplier', 'Supplier', 'trim');
-        $this->form_validation->set_rules('kode_barang', 'Kode barang', 'required|trim');
-        $this->form_validation->set_rules('nama_barang', 'Nama barang', 'trim|required');
-        $this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
-
-        if ($this->form_validation->run() == false) {
-            $data['judul'] = "Input Barang";
-            $data['supplier'] = $this->Mod_gudang->getSupplier();
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('gudang/inputBarangV', $data);
-            $this->load->view('templates/footer');
-        } else {
-            $this->Mod_gudang->tambahBarang();
-        }
+        $id = $this->input->post('idBrgBaru');
+        $this->Mod_gudang->tambahBarang($id);
     }
 
     public function ubah($id)

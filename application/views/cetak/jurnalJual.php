@@ -8,6 +8,15 @@ $mpdf = new \Mpdf\Mpdf();
 $html = '<!DOCTYPE html>
 <html lang="en">
 <head>
+<style>
+table, td, th {
+  border: 1px solid black;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+</style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,74 +51,28 @@ $html = '<!DOCTYPE html>
                         <table class="table table-head-fixed text-nowrap" rules="all" table-bordered>
                             <thead>
                                 <tr>
-                                    <th width="100px">ID Transaksi</th>
-                                    <th style="text-align: center;" width="150px">Tanggal</th>
-                                    <th width="100px">ID Barang</th>
-                                    <th width="150px">Nama Barang</th>
-                                    <th style="text-align: center;" width="100px">QTY</th>
-                                    <th style="text-align: right;" width="100px">Harga</th>
+                                    <th style="text-align: center;" width="150px">Waktu</th>
+                                    <th width="100px">User</th>
+                                    <th width="150px">Invoice</th>
+                                    <th style="text-align: center;" width="70px">QTY</th>
+                                    <th style="text-align: center;" width="100px">Total</th>
+                                    <th style="text-align: center;" width="100px">Cash</th>
                                 </tr>
                             </thead>
 
-                            <tbody>
-                                <tr>
-                                    <td>001</td>
-                                    <td align="center">08-03-2021</td>
-                                    <td>BM017</td>
-                                    <td>Buku Pedoman Kader PDIP</td>
-                                    <td align="center">2</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>    
-                                    <td>001</td>
-                                    <td align="center">08-03-2021</td>
-                                    <td>BM017</td>
-                                    <td>Buku Pedoman Kader PDIP</td>
-                                    <td align="center">2</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>
-                                    <td>001</td>
-                                    <td align="center">08-03-2021</td>
-                                    <td>BM017</td>
-                                    <td>Buku Pedoman Kader PDIP</td>
-                                    <td align="center">2</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>    
-                                    <td>001</td>
-                                    <td align="center">08-03-2021</td>
-                                    <td>BM017</td>
-                                    <td>Buku Pedoman Kader PDIP</td>
-                                    <td align="center">2</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>
-                                    <td>001</td>
-                                    <td align="center">08-03-2021</td>
-                                    <td>BM017</td>
-                                    <td>Buku Pedoman Kader PDIP</td>
-                                    <td align="center">2</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>
-                                    <td>001</td>
-                                    <td align="center">08-03-2021</td>
-                                    <td>BM017</td>
-                                    <td>Buku Pedoman Kader PDIP</td>
-                                    <td align="center">2</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                <tr>
-                                    <td>001</td>
-                                    <td align="center">08-03-2021</td>
-                                    <td>BM017</td>
-                                    <td>Buku Pedoman Kader PDIP</td>
-                                    <td align="center">2</td>
-                                    <td align="right">15000</td>
-                                </tr>
-                                
-                            </tbody>
+                            <tbody>';
+foreach ($penjualan as $jual) :
+    $html .= ' <tr>
+                                    <td align="center">' . date("d-m-Y H:i", $jual["waktu_trans"]) . '</td>
+                                    <td align="center">' . $jual["user"] . '</td>
+                                    <td align="center">' . $jual["invoice"] . '</td>
+                                    <td align="center">' . $jual["total_qty"] . '</td>
+                                    <td align="right">' . indo_currency($jual["total_bayar"]) . '</td>
+                                    <td align="right">' . indo_currency($jual["cash"]) . '</td>
+                                </tr>';
+endforeach;
+
+$html .= ' </tbody>
                         </table>
                     </div>
                 </div>
@@ -143,6 +106,3 @@ $html = '<!DOCTYPE html>
 
 $mpdf->WriteHTML($html);
 $mpdf->Output('jurnal-penjualan.pdf', \Mpdf\Output\Destination::INLINE);
-
-?>
-

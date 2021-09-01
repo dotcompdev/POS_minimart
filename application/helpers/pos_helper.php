@@ -18,6 +18,10 @@ function check_supervisor()
     }
 }
 
+function cek_waktu($now, $expired)
+{
+}
+
 function indo_currency($nominal)
 {
     $result = "Rp " . number_format($nominal, 2, ',', '.');

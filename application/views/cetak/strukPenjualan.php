@@ -8,7 +8,7 @@ $mpdf = new \Mpdf\Mpdf();
 $html = '<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charse2000t="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Struk</title>
@@ -20,23 +20,21 @@ $html = '<!DOCTYPE html>
         <h4>Minimart</h4>
         <h5>Jl. Sayap Kemerdekaan No. 17</h5>
     </div>
-    <hr />
-
-    <div class="row">
+    <hr />';
+// foreach ($jual as $j) :
+$html .= '    <div class="row">
         <div class="col-6 float-left">
-            <label>Tanggal Transaksi</label>
+            <label>' . date("d-m-y H:i", $data["tgl_transaksi"]) . '</label>
             <br />
-            <label>ID Transaksi</label>
+            <label>' . $data["invoice"] . '</label>
         </div>
         <div class="col-6 float-right">
-            <label>ID Kasir</label>
-            <br />
-            <label>Nama Kasir</label>
+            <label>' . $data["user_id"] . '</label>
         </div>
     </div>
-    <hr />
-
-    <table class="table table-sm" rules="all">
+    <hr />';
+// endforeach;
+$html .= '<table class="table table-sm" rules="all">
         <thead>
             <tr>
                 <th scope="col">Barang</th>
@@ -119,6 +117,3 @@ $html = '<!DOCTYPE html>
 
 $mpdf->WriteHTML($html);
 $mpdf->Output('struk-penjualan.pdf', \Mpdf\Output\Destination::INLINE);
-
-?>
-
