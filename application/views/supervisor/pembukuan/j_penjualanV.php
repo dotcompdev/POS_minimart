@@ -65,12 +65,12 @@
                                 <tbody>
                                     <?php foreach ($penjualan as $jual) : ?>
                                         <tr>
-                                            <td align="center"><?= date('d-m-Y H:i', $jual['waktu_trans']);; ?></td>
+                                            <td align="center"><?= date('d-m-Y H:i', $jual['waktu_trans']); ?></td>
                                             <td><?= $jual['user']; ?></td>
                                             <td><?= $jual['invoice']; ?></td>
                                             <td><?= $jual['total_qty']; ?></td>
-                                            <td align="center"><?= $jual['total_bayar']; ?></td>
-                                            <td align="right"><?= $jual['cash']; ?></td>
+                                            <td align="right"><?= indo_currency($jual['total_bayar']); ?></td>
+                                            <td align="right"><?= indo_currency($jual['cash']); ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

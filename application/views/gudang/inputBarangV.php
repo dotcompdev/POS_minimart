@@ -201,6 +201,7 @@
             </div>
             <div class="modal-body">
                 <?= form_open_multipart('Gudang/barangBaru'); ?>
+                <input type="number" id="idBrgBaru" name="idBrgBaru" hidden>
                 <div class="form-group">
                     <label for="kode_barang_modal">Kode Barang</label>
                     <div class="input-group input-group-sm">
@@ -211,7 +212,12 @@
 
                 <div class="form-group">
                     <label for="nama_barang_modal">Nama Barang</label>
-                    <input type="text" class="form-control form-control-sm form-control-user" id="nama_barang_modal" name="nama_barang_modal" placeholder="Nama Barang" value="<?= set_value('nama_barang_modal'); ?>" autocomplete="off">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control form-control-sm form-control-user" id="nama_barang_modal" name="nama_barang_modal" placeholder="Nama Barang" value="<?= set_value('nama_barang_modal'); ?>" autocomplete="off">
+                        <div class="input-group-append">
+                            <button class="btn btn-info" data-toggle="modal" data-target="#modalBrgBaru" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
                     <?= form_error('nama_barang_modal', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                 </div>
 
@@ -252,4 +258,35 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
+</div>
+
+<div class="modal fade" id="modalBrgBaru" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Pilih Barang</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Barang</label>
+                    <div class="col-sm-10">
+                        <select class="bootstrap-select" id="barangBaru" name="barangBaru[]" data-width="100%" data-live-search="true" multiple required>
+                            <?php foreach ($product as $row) : ?>
+                                <option value="<?= $row['nama_brg']; ?>"><?= $row['nama_brg']; ?></option>
+
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                <button data-idBrg="<?= $row['id_brg']; ?>" id="pilihBrgBaru" type="button" class="btn btn-success btn-sm">Save</button>
+            <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
 </div>

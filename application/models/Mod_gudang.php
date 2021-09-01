@@ -3,20 +3,32 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Mod_gudang extends CI_Model
 {
-    public function tambahBarang()
+    public function tambahBarang($id)
     {
-        $kodeBarang = $this->input->post('kode_barang_modal', true);
+        $kodeBarang = $this->input->post('kode_barang_modal');
+        $namaBarang = $this->input->post('nama_barang_modal');
+        $kategori = $this->input->post('kategori_modal');
+        $unit = $this->input->post('satuan_modal');
         $barang = [
-            'kode_brg' => htmlspecialchars($kodeBarang),
-            'nama_brg' => htmlspecialchars($this->input->post('nama_barang_modal'), true),
-            'kategori' => htmlspecialchars($this->input->post('kategori_modal', true)),
-            'unit' => htmlspecialchars($this->input->post('satuan_modal', true)),
+            'kode_brg' => htmlspecialchars($kodeBarang, true),
+            'nama_brg' => htmlspecialchars($namaBarang, true),
+            'kategori' => htmlspecialchars($kategori, true),
+            'unit' => htmlspecialchars($unit, true),
             'harga_jual' => 0,
             'qty' => 0,
             'created' => time()
         ];
 
-        $this->db->insert('tbl_barang', $barang);
+        if ($id != null) {
+            $this->db->set('kode_brg', $kodeBarang);
+            $this->db->set('nama_brg', $namaBarang);
+            $this->db->set('kategori', $kategori);
+            $this->db->set('unit', $unit);
+            $this->db->where('id_brg', $id);
+            $this->db->update('tbl_barang');
+        } else {
+            $this->db->insert('tbl_barang', $barang);
+        }
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Barang berhasil ditambahkan!</div>');
         redirect('gudang/infoStok');
     }

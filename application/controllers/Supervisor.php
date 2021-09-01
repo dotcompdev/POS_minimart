@@ -201,7 +201,8 @@ class Supervisor extends CI_Controller
 
     public function cetakJurnalJual()
     {
-        $this->load->view('cetak/jurnalJual');
+        $data['penjualan'] = $this->Mod_supervisor->getPenjualan();
+        $this->load->view('cetak/jurnalJual', $data);
     }
 
     public function cetakJurnalBeli()

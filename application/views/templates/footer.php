@@ -143,6 +143,19 @@
     }
 </script>
 
+<!-- pilih barang baru -->
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $(document).on("click", "#pilihBrgBaru", function() {
+            var id = $(this).data("idBrg");
+            var brgBaru = $('#barangBaru').val();
+            $("#nama_barang_modal").val(brgBaru);
+            $("#idBrgBaru").val(id);
+            $("#modalBrgBaru").modal("hide");
+        });
+    });
+</script>
+
 <!-- pilih barang melalui modal box -->
 <script type='text/javascript'>
     $(document).ready(function() {
