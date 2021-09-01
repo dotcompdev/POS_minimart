@@ -4,7 +4,6 @@ require_once FCPATH . '/vendor/autoload.php';
 
 $mpdf = new \Mpdf\Mpdf();
 
-
 $html = '<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,10 +19,20 @@ table {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Struk</title>
+    
+    <title>Jurnal Penjualan</title>
+
+    <style>
+        table, th, td {
+            border : 1px solid black;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+    </style>
 </head>
 <body>
-
 <div class="wrapper">
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">

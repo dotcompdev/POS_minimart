@@ -33,6 +33,19 @@
                         </a>
                     </div>
 
+                    <!-- <div class="col-md-4 mt-1">
+                        <form action="#" method="post" class="justify-content-end">
+                        <div class="input-group">
+                                <input type="search" class="form-control form-control-md" placeholder="Cari">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default mb-4">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div> -->
+
                     <br><br><br>
 
                 </div>

@@ -27,6 +27,27 @@ class Auth extends CI_Controller
         }
     }
 
+    public function role()
+    {
+        $data['judul'] = 'Role';
+        $data['user'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['role'] = $this->db->get_where('tbl_role')->result_array();
+
+        $this->form_validation->set_rules('role', 'Role', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            // $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/footer');
+            
+            $data = [
+                'role' => $this->input->post('role')
+            ];
+        }
+    }
+
     public function logout()
     {
         $this->session->unset_userdata('username');

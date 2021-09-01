@@ -13,28 +13,35 @@ $html = '<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Struk</title>
 </head>
-<body>
+<body>';
 
-<div class="col-3 mt-3">
-    <div style="text-align: center">
-        <h4>Minimart</h4>
-        <h5>Jl. Sayap Kemerdekaan No. 17</h5>
-    </div>
-    <hr />';
-// foreach ($jual as $j) :
-$html .= '    <div class="row">
-        <div class="col-6 float-left">
-            <label>' . date("d-m-y H:i", $data["tgl_transaksi"]) . '</label>
-            <br />
-            <label>' . $data["invoice"] . '</label>
-        </div>
-        <div class="col-6 float-right">
-            <label>' . $data["user_id"] . '</label>
-        </div>
-    </div>
-    <hr />';
-// endforeach;
-$html .= '<table class="table table-sm" rules="all">
+$html .= '
+<div class="col-12 mt-3">
+<div style="text-align: center">
+<h4>Minimart</h4>
+<h5>Jl. Sayap Kemerdekaan No. 17</h5>
+</div>
+<hr />';
+
+foreach ($struk as $st) :
+    
+$html .= '
+<div class="row">
+<div class="col-6">
+<label>' . $st["tgl_transaksi"] . '</label>
+<br />
+<label>' . $st["id_trans_jual"] . '</label>
+</div>
+<div class="col-6">
+<label>' . $st["user_id"] . '</label>
+</div>
+</div>
+<hr />
+';
+endforeach;
+$html .= '
+
+    <table class="table table-sm" rules="all">
         <thead>
             <tr>
                 <th scope="col">Barang</th>
@@ -43,50 +50,51 @@ $html .= '<table class="table table-sm" rules="all">
             </tr>
         </thead>
         <tbody>
+
+        ';
+        foreach ($belanja as $bel) :
+        $html .= '
             <tr>
-                <td>Sticker PDIP</td>
-                <td>10</td>
-                <td>5000</td>
+                <td>' .$bel["barang"]  . '</td>
+                <td>' . $bel["qty"] . '</td>
+                <td>' . indo_currency($bel["harga_jual"]) . '</td>
             </tr>
-            <tr>
-                <td>Sticker PDIP</td>
-                <td>10</td>
-                <td>5000</td>
-            </tr>
-            <tr>
-                <td>Sticker PDIP</td>
-                <td>10</td>
-                <td>5000</td>
-            </tr>
+        ';
+        $html .= '   
+            
         </tbody>
     </table>
 
     <hr />
+
+    ';
+    $html .= '
     <div class="row d-flex justify-content-end">
         <table class="col-8">
             <thead>
                 <tr class="border-bottom-1">
                     <th>Total</th>
                     <th>:</th>
-                    <th>Total</th>
+                    <th style="text-align: right;">Total</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>Diskon</td>
                     <td>:</td>
-                    <td>Jumlah diskon</td>
+                    <td style="text-align: right;">Jumlah diskon</td>
                 </tr>
                 <tr>
                     <td>Bayar</td>
                     <td>:</td>
-                    <td>Jumlah Bayar</td>
+                    <td style="text-align: right;">Jumlah Bayar</td>
                 </tr>
                 <tr>
                     <td>Kembali</td>
                     <td>:</td>
-                    <td>Uang Kembali</td>
-                </tr>
+                    <td style="text-align: right;">Uang Kembali</td>
+                </tr>';
+                $html .= '
             </tbody>
         </table>
     </div>
@@ -113,7 +121,10 @@ $html .= '<table class="table table-sm" rules="all">
 ></script>
 
 </body>
-</html>';
+</html>
+';
+$html.='
+';
 
 $mpdf->WriteHTML($html);
 $mpdf->Output('struk-penjualan.pdf', \Mpdf\Output\Destination::INLINE);

@@ -128,8 +128,13 @@ class Mod_supervisor extends CI_Model
         $this->db->delete('tbl_user', ['id_user' => $id]);
     }
 
+    // -----------------------------------------------------------------------------------
+
     public function getPembelian()
     {
+        $keyword = $this->input->post('keywordPembelian', true);
+        $this->db->like('supplier_nama', $keyword);
+        $this->db->or_like('brg_nama', $keyword);
         return $this->db->get('tbl_trans_beli')->result_array();
     }
 
@@ -142,9 +147,20 @@ class Mod_supervisor extends CI_Model
 
     public function getPenjualan()
     {
+        $keyword = $this->input->post('keywordPenjualan', true);
+        $this->db->like('id', $keyword);
+        $this->db->or_like('user', $keyword);
         return $this->db->get('tbl_jual_detail')->result_array();
     }
 
+    public function getBarangTerlaris()
+    {
+        $keyword = $this->input->post('barangTerlaris', true);
+        $this->db->like('barang_id', $keyword);
+        // $this->db->or_like('', $keyword);
+        return $this->db->get('tbl_trans_jual')->result_array();
+    }
+  
     public function tampungItem($brg)
     {
         $data = array();

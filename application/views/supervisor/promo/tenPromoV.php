@@ -22,6 +22,7 @@
                 <!-- TABEL -->
                 <div class="row">
 
+
                     <div class="col-lg-9">
                         <div class="form-group">
                             <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addNewModal">Pilih barang</button>
@@ -55,6 +56,7 @@
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
+                        
                         </div>
 
                     </div>

@@ -153,7 +153,44 @@
                     </li>
                     <!-- End Pembukuan -->
 
-
+                <!-- Start Rangkuman Bisnis -->
+                <li class="nav-item">
+                    <a type="button" class="nav-link">
+                        <i class="nav-icon fas fa-chart-bar"></i>
+                        <p>
+                            Rangkuman Bisnis
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview small ml-1">
+                        <li class="nav-item">
+                            <a href="<?= base_url('menu/barangTerlaris'); ?>" class="nav-link">
+                                <i class="fas fa-chart-line nav-icon"></i>
+                                <p>Barang terlaris</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('menu/waktuTerpadat'); ?>" class="nav-link">
+                                <i class="fas fa-business-time nav-icon"></i>
+                                <p>Waktu terpadat</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('menu/wishlist'); ?>" class="nav-link">
+                                <i class="fas fa-clipboard-list nav-icon"></i>
+                                <p>Wishlist</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('menu/listPemesanan'); ?>" class="nav-link">
+                                <i class="fas fa-list-alt nav-icon"></i>
+                                <p>List Pemesanan</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End Rangkuman Bisnis -->
+      
                     <!-- Start Promo -->
                     <li class="nav-item">
                         <a type="button" class="nav-link">
@@ -178,39 +215,7 @@
                             </li>
                         </ul>
                     </li>
-                    <!-- End Promo -->
-
-                    <!-- Start Rangkuman Bisnis -->
-                    <li class="nav-item">
-                        <a type="button" class="nav-link">
-                            <i class="nav-icon fas fa-chart-bar"></i>
-                            <p>
-                                Rangkuman Bisnis
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview small ml-1">
-                            <li class="nav-item">
-                                <a href="<?= base_url('supervisor/barangTerlaris'); ?>" class="nav-link">
-                                    <i class="fas fa-chart-line nav-icon"></i>
-                                    <p>Barang terlaris</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?= base_url('supervisor/waktuTerpadat'); ?>" class="nav-link">
-                                    <i class="fas fa-business-time nav-icon"></i>
-                                    <p>Waktu terpadat</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?= base_url('supervisor/pencarianPelanggan'); ?>" class="nav-link">
-                                    <i class="fas fa-search-dollar nav-icon"></i>
-                                    <p>Pencarian dari pelanggan</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- End Rangkuman Bisnis -->
+                    <!-- End Promo -->               
                 <?php endif; ?>
 
                 <?php if (($this->session->userdata('role_id') == 1) || ($this->session->userdata('role_id') == 3)) : ?>
