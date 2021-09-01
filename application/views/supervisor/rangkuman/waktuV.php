@@ -14,8 +14,28 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-6">
-                    <button class="btn btn-primary">Pilih Waktu</button>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Awal</label>
+                        <div class="input-group date" id="datetimepicker7" data-target-input="nearest">
+                            <input autocomplete="off" name="tglAwal" type="text" class="form-control form-control-sm datetimepicker-input" data-target="#datetimepicker7" placeholder="Pilih tanggal mulai     -------->" />
+                            <div class="input-group-append" data-target="#datetimepicker7" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Akhir</label>
+                        <div class="input-group date" id="datetimepicker8" data-target-input="nearest">
+                            <input autocomplete="off" name="tglAkhir" type="text" class="form-control form-control-sm datetimepicker-input" data-target="#datetimepicker8" placeholder="Pilih tanggal berakhir -------->" />
+                            <div class="input-group-append" data-target="#datetimepicker8" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- <div class="col-lg-6">
                     <form action="#">
@@ -31,7 +51,7 @@
                 </div> -->
             </div>
 
-            <div class="row mt-4">
+            <div class="row">
                 <div class="col-md">
                     <!-- AREA CHART -->
                     <div class="card card-primary">

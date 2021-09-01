@@ -8,9 +8,9 @@ class Mod_transaksi extends CI_Model
     return $this->db->insert_batch('tbl_trans_jual', $data);
   }
 
-  function delete_tampung($id)
+  function delete_tampung()
   {
-    $this->db->delete('tbl_tampung', array('invoice_t' => $id));
+    $this->db->empty_table('tbl_tampung');
   }
 
   function readTransTotal()

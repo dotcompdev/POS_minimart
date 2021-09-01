@@ -37,7 +37,7 @@ class Transaksi extends CI_Controller
                     'sub_total' => $d['subtotal'],
                     'total_diskon' => $d['diskon'],
                     'cash' => $this->input->post('cash', true),
-                    'promo_id' => "-"
+                    'promo_id' => 0
                 ));
             }
             $sql = $this->Mod_transaksi->save_batch($data);
@@ -56,9 +56,11 @@ class Transaksi extends CI_Controller
             $this->db->insert('tbl_jual_detail', $result);
 
             if ($sql) {
-                $id = htmlspecialchars($this->input->post('delete_id', true));
-                $this->Mod_transaksi->delete_tampung($id);
-                $this->load->view('cetak/strukPenjualan');
+                $this->Mod_transaksi->delete_tampung();
+                $data = $this->db->get_where('tbl_trans_jual', ['invoice' => $this->input->post('invoice_item')])->row_array();
+                // print_r($data);
+                // $this->load->view('cetak/strukPenjualan', $data);
+                redirect('kasir');
             } else {
                 redirect('kasir');
             }

@@ -252,6 +252,7 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
+    </form>
     <!-- /.modal -->
 
 
@@ -316,21 +317,23 @@
         <!-- /.modal -->
     </div>
 
-    <!-- Modal Box -->
-    <?= form_open_multipart('transaksi/cetakStruk'); ?>
-    <div class="modal fade" id="modal-default">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Pembayaran</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <input type="text" name="invoice_item" value="<?= $invoice_item; ?>" hidden>
-                    <input type="text" name="nama_kasir" value="<?= $user['username']; ?>" hidden>
-                    <!-- 
+</div>
+<!-- Modal Box -->
+<div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Pembayaran</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <?= form_open_multipart('transaksi/cetakStruk'); ?>
+
+                <input type="text" name="invoice_item" value="<?= $invoice_item; ?>" hidden>
+                <input type="text" name="nama_kasir" value="<?= $user['username']; ?>" hidden>
+                <!-- 
                     <div class="form-group">
                         <label for="total_diskon">Total Diskon</label>
                         <div class="input-group input-group-sm">
@@ -338,42 +341,38 @@
                         </div>
                     </div> -->
 
-                    <div class="form-group">
-                        <label for="total">Total</label>
-                        <div class="input-group input-group-sm">
-                            <input type="number" class="form-control form-control-sm form-control-user" id="total" name="total" placeholder="Total" readonly>
-                        </div>
+                <div class="form-group">
+                    <label for="total">Total</label>
+                    <div class="input-group input-group-sm">
+                        <input type="number" class="form-control form-control-sm form-control-user" id="total" name="total" placeholder="Total" readonly>
                     </div>
-
-                    <div class="form-group">
-                        <label for="cash">Cash</label>
-                        <div class="input-group input-group-sm">
-                            <input type="number" class="form-control form-control-sm form-control-user" id="cash" name="cash" placeholder="Cash">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="kembali">Kembali</label>
-                        <div class="input-group input-group-sm">
-                            <input type="number" class="form-control form-control-sm form-control-user" id="kembali" name="kembali" placeholder="Kembali" readonly>
-                        </div>
-                    </div>
-
                 </div>
 
-                <div class="modal-footer justify-content-between">
-                    <input type="hidden" name="delete_id" required>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">
-                        Print Sturk
-                    </button>
+                <div class="form-group">
+                    <label for="cash">Cash</label>
+                    <div class="input-group input-group-sm">
+                        <input type="number" class="form-control form-control-sm form-control-user" id="cash" name="cash" placeholder="Cash">
+                    </div>
                 </div>
+
+                <div class="form-group">
+                    <label for="kembali">Kembali</label>
+                    <div class="input-group input-group-sm">
+                        <input type="number" class="form-control form-control-sm form-control-user" id="kembali" name="kembali" placeholder="Kembali" readonly>
+                    </div>
+                </div>
+
             </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-    </form>
-    <!-- /.modal -->
 
+            <div class="modal-footer justify-content-between">
+                <input type="hidden" name="delete_id" required>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Print Sturk</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
 </div>
+</form>
+<!-- /.modal -->
