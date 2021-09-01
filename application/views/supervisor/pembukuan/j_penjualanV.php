@@ -56,6 +56,7 @@
                                         <th style="text-align: center;" width="150px">Waktu</th>
                                         <th width="100px">User</th>
                                         <th width="150px">Invoice</th>
+                                        <th width="70px">QTY</th>
                                         <th style="text-align: center;" width="100px">Total</th>
                                         <th style="text-align: right;" width="100px">Cash</th>
                                     </tr>
@@ -67,8 +68,9 @@
                                             <td align="center"><?= date('d-m-Y H:i', $jual['waktu_trans']); ?></td>
                                             <td><?= $jual['user']; ?></td>
                                             <td><?= $jual['invoice']; ?></td>
-                                            <td align="center"><?= $jual['total_bayar']; ?></td>
-                                            <td align="right"><?= $jual['cash']; ?></td>
+                                            <td><?= $jual['total_qty']; ?></td>
+                                            <td align="right"><?= indo_currency($jual['total_bayar']); ?></td>
+                                            <td align="right"><?= indo_currency($jual['cash']); ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

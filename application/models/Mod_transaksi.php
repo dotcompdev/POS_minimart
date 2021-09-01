@@ -8,17 +8,26 @@ class Mod_transaksi extends CI_Model
     return $this->db->insert_batch('tbl_trans_jual', $data);
   }
 
-  function delete_tampung($id)
+  function delete_tampung()
   {
-    $this->db->delete('tbl_tampung', array('invoice_t' => $id));
+    $this->db->empty_table('tbl_tampung');
   }
 
-  function readTransQty()
+  function readTransTotal()
   {
-    $inv = $this->input->post('invoice', true);
+    $inv = $this->input->post('invoice_item', true);
     $this->db->select('SUM(sub_total) as total');
     $this->db->where('invoice', $inv);
     $this->db->from('tbl_trans_jual');
     return $this->db->get()->row()->total;
+  }
+
+  function readTransQty()
+  {
+    $inv = $this->input->post('invoice_item', true);
+    $this->db->select('SUM(qty_jual) as t_qty');
+    $this->db->where('invoice', $inv);
+    $this->db->from('tbl_trans_jual');
+    return $this->db->get()->row()->t_qty;
   }
 }

@@ -19,13 +19,13 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                
+
                 <!-- ./col -->
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>200</h3>
+                            <h3><?= $total_brg; ?></h3>
                             <p>Stok barang</p>
                         </div>
                         <div class="icon">
@@ -35,13 +35,13 @@
                     </div>
                 </div>
                 <!-- ./col -->
-                
+
                 <!-- ./col -->
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>5</h3>
+                            <h3><?= count($supplier->result()); ?></h3>
                             <p>Supplier</p>
                         </div>
                         <div class="icon">
@@ -53,5 +53,5 @@
             </div>
         </div>
     </section>
-   
+
 </div>

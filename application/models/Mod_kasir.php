@@ -20,29 +20,27 @@ class Mod_kasir extends CI_Model
     return $invoice;
   }
 
-  public function tampung()
+  public function tampung($kode)
   {
-
-    $nama = $this->db->get_where('tbl_tampung', ['kode_barang' => $this->input->post('kode_barang')])->row_array();
-    $kod = $this->input->post('kode_barang');
+    $item = $this->db->get_where('tbl_barang', ['kode_brg' => $kode])->row_array();
+    $nama = $this->db->get_where('tbl_tampung', ['kode_barang' => $kode])->row_array();
     $qty = $nama['qty'];
     if ($nama) {
       $qty += 1;
-      $subtotal = $qty * intval(htmlspecialchars($this->input->post('harga_jual', true)));
+      $subtotal = $qty * $item['harga_jual'];
       $this->db->set('qty', $qty);
       $this->db->set('subtotal', $subtotal);
-      $this->db->where('kode_barang', $kod);
+      $this->db->where('kode_barang', $kode);
       $this->db->update('tbl_tampung');
 
       redirect('kasir');
     } else {
-      $subtotal = 1 * intval(htmlspecialchars($this->input->post('harga_jual', true)));
+      $subtotal = 1 * $item['harga_jual'];
       $data = [
-        'invoice_t' => htmlspecialchars($this->input->post('invoice', true)),
-        'kode_barang' => htmlspecialchars($this->input->post('kode_barang', true)),
-        'barang' => htmlspecialchars($this->input->post('nama_barang', true)),
+        'kode_barang' => $kode,
+        'barang' => $item['nama_brg'],
         'qty' => 1,
-        'harga_jual' => intval(htmlspecialchars($this->input->post('harga_jual', true))),
+        'harga_jual' => $item['harga_jual'],
         'diskon' => 0,
         'subtotal' => $subtotal
       ];
@@ -74,5 +72,56 @@ class Mod_kasir extends CI_Model
     $this->db->from('tbl_barang');
     $this->db->where('kategori', '');
     return $this->db->get()->result_array();
+  }
+
+  public function getTransJual()
+  {
+    return $this->db->get('tbl_jual_detail')->result_array();
+  }
+
+  public function getTransItem($invoice)
+  {
+    $this->db->from('tbl_trans_jual');
+    $this->db->where('invoice', $invoice);
+    return $this->db->get();
+  }
+
+  public function getAllBrg($keyword)
+  {
+
+    $this->db->like('nama_brg', $keyword);
+    $this->db->or_like('kode_brg', $keyword);
+    return $this->db->get('tbl_barang')->result_array();
+  }
+
+  public function returment()
+  {
+    $invoice_j = htmlspecialchars($this->input->post('id_transaksi', true));
+    $kode_brg_ret = htmlspecialchars($this->input->post('id_barang', true));
+    $qty_ret = htmlspecialchars($this->input->post('qty_retur', true));
+
+    $data = [
+      'invoice_jual' => $invoice_j,
+      'kode_brg_retur' => $kode_brg_ret,
+      'nama_brg_retur' => htmlspecialchars($this->input->post('nama_barang', true)),
+      'harga_jual' => htmlspecialchars($this->input->post('harga_barang', true)),
+      'qty_retur' => $qty_ret,
+      'opsi' => htmlspecialchars($this->input->post('opsi', true)),
+      'keterangan' => htmlspecialchars($this->input->post('keterangan', true))
+    ];
+
+    $this->db->insert('tbl_retur', $data);
+
+    $brg = $this->db->get_where('tbl_barang', ['kode_brg' => $kode_brg_ret])->row_array();
+    $da = $brg['qty'] - $qty_ret;
+    $this->db->set('qty', $da);
+    $this->db->where('kode_brg', $kode_brg_ret);
+    $this->db->update('tbl_barang');
+
+    $trans = $this->db->get_where('tbl_trans_jual', ['barang_id' => $kode_brg_ret])->row_array();
+    $da_ret = $trans['qty_jual'] - $qty_ret;
+    $this->db->set('qty_jual', $da_ret);
+    $this->db->where('barang_id', $kode_brg_ret);
+    $this->db->update('tbl_trans_jual');
   }
 }
