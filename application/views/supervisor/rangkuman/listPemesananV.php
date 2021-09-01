@@ -42,20 +42,19 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 pt-3">
+                        <div class="card-body table-responsive p-0" style="height: 300px;">
+                            <table class="table table-head-fixed text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center;" width="150px">Aksi</th>
+                                        <th width="100px" style="text-align: center;">ID Barang</th>
+                                        <th width="150px">Nama Barang</th>
+                                        <th style="text-align: center;" width="100px">QTY</th>
+                                        <th style="text-align: center;" width="100px">ID Supplier</th>
+                                    </tr>
+                                </thead>
 
-                            <div class="card-body table-responsive p-0" style="height: 300px;">
-                                <table class="table table-head-fixed text-nowrap">
-                                    <thead>
-                                        <tr>
-                                            <th style="text-align: center;" width="150px">Aksi</th>
-                                            <th width="100px" style="text-align: center;">ID Barang</th>
-                                            <th width="150px">Nama Barang</th>
-                                            <th style="text-align: center;" width="100px">QTY</th>
-                                            <th style="text-align: center;" width="100px">ID Supplier</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
+                                <tbody>
                                     <tr>
                                         <td>
                                             <button type="button" class="btn btn-warning far fa-edit btn-sm"></button>
@@ -66,13 +65,13 @@
                                         <td style="text-align: center;">15</td>
                                         <td style="text-align: center;">001</td>
                                     </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-</div>
-
     </div>
+
+</div>
