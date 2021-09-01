@@ -18,8 +18,8 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4 ml-1 mt-1">
-                        <div class="row-md">
+                    <div class="col-md-4">
+                        <div class="row">
                             <form action="<?= base_url('menu/wishlist'); ?>" method="post" class="justify-content-end">
                                 <div class="input-group">
                                     <input type="text" name="keyword" class="form-control form-control-md" placeholder="Cari" autofocus>
@@ -35,14 +35,14 @@
                 </div>
             </div>
         </section>
-   
+
         <!-- Main content -->
         <div class="card">
             <!-- /.card-header -->
-            <div class="row">
-                <div class="col-md-6 pl-3 pt-3">
-                    <div class="row-md">
-                    <div class="card-body table-responsive p-0" style="height: 300px;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 pt-2">
+                        <div class="card-body table-responsive p-0" style="height: 300px;">
                             <table class="table table-head-fixed text-nowrap">
                                 <thead>
                                     <tr>
@@ -52,23 +52,20 @@
                                 </thead>
 
                                 <tbody>
-                                <?php foreach ($wish as $w) : ?>
-                                    <tr>
-                                        <td>
-                                            <button type="button" class="btn btn-warning far fa-edit btn-sm"></button>
-                                            <button type="button" class="btn btn-danger far fa-trash-alt btn-sm"></button>
-                                        </td>
-                                        <td><?= $w['nama_brg']; ?></td>
-                                    </tr>
-                                <?php endforeach; ?>
+                                    <?php foreach ($wish as $w) : ?>
+                                        <tr>
+                                            <td>
+                                                <button type="button" class="btn btn-warning far fa-edit btn-sm"></button>
+                                                <button type="button" class="btn btn-danger far fa-trash-alt btn-sm"></button>
+                                            </td>
+                                            <td><?= $w['nama_brg']; ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
                 </div>
-
             </div>
-        </div>
 
-    </div>
+        </div>

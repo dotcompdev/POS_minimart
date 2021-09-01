@@ -72,9 +72,4 @@ class Menu extends CI_Controller
         $this->load->view('supervisor/rangkuman/wishlistV', $data);
         $this->load->view('templates/footer');
     }
-
-    public function fetch()
-    {
-        
-    }
 }
