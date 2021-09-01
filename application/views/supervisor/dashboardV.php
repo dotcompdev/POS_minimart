@@ -27,13 +27,13 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>50</h3>
+                            <h3><?= count($promo); ?></h3>
                             <p>Promo</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-percent"></i>
                         </div>
-                        <a href="<?= base_url('testing/promo'); ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?= base_url('supervisor/promo'); ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->

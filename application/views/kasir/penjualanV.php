@@ -44,7 +44,7 @@
                             <div class="form-group">
                                 <label for="kode_barang">Kode Barang</label>
                                 <div class="input-group input-group-sm">
-                                    <input type="text" class="form-control form-control-sm form-control-user" id="kode_barang" name="kode_barang" placeholder="Kode Barang" value="<?= set_value('kode_barang'); ?>">
+                                    <input type="text" class="form-control form-control-sm form-control-user" id="kode_barang" name="kode_barang" placeholder="Pilih barang     ------------>" value="<?= set_value('kode_barang'); ?>">
                                     <input type="text" name="nama_barang" id="nama_barang" hidden>
                                     <input type="number" name="harga_jual" id="harga_jual" hidden>
                                     <input type="text" name="invoice" value="<?= $invoice_item; ?>" hidden>
@@ -185,7 +185,8 @@
                                                 <td><?= $brg['kode_brg']; ?></td>
                                                 <td><?= $brg['nama_brg']; ?></td>
                                                 <td><?= indo_currency($brg['harga_jual']); ?></td>
-                                                <td><button id="pilih" class="btn btn-primary btn-sm" type="submit" data-kode="<?= $brg['kode_brg']; ?>" data-nama="<?= $brg['nama_brg']; ?>" data-kategori="<?= $brg['kategori']; ?>" data-satuan="<?= $brg['unit']; ?>" data-harga="<?= $brg['harga_jual']; ?>" data-qty="<?= $brg['qty']; ?>">Pilih</button></td>
+                                                <!-- <td><button id="pilih" class="btn btn-primary btn-sm" type="submit" data-kode="<?= $brg['kode_brg']; ?>" data-nama="<?= $brg['nama_brg']; ?>" data-kategori="<?= $brg['kategori']; ?>" data-satuan="<?= $brg['unit']; ?>" data-harga="<?= $brg['harga_jual']; ?>" data-qty="<?= $brg['qty']; ?>">Pilih</button></td> -->
+                                                <td><a href="<?= base_url('kasir/tampung/') . $brg['kode_brg']; ?>" id="pilih" class="btn btn-primary btn-sm" type="button">Pilih</a></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

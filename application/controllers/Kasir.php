@@ -19,17 +19,18 @@ class Kasir extends CI_Controller
         $data['tampung'] = $this->db->get('tbl_tampung')->result_array();
         $this->form_validation->set_rules('kode_barang', 'Kode barang', 'trim|required');
         $data['barang'] = $this->Mod_gudang->getBarang();
-        if ($this->form_validation->run() == false) {
-            $data['judul'] = 'Penjualan';
-            $data['invoice_item'] = $this->Mod_kasir->invoice_no();
-            $data['user'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('kasir/penjualanV', $data);
-            $this->load->view('templates/footer');
-        } else {
-            $this->Mod_kasir->tampung();
-        }
+        $data['judul'] = 'Penjualan';
+        $data['invoice_item'] = $this->Mod_kasir->invoice_no();
+        $data['user'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('kasir/penjualanV', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function tampung($kode)
+    {
+        $this->Mod_kasir->tampung($kode);
     }
 
     public function ubah($id)

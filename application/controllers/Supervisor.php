@@ -17,6 +17,7 @@ class Supervisor extends CI_Controller
     public function index()
     {
         $this->db->select('waktu_trans,total_qty');
+
         $dataProdukChart = $this->db->get("tbl_jual_detail")->result();
         foreach ($dataProdukChart as $k => $v) {
             $arrProd[] = ['label' => date('h M y', $v->waktu_trans), 'y' => $v->total_qty];
@@ -27,6 +28,7 @@ class Supervisor extends CI_Controller
             $data['chart'] = '';
         }
 
+        $data['promo'] = $this->Mod_supervisor->getPromo();
         $data['judul'] = "Supervisor";
         $data['user'] = $this->Mod_supervisor->get();
         $data['supplier'] = $this->Mod_supervisor->getSupplier();

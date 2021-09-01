@@ -244,6 +244,11 @@ class Mod_supervisor extends CI_Model
         }
     }
 
+    public function getPromo()
+    {
+        return $this->db->get('tbl_promo_detail')->result_array();
+    }
+
     public function getItemPromo()
     {
         return $this->db->get('tbl_promo')->result_array();

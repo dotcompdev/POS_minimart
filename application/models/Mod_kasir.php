@@ -20,28 +20,27 @@ class Mod_kasir extends CI_Model
     return $invoice;
   }
 
-  public function tampung()
+  public function tampung($kode)
   {
-    $nama = $this->db->get_where('tbl_tampung', ['kode_barang' => $this->input->post('kode_barang')])->row_array();
-    $kod = $this->input->post('kode_barang');
+    $item = $this->db->get_where('tbl_barang', ['kode_brg' => $kode])->row_array();
+    $nama = $this->db->get_where('tbl_tampung', ['kode_barang' => $kode])->row_array();
     $qty = $nama['qty'];
     if ($nama) {
       $qty += 1;
-      $subtotal = $qty * intval(htmlspecialchars($this->input->post('harga_jual', true)));
+      $subtotal = $qty * $item['harga_jual'];
       $this->db->set('qty', $qty);
       $this->db->set('subtotal', $subtotal);
-      $this->db->where('kode_barang', $kod);
+      $this->db->where('kode_barang', $kode);
       $this->db->update('tbl_tampung');
 
       redirect('kasir');
     } else {
-      $subtotal = 1 * intval(htmlspecialchars($this->input->post('harga_jual', true)));
+      $subtotal = 1 * $item['harga_jual'];
       $data = [
-        'invoice_t' => htmlspecialchars($this->input->post('invoice_item', true)),
-        'kode_barang' => htmlspecialchars($this->input->post('kode_barang', true)),
-        'barang' => htmlspecialchars($this->input->post('nama_barang', true)),
+        'kode_barang' => $kode,
+        'barang' => $item['nama_brg'],
         'qty' => 1,
-        'harga_jual' => intval(htmlspecialchars($this->input->post('harga_jual', true))),
+        'harga_jual' => $item['harga_jual'],
         'diskon' => 0,
         'subtotal' => $subtotal
       ];
