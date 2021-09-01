@@ -38,7 +38,6 @@
                     </div>
 
 
-                    <?= form_open_multipart('kasir'); ?>
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="form-group">
@@ -56,15 +55,6 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-4">
-                            <div class="form-group d-flex">
-                                <div>
-                                    <button type="submit" class="btn btn-primary btn-sm" style="margin-top: 32px;">
-                                        Tambah
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                 </div>
@@ -111,7 +101,7 @@
                                     <?php endif; ?>
                                     <tr>
                                         <td>
-                                            <a href="<?= base_url('kasir/ubah/') . $t['id_trans']; ?>" type="button" class="btn btn-sm btn-warning far fa-edit"></a>
+                                            <button id="editTam" data-toggle="modal" data-target="#modalEditBrg" type="button" class="btn btn-sm btn-warning far fa-edit" data-kode="<?= $t['kode_barang']; ?>" data-nama="<?= $t['barang']; ?>" data-harga="<?= $t['harga_jual']; ?>" data-qty="<?= $t['qty']; ?>" data-diskon="<?= $t['diskon']; ?>"></button>
                                             <a href="<?= base_url('kasir/hapus/') . $t['id_trans']; ?>" type="button" class="btn btn-sm btn-danger far fa-trash-alt"></a>
                                         </td>
                                         <td><?= $t['barang']; ?></td>
@@ -128,14 +118,13 @@
                 </div>
             </div>
             <!-- END TABEL -->
-            </form>
 
 
             <div class="row d-flex justify-content-end">
                 <div class="form-group col-lg-2">
-                    <button type="button" class="btn btn-danger btn-user btn-block btn-sm">
-                        Batal
-                    </button>
+                    <a href="<?= base_url('kasir/hapusAll'); ?>" type="button" class="btn btn-danger btn-user btn-block btn-sm">
+                        reset
+                    </a>
                 </div>
                 <div class="form-group col-lg-2 float-lg-left">
                     <button data-invoice="<?= $invoice_item; ?>" type="button" class="btn btn-success btn-user btn-block btn-sm delete-record" data-toggle="modal" data-target="#modal-default">
@@ -146,83 +135,209 @@
         </div>
     </div>
 
-    <div class="modal fade" id="modalBarang">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Pilih Barang</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="col-md">
-                        <div class="card">
-                            <div class="row card-header">
-                                <div class="col-md-4">
-                                    <a href="#" type="button" data-toggle="modal" data-target="#modalBarangBaru" class="btn btn-primary btn-sm">Tambah Barang</a>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="input-group input-group-sm">
-                                        <input type="text" id="table_search" name="table_search" class="form-control float-right" placeholder="Cari..">
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.card-header -->
-                            <div id="container" class="card-body table-responsive p-0" style="height: 300px;">
-                                <table class="table table-head-fixed text-nowrap">
-                                    <thead>
-                                        <tr>
-                                            <th>Kode Barang</th>
-                                            <th>Nama Barang</th>
-                                            <th>Harga</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($barang as $brg) : ?>
-                                            <tr>
-                                                <td><?= $brg['kode_brg']; ?></td>
-                                                <td><?= $brg['nama_brg']; ?></td>
-                                                <td><?= indo_currency($brg['harga_jual']); ?></td>
-                                                <!-- <td><button id="pilih" class="btn btn-primary btn-sm" type="submit" data-kode="<?= $brg['kode_brg']; ?>" data-nama="<?= $brg['nama_brg']; ?>" data-kategori="<?= $brg['kategori']; ?>" data-satuan="<?= $brg['unit']; ?>" data-harga="<?= $brg['harga_jual']; ?>" data-qty="<?= $brg['qty']; ?>">Pilih</button></td> -->
-                                                <td><a href="<?= base_url('kasir/tampung/') . $brg['kode_brg']; ?>" id="pilih" class="btn btn-primary btn-sm" type="button">Pilih</a></td>
-                                            </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
-                        <!-- /.card -->
-                    </div>
+</div>
 
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
+<div class="modal fade" id="modalBarang">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Pilih Barang</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
-    </div>
-
-    <!-- Modal Box -->
-    <?= form_open_multipart('transaksi/cetakStruk'); ?>
-    <div class="modal fade" id="modal-default">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Pembayaran</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+            <div class="modal-body">
+                <div class="col-md">
+                    <div class="card">
+                        <div class="row card-header">
+                            <div class="col-md-4">
+                                <a href="#" type="button" data-toggle="modal" data-target="#modalBarangBaru" class="btn btn-primary btn-sm">Tambah Barang</a>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="input-group input-group-sm">
+                                    <input type="text" id="table_search" name="table_search" class="form-control float-right" placeholder="Cari..">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div id="container" class="card-body table-responsive p-0" style="height: 300px;">
+                            <table class="table table-head-fixed text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Kode Barang</th>
+                                        <th>Nama Barang</th>
+                                        <th>Harga</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($barang as $brg) : ?>
+                                        <tr>
+                                            <td><?= $brg['kode_brg']; ?></td>
+                                            <td><?= $brg['nama_brg']; ?></td>
+                                            <td><?= indo_currency($brg['harga_jual']); ?></td>
+                                            <!-- <td><button id="pilih" class="btn btn-primary btn-sm" type="submit" data-kode="<?= $brg['kode_brg']; ?>" data-nama="<?= $brg['nama_brg']; ?>" data-kategori="<?= $brg['kategori']; ?>" data-satuan="<?= $brg['unit']; ?>" data-harga="<?= $brg['harga_jual']; ?>" data-qty="<?= $brg['qty']; ?>">Pilih</button></td> -->
+                                            <td><a href="<?= base_url('kasir/tampung/') . $brg['kode_brg']; ?>" id="pilih" class="btn btn-primary btn-sm" type="button">Pilih</a></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
                 </div>
-                <div class="modal-body">
-                    <input type="text" name="invoice_item" value="<?= $invoice_item; ?>" hidden>
-                    <input type="text" name="nama_kasir" value="<?= $user['username']; ?>" hidden>
-                    <!-- 
+
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>
+
+<?= form_open_multipart('Kasir/editTam'); ?>
+<div class="modal fade" id="modalEditBrg">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit item</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="kodBrg">Kode barang</label>
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control form-control-sm form-control-user" id="kodBrg" name="kodBrg" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="namBrg">Nama barang</label>
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control form-control-sm form-control-user" id="namBrg" name="namBrg" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="harBrg">Harga</label>
+                    <div class="input-group input-group-sm">
+                        <input type="number" class="form-control form-control-sm form-control-user" id="harBrg" name="harBrg" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="qtyBrg">QTY</label>
+                    <div class="input-group input-group-sm">
+                        <input type="number" class="form-control form-control-sm form-control-user" id="qtyBrg" name="qtyBrg">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="disk">Diskon</label>
+                    <div class="input-group input-group-sm">
+                        <input type="number" class="form-control form-control-sm form-control-user" id="disk" name="disk">
+                    </div>
+                </div>
+                <!-- /.card -->
+            </div>
+
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">
+                    Simpan
+                </button>
+            </div>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+<div class="modal fade" id="modalPromo">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Pilih Barang</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md">
+                    <div class="card">
+                        <div class="row card-header">
+                            <div class="col-md-4">
+                                <a href="#" type="button" data-toggle="modal" data-target="#modalBarangBaru" class="btn btn-primary btn-sm">Tambah Barang</a>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="input-group input-group-sm">
+                                    <input type="text" id="table_search" name="table_search" class="form-control float-right" placeholder="Cari..">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div id="container" class="card-body table-responsive p-0" style="height: 300px;">
+                            <table class="table table-head-fixed text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Nama Promo</th>
+                                        <th>Harga</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($barang as $brg) : ?>
+                                        <tr>
+                                            <td><?= $brg['kode_brg']; ?></td>
+                                            <td><?= $brg['nama_brg']; ?></td>
+                                            <td><?= indo_currency($brg['harga_jual']); ?></td>
+                                            <!-- <td><button id="pilih" class="btn btn-primary btn-sm" type="submit" data-kode="<?= $brg['kode_brg']; ?>" data-nama="<?= $brg['nama_brg']; ?>" data-kategori="<?= $brg['kategori']; ?>" data-satuan="<?= $brg['unit']; ?>" data-harga="<?= $brg['harga_jual']; ?>" data-qty="<?= $brg['qty']; ?>">Pilih</button></td> -->
+                                            <td><a href="<?= base_url('kasir/tampung/') . $brg['kode_brg']; ?>" id="pilih" class="btn btn-primary btn-sm" type="button">Pilih</a></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>
+
+<!-- Modal Box -->
+<?= form_open_multipart('transaksi/cetakStruk'); ?>
+<div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Pembayaran</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="text" name="invoice_item" value="<?= $invoice_item; ?>" hidden>
+                <input type="text" name="nama_kasir" value="<?= $user['username']; ?>" hidden>
+                <!-- 
                     <div class="form-group">
                         <label for="total_diskon">Total Diskon</label>
                         <div class="input-group input-group-sm">
@@ -230,42 +345,42 @@
                         </div>
                     </div> -->
 
-                    <div class="form-group">
-                        <label for="total">Total</label>
-                        <div class="input-group input-group-sm">
-                            <input type="number" class="form-control form-control-sm form-control-user" id="total" name="total" placeholder="Total" readonly>
-                        </div>
+                <div class="form-group">
+                    <label for="total">Total</label>
+                    <div class="input-group input-group-sm">
+                        <input type="number" class="form-control form-control-sm form-control-user" id="total" name="total" placeholder="Total" readonly>
                     </div>
-
-                    <div class="form-group">
-                        <label for="cash">Cash</label>
-                        <div class="input-group input-group-sm">
-                            <input type="number" class="form-control form-control-sm form-control-user" id="cash" name="cash" placeholder="Cash">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="kembali">Kembali</label>
-                        <div class="input-group input-group-sm">
-                            <input type="number" class="form-control form-control-sm form-control-user" id="kembali" name="kembali" placeholder="Kembali" readonly>
-                        </div>
-                    </div>
-
                 </div>
 
-                <div class="modal-footer justify-content-between">
-                    <input type="hidden" name="delete_id" required>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">
-                        Print Sturk
-                    </button>
+                <div class="form-group">
+                    <label for="cash">Cash</label>
+                    <div class="input-group input-group-sm">
+                        <input type="number" class="form-control form-control-sm form-control-user" id="cash" name="cash" placeholder="Cash">
+                    </div>
                 </div>
+
+                <div class="form-group">
+                    <label for="kembali">Kembali</label>
+                    <div class="input-group input-group-sm">
+                        <input type="number" class="form-control form-control-sm form-control-user" id="kembali" name="kembali" placeholder="Kembali" readonly>
+                    </div>
+                </div>
+
             </div>
-            <!-- /.modal-content -->
+
+            <div class="modal-footer justify-content-between">
+                <input type="hidden" name="delete_id" required>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">
+                    Print Sturk
+                </button>
+            </div>
         </div>
-        <!-- /.modal-dialog -->
+        <!-- /.modal-content -->
     </div>
-    </form>
-    <!-- /.modal -->
+    <!-- /.modal-dialog -->
+</div>
+</form>
+<!-- /.modal -->
 
 </div>

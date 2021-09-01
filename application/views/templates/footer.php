@@ -146,20 +146,17 @@
 <!-- pilih barang melalui modal box -->
 <script type='text/javascript'>
     $(document).ready(function() {
-        $(document).on("click", "#pilih", function() {
+        $(document).on("click", "#editTam", function() {
             var kode_brg = $(this).data("kode");
             var nama_brg = $(this).data("nama");
-            var kategori = $(this).data("kategori");
-            var satuan = $(this).data("satuan");
             var harga = $(this).data("harga");
             var qty = $(this).data("qty");
-            $("#kode_barang").val(kode_brg);
-            $("#nama_barang").val(nama_brg);
-            $("#kategori").val(kategori);
-            $("#satuan").val(satuan);
-            $("#harga_jual").val(harga);
-            $("#qtyA").val(qty);
-            $("#modalBarang").modal("hide");
+            var diskon = $(this).data("diskon");
+            $("#kodBrg").val(kode_brg);
+            $("#namBrg").val(nama_brg);
+            $("#harBrg").val(harga);
+            $("#qtyBrg").val(qty);
+            $("#disk").val(diskon);
         });
     });
 </script>

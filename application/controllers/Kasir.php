@@ -33,6 +33,34 @@ class Kasir extends CI_Controller
         $this->Mod_kasir->tampung($kode);
     }
 
+    public function editTam()
+    {
+        $kode = $this->input->post('kodBrg');
+        $qty = $this->input->post('qtyBrg');
+        $harga = $this->input->post('harBrg');
+        $diskon = $this->input->post('disk');
+        $subtotal = $qty * $harga;
+        $hasil = $subtotal - $diskon;
+
+        $this->db->set('qty', $qty);
+        $this->db->set('diskon', $diskon);
+        $this->db->set('subtotal', $hasil);
+        $this->db->where('kode_barang', $kode);
+        $this->db->update('tbl_tampung');
+        redirect('kasir');
+    }
+
+    public function hapusAll()
+    {
+        $this->db->empty_table('tbl_tampung');
+        redirect('kasir');
+    }
+
+    public function pilihPromo()
+    {
+        $this->Mod_kasir->promo();
+    }
+
     public function ubah($id)
     {
         $data['item'] = $this->db->get_where('tbl_tampung', ['id_trans' => $id])->row_array();
