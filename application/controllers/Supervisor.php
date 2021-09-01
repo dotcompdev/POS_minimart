@@ -316,14 +316,13 @@ class Supervisor extends CI_Controller
         $data['nama'] = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array();
 
         $hasil = $this->Mod_supervisor->pilihBarang();
-        echo $hasil;
-        // $data['trans'] = $this->db->get('tbl_trans_jual')->result_array();
+        $data['trans'] = $this->db->get('tbl_trans_jual')->result_array();
 
-        // $data['judul'] = "Barang Terlaris";
-        // $this->load->view('templates/header', $data);
-        // $this->load->view('templates/sidebar', $data);
-        // $this->load->view('supervisor/rangkuman/barangTerlarisV', $data);
-        // $this->load->view('templates/footer');
+        $data['judul'] = "Barang Terlaris";
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('supervisor/rangkuman/barangTerlarisV', $data);
+        $this->load->view('templates/footer');
     }
 
     public function waktuTerpadat()

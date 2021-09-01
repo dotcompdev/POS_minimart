@@ -161,6 +161,32 @@
     });
 </script>
 
+<!-- live search untuk pilih barang -->
+<!-- <script type='text/javascript'>
+    var keyword = document.getElementById('table_search');
+    var container = document.getElementById('containerBrg');
+
+    $(document).on("keyup", "#table_search", function() {
+        $.ajax({
+            type: 'POST',
+            url: '<?= base_url('Kasir/getBrg/') ?>' + $('#table_search').val(),
+            dataType: 'json',
+            success: function(data) {
+                var baris = '';
+                for (var i = 0; i < data.length; i++) {
+                    baris += '<tr>' +
+                        '<td>' + data[i].kode_brg + '</td>' +
+                        '<td>' + data[i].nama_brg + '</td>' +
+                        '<td>' + indo_currency(data[i].harga_jual) + '</td>' +
+                        '<td><a href="' + <?= base_url('kasir/tampung/') ?> + $data[i].kode_brg + '" id="pilih" class="btn btn-primary btn-sm" type="button">Pilih</a></td>' +
+                        '</tr>'
+                }
+                $('#containerBrg').html(baris);
+            }
+        });
+    })
+</script> -->
+
 <!-- pilih ID transaksi untuk menu returment -->
 <script type='text/javascript'>
     $(document).ready(function() {

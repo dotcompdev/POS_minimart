@@ -8,14 +8,17 @@ class Gudang extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Mod_gudang');
+        $this->load->model('Mod_supervisor');
     }
 
     public function index()
     {
+        $data['supplier'] = $this->Mod_supervisor->getSupplier();
+        $data['total_brg'] = $this->Mod_supervisor->getAllQty();
         $data['judul'] = "Petugas Gudang";
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('dashboard3V');
+        $this->load->view('dashboard3V', $data);
         $this->load->view('templates/footer');
     }
 

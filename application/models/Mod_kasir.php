@@ -86,6 +86,14 @@ class Mod_kasir extends CI_Model
     return $this->db->get();
   }
 
+  public function getAllBrg($keyword)
+  {
+
+    $this->db->like('nama_brg', $keyword);
+    $this->db->or_like('kode_brg', $keyword);
+    return $this->db->get('tbl_barang')->result_array();
+  }
+
   public function returment()
   {
     $invoice_j = htmlspecialchars($this->input->post('id_transaksi', true));

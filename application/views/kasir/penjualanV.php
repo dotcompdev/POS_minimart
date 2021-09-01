@@ -17,7 +17,7 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-sm-8">
                     <div class="row">
                         <!-- <div class="col-lg-4">
                             <div class="form-group">
@@ -41,15 +41,11 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label for="kode_barang">Kode Barang</label>
                                 <div class="input-group input-group-sm">
-                                    <input type="text" class="form-control form-control-sm form-control-user" id="kode_barang" name="kode_barang" placeholder="Pilih barang     ------------>" value="<?= set_value('kode_barang'); ?>">
-                                    <input type="text" name="nama_barang" id="nama_barang" hidden>
+                                    <!-- <input type="text" name="nama_barang" id="nama_barang" hidden>
                                     <input type="number" name="harga_jual" id="harga_jual" hidden>
-                                    <input type="text" name="invoice" value="<?= $invoice_item; ?>" hidden>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-info" data-toggle="modal" data-target="#modalBarang" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
-                                    </div>
+                                    <input type="text" name="invoice" value="<?= $invoice_item; ?>" hidden> -->
+                                    <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#modalBarang" type="button" id="button-addon2"><i class="fas fa-search mr-2"></i>Pilih barang</button>
                                     <?= form_error('kode_barang', '<small class="text-danger font-weight-bold pl-3">', '</small>'); ?>
                                 </div>
                             </div>
@@ -61,13 +57,13 @@
 
                 <div class="col-lg-4">
 
-                    <div class="row d-flex justify-content-end">
+                    <div style="margin-bottom: -10px;" class="row d-flex justify-content-end">
                         <div class="form-group">
                             <h5><b><span><?= $invoice_item; ?></span></b></h5>
                             <input type="text" name="invoice_item" value="<?= $invoice_item; ?>" hidden>
                         </div>
                     </div>
-                    <div class="row d-flex justify-content-end">
+                    <div style="margin-bottom: -5px;" class="row d-flex justify-content-end">
                         <div class="form-group">
                             <h1><b><span id="hasil"></span></b></h1>
                         </div>
@@ -135,29 +131,27 @@
         </div>
     </div>
 
-</div>
 
-<div class="modal fade" id="modalBarang">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Pilih Barang</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="col-md">
+    <div class="modal fade" id="modalBarang">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Pilih Barang</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
                     <div class="card">
                         <div class="row card-header">
                             <div class="col-md-4">
                                 <a href="#" type="button" data-toggle="modal" data-target="#modalBarangBaru" class="btn btn-primary btn-sm">Tambah Barang</a>
                             </div>
-                            <div class="col-md-8">
+                            <!-- <div class="col-md-8">
                                 <div class="input-group input-group-sm">
-                                    <input type="text" id="table_search" name="table_search" class="form-control float-right" placeholder="Cari..">
+                                    <input type="text" id="table_search" name="table_search" class="form-control float-right" placeholder="Cari.." autocomplete="off">
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <!-- /.card-header -->
                         <div id="container" class="card-body table-responsive p-0" style="height: 300px;">
@@ -170,7 +164,7 @@
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="containerBrg">
                                     <?php foreach ($barang as $brg) : ?>
                                         <tr>
                                             <td><?= $brg['kode_brg']; ?></td>
@@ -186,158 +180,157 @@
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
+
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+    </div>
+
+    <?= form_open_multipart('Kasir/editTam'); ?>
+    <div class="modal fade" id="modalEditBrg">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit item</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="kodBrg">Kode barang</label>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control form-control-sm form-control-user" id="kodBrg" name="kodBrg" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="namBrg">Nama barang</label>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control form-control-sm form-control-user" id="namBrg" name="namBrg" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="harBrg">Harga</label>
+                        <div class="input-group input-group-sm">
+                            <input type="number" class="form-control form-control-sm form-control-user" id="harBrg" name="harBrg" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="qtyBrg">QTY</label>
+                        <div class="input-group input-group-sm">
+                            <input type="number" class="form-control form-control-sm form-control-user" id="qtyBrg" name="qtyBrg">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="disk">Diskon</label>
+                        <div class="input-group input-group-sm">
+                            <input type="number" class="form-control form-control-sm form-control-user" id="disk" name="disk">
+                        </div>
+                    </div>
+                    <!-- /.card -->
                 </div>
 
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">
+                        Simpan
+                    </button>
                 </div>
+
             </div>
             <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
-</div>
 
-<?= form_open_multipart('Kasir/editTam'); ?>
-<div class="modal fade" id="modalEditBrg">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Edit item</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="kodBrg">Kode barang</label>
-                    <div class="input-group input-group-sm">
-                        <input type="text" class="form-control form-control-sm form-control-user" id="kodBrg" name="kodBrg" readonly>
-                    </div>
+
+    <div class="modal fade" id="modalPromo">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Pilih Barang</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-
-                <div class="form-group">
-                    <label for="namBrg">Nama barang</label>
-                    <div class="input-group input-group-sm">
-                        <input type="text" class="form-control form-control-sm form-control-user" id="namBrg" name="namBrg" readonly>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="harBrg">Harga</label>
-                    <div class="input-group input-group-sm">
-                        <input type="number" class="form-control form-control-sm form-control-user" id="harBrg" name="harBrg" readonly>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="qtyBrg">QTY</label>
-                    <div class="input-group input-group-sm">
-                        <input type="number" class="form-control form-control-sm form-control-user" id="qtyBrg" name="qtyBrg">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="disk">Diskon</label>
-                    <div class="input-group input-group-sm">
-                        <input type="number" class="form-control form-control-sm form-control-user" id="disk" name="disk">
-                    </div>
-                </div>
-                <!-- /.card -->
-            </div>
-
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">
-                    Simpan
-                </button>
-            </div>
-
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
-
-
-<div class="modal fade" id="modalPromo">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Pilih Barang</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="col-md">
-                    <div class="card">
-                        <div class="row card-header">
-                            <div class="col-md-4">
-                                <a href="#" type="button" data-toggle="modal" data-target="#modalBarangBaru" class="btn btn-primary btn-sm">Tambah Barang</a>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="input-group input-group-sm">
-                                    <input type="text" id="table_search" name="table_search" class="form-control float-right" placeholder="Cari..">
+                <div class="modal-body">
+                    <div class="col-md">
+                        <div class="card">
+                            <div class="row card-header">
+                                <div class="col-md-4">
+                                    <a href="#" type="button" data-toggle="modal" data-target="#modalBarangBaru" class="btn btn-primary btn-sm">Tambah Barang</a>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="input-group input-group-sm">
+                                        <input type="text" id="table_search" name="table_search" class="form-control float-right" placeholder="Cari..">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- /.card-header -->
-                        <div id="container" class="card-body table-responsive p-0" style="height: 300px;">
-                            <table class="table table-head-fixed text-nowrap">
-                                <thead>
-                                    <tr>
-                                        <th>Nama Promo</th>
-                                        <th>Harga</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($barang as $brg) : ?>
+                            <!-- /.card-header -->
+                            <div id="container" class="card-body table-responsive p-0" style="height: 300px;">
+                                <table class="table table-head-fixed text-nowrap">
+                                    <thead>
                                         <tr>
-                                            <td><?= $brg['kode_brg']; ?></td>
-                                            <td><?= $brg['nama_brg']; ?></td>
-                                            <td><?= indo_currency($brg['harga_jual']); ?></td>
-                                            <!-- <td><button id="pilih" class="btn btn-primary btn-sm" type="submit" data-kode="<?= $brg['kode_brg']; ?>" data-nama="<?= $brg['nama_brg']; ?>" data-kategori="<?= $brg['kategori']; ?>" data-satuan="<?= $brg['unit']; ?>" data-harga="<?= $brg['harga_jual']; ?>" data-qty="<?= $brg['qty']; ?>">Pilih</button></td> -->
-                                            <td><a href="<?= base_url('kasir/tampung/') . $brg['kode_brg']; ?>" id="pilih" class="btn btn-primary btn-sm" type="button">Pilih</a></td>
+                                            <th>Nama Promo</th>
+                                            <th>Harga</th>
+                                            <th>Aksi</th>
                                         </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($barang as $brg) : ?>
+                                            <tr>
+                                                <td><?= $brg['kode_brg']; ?></td>
+                                                <td><?= $brg['nama_brg']; ?></td>
+                                                <td><?= indo_currency($brg['harga_jual']); ?></td>
+                                                <!-- <td><button id="pilih" class="btn btn-primary btn-sm" type="submit" data-kode="<?= $brg['kode_brg']; ?>" data-nama="<?= $brg['nama_brg']; ?>" data-kategori="<?= $brg['kategori']; ?>" data-satuan="<?= $brg['unit']; ?>" data-harga="<?= $brg['harga_jual']; ?>" data-qty="<?= $brg['qty']; ?>">Pilih</button></td> -->
+                                                <td><a href="<?= base_url('kasir/tampung/') . $brg['kode_brg']; ?>" id="pilih" class="btn btn-primary btn-sm" type="button">Pilih</a></td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
                         </div>
-                        <!-- /.card-body -->
+                        <!-- /.card -->
                     </div>
-                    <!-- /.card -->
-                </div>
 
-                <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
+                <!-- /.modal-content -->
             </div>
-            <!-- /.modal-content -->
+            <!-- /.modal-dialog -->
         </div>
-        <!-- /.modal-dialog -->
+        <!-- /.modal -->
     </div>
-    <!-- /.modal -->
-</div>
 
-<!-- Modal Box -->
-<?= form_open_multipart('transaksi/cetakStruk'); ?>
-<div class="modal fade" id="modal-default">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Pembayaran</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <input type="text" name="invoice_item" value="<?= $invoice_item; ?>" hidden>
-                <input type="text" name="nama_kasir" value="<?= $user['username']; ?>" hidden>
-                <!-- 
+    <!-- Modal Box -->
+    <?= form_open_multipart('transaksi/cetakStruk'); ?>
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Pembayaran</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" name="invoice_item" value="<?= $invoice_item; ?>" hidden>
+                    <input type="text" name="nama_kasir" value="<?= $user['username']; ?>" hidden>
+                    <!-- 
                     <div class="form-group">
                         <label for="total_diskon">Total Diskon</label>
                         <div class="input-group input-group-sm">
@@ -345,42 +338,42 @@
                         </div>
                     </div> -->
 
-                <div class="form-group">
-                    <label for="total">Total</label>
-                    <div class="input-group input-group-sm">
-                        <input type="number" class="form-control form-control-sm form-control-user" id="total" name="total" placeholder="Total" readonly>
+                    <div class="form-group">
+                        <label for="total">Total</label>
+                        <div class="input-group input-group-sm">
+                            <input type="number" class="form-control form-control-sm form-control-user" id="total" name="total" placeholder="Total" readonly>
+                        </div>
                     </div>
+
+                    <div class="form-group">
+                        <label for="cash">Cash</label>
+                        <div class="input-group input-group-sm">
+                            <input type="number" class="form-control form-control-sm form-control-user" id="cash" name="cash" placeholder="Cash">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="kembali">Kembali</label>
+                        <div class="input-group input-group-sm">
+                            <input type="number" class="form-control form-control-sm form-control-user" id="kembali" name="kembali" placeholder="Kembali" readonly>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="form-group">
-                    <label for="cash">Cash</label>
-                    <div class="input-group input-group-sm">
-                        <input type="number" class="form-control form-control-sm form-control-user" id="cash" name="cash" placeholder="Cash">
-                    </div>
+                <div class="modal-footer justify-content-between">
+                    <input type="hidden" name="delete_id" required>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">
+                        Print Sturk
+                    </button>
                 </div>
-
-                <div class="form-group">
-                    <label for="kembali">Kembali</label>
-                    <div class="input-group input-group-sm">
-                        <input type="number" class="form-control form-control-sm form-control-user" id="kembali" name="kembali" placeholder="Kembali" readonly>
-                    </div>
-                </div>
-
             </div>
-
-            <div class="modal-footer justify-content-between">
-                <input type="hidden" name="delete_id" required>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">
-                    Print Sturk
-                </button>
-            </div>
+            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-content -->
+        <!-- /.modal-dialog -->
     </div>
-    <!-- /.modal-dialog -->
-</div>
-</form>
-<!-- /.modal -->
+    </form>
+    <!-- /.modal -->
 
 </div>

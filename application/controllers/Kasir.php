@@ -111,6 +111,12 @@ class Kasir extends CI_Controller
         }
     }
 
+    public function getBrg($keyword)
+    {
+        // $items = $this->Mod_kasir->getAllBrg($keyword);
+        echo json_encode($keyword);
+    }
+
     public function getItem($invoice)
     {
         $item = $this->Mod_kasir->getTransItem($invoice)->result();
